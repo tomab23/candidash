@@ -1,10 +1,9 @@
-import { ThemeProvider } from "./components/theme-provider"
 import RouterApp from "./routes/RouterApp"
 
 function App() {
 
     return (
-     <div className="bg-background">
+     <div className="bg-background xl:px-80 px-40">
       <RouterApp />
       </div>
   )

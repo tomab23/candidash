@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+html.dark,
+html.light {
+  transition: none;
+}
+
 :root {
   --background: oklch(0.9529 0.0146 102.4597);
   --foreground: oklch(0.4063 0.0255 40.3627);
@@ -63,7 +68,8 @@
   --secondary-foreground: oklch(0.9529 0.0146 102.4597);
   --muted: oklch(0.4063 0.0255 40.3627);
   --muted-foreground: oklch(0.7575 0.0380 50.8610);
-  --accent: oklch(0.7473 0.0387 80.5476);
+  /* --accent: oklch(0.7473 0.0387 80.5476); */
+    --accent: oklch(0.8502 0.0389 49.0874);
   --accent-foreground: oklch(0.2721 0.0141 48.1783);
   --destructive: oklch(0.6875 0.1420 21.4566);
   --destructive-foreground: oklch(0.2721 0.0141 48.1783);
