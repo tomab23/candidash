@@ -4,6 +4,17 @@ import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
+    // const [error, setError] = useState<string | null>(null)
+
+  // const handleRegister = async () => {
+  //   setError(null)
+  //   const { error } = await supabase.auth.signUp({
+  //     email,
+  //     password,
+  //   })
+  //   if (error) setError(error.message)
+  //   else alert("Vérifie ton email pour confirmer ton compte.")
+  // }
 
   return (
     <div className="min-h-screen flex items-center justify-center">
