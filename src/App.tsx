@@ -3,12 +3,12 @@ import RouterApp from "./routes/RouterApp"
 
 function App() {
 
-    return (
-      <ThemeProvider defaultTheme="light" storageKey="candidash-theme">
-     <div className="bg-background">
+  return (
+    <>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <RouterApp />
-      </div>
     </ThemeProvider>
+    </>
   )
 }
 

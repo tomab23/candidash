@@ -1,25 +1,32 @@
-import { UserRound } from "lucide-react"
-import { ModeToggle } from "../mode-toggle"
-import { Button } from "../ui/button"
-import { useNavigate } from "react-router-dom"
+import { ModeToggle } from "../mode-toggle";
+import AvatarDropdown from "../AvatarDropdown";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate()
+
   return (
-    <div className="flex justify-between px-2 h-16 bg-background">
-        <div className="flex items-center">
-            <img src="/logo2.svg" alt="" className="w-11 h-11" />
-            <h1 className="text-primary text-xl font-semibold">Candidash</h1>
-        </div>
-
-        <div className="flex justify-center items-center gap-3">
+    <div className="bg-muted">
+      <nav className="h-16 bg-background border-b">
+        <div className="h-full flex items-center justify-between max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-8">
+            <div className="flex items-center">
+              <img src="/logo2.svg" alt="" className="w-11 h-11" />
+              <h1 className="text-primary text-xl font-semibold hover:cursor-pointer" onClick={() => navigate("/home")}>Candidash</h1>
+            </div>
+            {/* Desktop Menu */}
+            {/* <NavMenu className="hidden md:block" /> */}
+          </div>
+          <div className="flex items-center gap-3">
             <ModeToggle />
-                    <Button variant="outline" size="icon" onClick={() => navigate("/profile")}>
-            <UserRound className="stroke-primary" />
-        </Button>
+            <AvatarDropdown />
+            {/* Mobile Menu */}
+            {/* <div className="md:hidden"><NavigationSheet /></div> */}
+          </div>
         </div>
+      </nav>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

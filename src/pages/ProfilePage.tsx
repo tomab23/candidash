@@ -1,7 +1,15 @@
+import Navbar from "@/components/layout/Navbar"
+
 
 const ProfilePage = () => {
+  // const { user } = useAuth()
+  // if (!user) return <Navigate to="/login" replace />
+
   return (
-    <div className="min-h-screen text-primary">ProfilePage</div>
+    <div>
+      <Navbar />
+      ProfilePage
+    </div>
   )
 }
 
