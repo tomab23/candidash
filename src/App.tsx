@@ -1,11 +1,14 @@
+import { ThemeProvider } from "./components/theme-provider"
 import RouterApp from "./routes/RouterApp"
 
 function App() {
 
-    return (
-     <div className="bg-background xl:px-80 px-40">
+  return (
+    <>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <RouterApp />
-      </div>
+    </ThemeProvider>
+    </>
   )
 }
 

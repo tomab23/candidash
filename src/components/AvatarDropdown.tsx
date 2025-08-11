@@ -1,4 +1,3 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,35 +6,42 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogOut, Settings, User } from "lucide-react";
+import { Home, LogOut, Settings, User, UserRound } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 
 const AvatarDropdown = () => {
-    const navigate = useNavigate();
-
+  const navigate = useNavigate();
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="focus:outline-none outline-1 outline-secondary focus:outline-1 focus:outline-secondary rounded-full hover:cursor-pointer">
-        <Avatar>
-          <AvatarFallback>
-            <img
-              src="https://api.dicebear.com/9.x/shapes/svg?seed=Toma"
-              alt="avatar"
-            />
-          </AvatarFallback>
-        </Avatar>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => navigate("/profile")}
+        >
+          <UserRound className="stroke-primary" />
+        </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-background">
+      <DropdownMenuContent className="bg-background" align="end">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => navigate('/profile')}>
+        <DropdownMenuItem onClick={() => navigate("/home")}>
+          <Home className="h-4 w-4" /> Home
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate("/profile")}>
           <User className="h-4 w-4" /> Profile
         </DropdownMenuItem>
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate("/settings")}>
           <Settings className="h-4 w-4" /> Settings
         </DropdownMenuItem>
-        <DropdownMenuItem className="text-destructive" onClick={() => navigate('/')}>
-          <LogOut className="h-4 w-4 stroke-destructive"/> Logout
+        <Separator />
+        <DropdownMenuItem
+          className="text-destructive"
+          onClick={() => navigate("/")}
+        >
+          <LogOut className="h-4 w-4 stroke-destructive" /> Logout
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
