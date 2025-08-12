@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-// import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-// import { supabase } from "@/lib/supabaseClient";
 import { useAuth } from "@/context/AuthContext";
 
 const LoginPage = () => {

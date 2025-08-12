@@ -5,6 +5,7 @@ import RegisterPage from "@/pages/auth/RegisterPage";
 import { Route, Routes } from "react-router-dom";
 import SettingsPage from "@/pages/SettingsPage";
 import PrivateRoute from "./PrivatesRoute";
+import TestPage from "@/pages/TestPage";
 
 const RouterApp = () => {
   return (
@@ -16,6 +17,8 @@ const RouterApp = () => {
       <Route path="/home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
       <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
       <Route path="/settings" element={<SettingsPage />} />
+      {/* TEST */}
+      <Route path="/test/:id" element={<PrivateRoute><TestPage /></PrivateRoute>} />
     </Routes>
   );
 };
