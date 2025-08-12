@@ -9,7 +9,7 @@ type AuthContextType = {
   login: (email: string, password: string) => Promise<{ error: string | null }>
   register: (email: string, password: string) => Promise<{ error: string | null }>
   logout: () => Promise<void>
-  loginWithProvider: (provider: "google" | "github") => Promise<void>
+  // loginWithProvider: (provider: "google" | "github") => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -49,14 +49,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await supabase.auth.signOut()
   }
 
-  const loginWithProvider = async (provider: "google" | "github") => {
-    await supabase.auth.signInWithOAuth({
-      provider,
-      options: {
-        redirectTo: `${window.location.origin}/home`,
-      },
-    })
-  }
+  // const loginWithProvider = async (provider: "google" | "github") => {
+  //   await supabase.auth.signInWithOAuth({
+  //     provider,
+  //     options: {
+  //       redirectTo: `${window.location.origin}/home`,
+  //     },
+  //   })
+  // }
 
   return (
     <AuthContext.Provider
@@ -66,7 +66,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         login,
         register,
         logout,
-        loginWithProvider,
+        // loginWithProvider,
       }}
     >
       {children}
