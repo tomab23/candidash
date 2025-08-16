@@ -13,7 +13,7 @@ import { Separator } from "./ui/separator";
 import { useAuth } from "@/context/AuthContext";
 
 const AvatarDropdown = () => {
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
   const navigate = useNavigate();
   return (
     <DropdownMenu>
@@ -42,7 +42,7 @@ const AvatarDropdown = () => {
         <Separator />
         <DropdownMenuItem
           className="text-destructive"
-          onClick={() => navigate("/")}
+          onClick={logout}
         >
           <LogOut className="h-4 w-4 stroke-destructive" /> Logout
         </DropdownMenuItem>

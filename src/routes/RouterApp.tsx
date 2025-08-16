@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import SettingsPage from "@/pages/SettingsPage";
 import PrivateRoute from "./PrivatesRoute";
 import TestPage from "@/pages/TestPage";
+import ForgotPasswordPage from "@/pages/auth/ForgotPasswordPage";
 
 const RouterApp = () => {
   return (
@@ -13,6 +14,7 @@ const RouterApp = () => {
       {/* PUBLIC */}
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       {/* PRIVATE */}
       <Route path="/home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
       <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />

@@ -3,12 +3,13 @@ import { useAuth } from "@/context/AuthContext";
 import type Test from "@/models/Test";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const TestPage = () => {
   const { getTestById, updateTestData } = useAuth();
   const params = useParams();
   const testId = params.id;
+  const navigate = useNavigate();
 
   const [test, setTest] = useState<Test | null>(null);
   const [message, setMessage] = useState("message a venir");
@@ -21,30 +22,30 @@ const TestPage = () => {
     fetch();
   }, [getTestById, testId]);
 
-  //   const handleUpdate = async () => {
-  //     const { error } = await updateTestData(id, name, age, place)
-  //     if (error) {
-  //       setMessage("Erreur : " + error)
-  //     } else {
-  //       setMessage("Mise à jour réussie ✅")
-  //     }
-  //   }
+    const handleUpdate = async (id: number, name: string, age: number, place: string) => {
+      const { error } = await updateTestData(id, name, age, place)
+      if (error) {
+        setMessage("Erreur : " + error)
+      } else {
+        setMessage("Mise à jour réussie ✅")
+        setTimeout(() => {
+          navigate('/home')
+        }, 1000);
+      }
+    }
 
   const formik = useFormik({
     initialValues: {
-    //   id: test?.id,
-    //   created: test?.created_at,
+      id: test ? test.id : 0,
       name:test ? test.name : "",
       age:test ? test?.age : 0,
       place: test ? test?.place : "",
-    //   user: test?.id_user,
     },
     enableReinitialize: true,
     // validationSchema: ValidSchema,
     onSubmit: (values) => {
-      // signInUser(values.email, values.password);
       alert(JSON.stringify(values));
-      //   handleSubmit(values.name, values.age, values.place);
+      handleUpdate(values.id, values.name, values.age, values.place)
     },
   });
 
@@ -94,7 +95,7 @@ const TestPage = () => {
             className="border-1 border-red-600 px-2 cursor-pointer"
             type="submit"
           >
-            Ajouter
+            Modifier
           </button>
         </form>
         <p className="text-center mt-10">{message}</p>
