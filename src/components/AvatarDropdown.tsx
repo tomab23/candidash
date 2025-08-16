@@ -15,6 +15,11 @@ import { useAuth } from "@/context/AuthContext";
 const AvatarDropdown = () => {
   const { user, logout } = useAuth()
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout()
+    navigate("/")
+  }
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -42,7 +47,7 @@ const AvatarDropdown = () => {
         <Separator />
         <DropdownMenuItem
           className="text-destructive"
-          onClick={logout}
+          onClick={handleLogout}
         >
           <LogOut className="h-4 w-4 stroke-destructive" /> Logout
         </DropdownMenuItem>
