@@ -10,9 +10,16 @@ import { Home, LogOut, Settings, User, UserRound } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
+import { useAuth } from "@/context/AuthContext";
 
 const AvatarDropdown = () => {
+  const { user, logout } = useAuth()
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout()
+    navigate("/")
+  }
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -25,7 +32,8 @@ const AvatarDropdown = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-background" align="end">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        {/* My Account */}
+        <DropdownMenuLabel>{user?.email}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => navigate("/home")}>
           <Home className="h-4 w-4" /> Home
@@ -39,7 +47,7 @@ const AvatarDropdown = () => {
         <Separator />
         <DropdownMenuItem
           className="text-destructive"
-          onClick={() => navigate("/")}
+          onClick={handleLogout}
         >
           <LogOut className="h-4 w-4 stroke-destructive" /> Logout
         </DropdownMenuItem>
