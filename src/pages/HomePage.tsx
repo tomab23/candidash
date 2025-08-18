@@ -8,10 +8,12 @@ import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { Pen, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const HomePage = () => {
   const { getTestData, insertTestData, deleteTestData } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [test, setTest] = useState<Test[]>([]);
    const [message, setMessage] = useState("message a venir");
@@ -121,6 +123,12 @@ const HomePage = () => {
         </button>
       </form>
       <p className="text-center mt-10">{message}</p>
+      <br /><br /><br />
+      
+      <p className="text-center">{t('HELLO')}</p>
+      
+ 
+      
     </div>
   );
 };
