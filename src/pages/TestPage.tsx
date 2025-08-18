@@ -1,61 +1,48 @@
 import Navbar from "@/components/layout/Navbar";
-import { useAuth } from "@/context/AuthContext";
+import { useTest } from "@/hooks/useTest";
 import type Test from "@/models/Test";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const TestPage = () => {
-  const { getTestById, updateTestData } = useAuth();
-  const params = useParams();
-  const testId = params.id;
+  const { fetchTestById, editTest } = useTest();
+  const { id } = useParams();
   const navigate = useNavigate();
-
   const [test, setTest] = useState<Test | null>(null);
-  const [message, setMessage] = useState("message a venir");
 
   useEffect(() => {
-    const fetch = async () => {
-      const data = await getTestById(Number(testId));
-      setTest(data);
-    };
-    fetch();
-  }, [getTestById, testId]);
-
-    const handleUpdate = async (id: number, name: string, age: number, place: string) => {
-      const { error } = await updateTestData(id, name, age, place)
-      if (error) {
-        setMessage("Erreur : " + error)
-      } else {
-        setMessage("Mise à jour réussie ✅")
-        setTimeout(() => {
-          navigate('/home')
-        }, 1000);
+    const loadTest = async () => {
+      if (id) {
+        const testData = await fetchTestById(parseInt(id));
+        setTest(testData);
       }
-    }
+    };
+    loadTest();
+  }, [id, fetchTestById]);
 
   const formik = useFormik({
     initialValues: {
       id: test ? test.id : 0,
-      name:test ? test.name : "",
-      age:test ? test?.age : 0,
+      name: test ? test.name : "",
+      age: test ? test?.age : 0,
       place: test ? test?.place : "",
     },
     enableReinitialize: true,
     // validationSchema: ValidSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values));
-      handleUpdate(values.id, values.name, values.age, values.place)
+      editTest(values.id, values.name, values.age, values.place);
+      navigate("/home");
     },
   });
 
-    if (!test) return <p>Chargement...</p>;
+  // if (!test) return <p>Chargement...</p>;
 
   return (
     <div>
       <Navbar />
       <br />
-      <p className="text-center">ID : {testId}</p>
+      <p className="text-center">ID : {id}</p>
       <br />
       <br />
       <br />
@@ -98,7 +85,6 @@ const TestPage = () => {
             Modifier
           </button>
         </form>
-        <p className="text-center mt-10">{message}</p>
       </div>
     </div>
   );

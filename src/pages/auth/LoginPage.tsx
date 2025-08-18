@@ -7,6 +7,8 @@ import { ModeToggle } from "@/components/mode-toggle";
 import LanguageDropdown from "@/components/LanguageDropdown";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { PasswordInput } from "@/components/ui/password-input";
+import { Loader2Icon } from "lucide-react";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -21,19 +23,20 @@ const LoginPage = () => {
       .required("Le message est obligatoire"),
   });
 
-   const [error, setError] = useState<string | null>(null)
-   const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleLogin = async (email: string, password: string) => {
-    setError(null)
-    setLoading(true)
+    setError(null);
+    setLoading(true);
     const { error } = await login(email, password);
-    if (error) setError(error) 
+    if (error) setError(error);
     if (error) console.log(error);
-    if (error) setLoading(false)
-    else setTimeout(() => {
-      window.location.href = "/home"
-    }, 1000);;
+    if (error) setLoading(false);
+    else
+      setTimeout(() => {
+        window.location.href = "/home";
+      }, 1000);
   };
 
   const formik = useFormik({
@@ -80,8 +83,7 @@ const LoginPage = () => {
           </div>
           <div>
             <p className="font-bold mb-1">Password</p>
-            <Input
-              type="password"
+            <PasswordInput
               id="password"
               name="password"
               onChange={formik.handleChange}
@@ -89,10 +91,9 @@ const LoginPage = () => {
               required
               placeholder="Password"
               className="w-full"
-              // min="8"
+              min="8"
               // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
-
             <p
               onClick={() => navigate("forgot-password")}
               className="mt-2 text-right text-sm block underline text-muted-foreground hover:cursor-pointer"
@@ -103,12 +104,14 @@ const LoginPage = () => {
           <Button
             type="submit"
             className="mt-4 w-full"
-            // onClick={() => navigate("/home")}
+            disabled={loading}
           >
-            {loading ? "Login..." : "Login"}
+            {loading ? <Loader2Icon className="animate-spin" /> : "Login"}
           </Button>
         </div>
-        {error != null && <p className="text-xs my-5 text-destructive text-center">{error}</p>}
+        {error != null && (
+          <p className="text-xs my-5 text-destructive text-center">{error}</p>
+        )}
         <div className="mt-5 space-y-5">
           <p className="text-sm text-center">
             Don&apos;t have an account?
