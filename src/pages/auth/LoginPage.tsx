@@ -8,6 +8,7 @@ import LanguageDropdown from "@/components/LanguageDropdown";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { PasswordInput } from "@/components/ui/password-input";
+import { Loader2Icon } from "lucide-react";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -103,9 +104,9 @@ const LoginPage = () => {
           <Button
             type="submit"
             className="mt-4 w-full"
-            // onClick={() => navigate("/home")}
+            disabled={loading}
           >
-            {loading ? "Login..." : "Login"}
+            {loading ? <Loader2Icon className="animate-spin" /> : "Login"}
           </Button>
         </div>
         {error != null && (

@@ -2,8 +2,6 @@ import LanguageDropdown from '@/components/LanguageDropdown'
 import Navbar from '@/components/layout/Navbar'
 
 const SettingsPage = () => {
-  // const { user } = useAuth()
-  // if (!user) return <Navigate to="/login" replace />
 
   return (
     <div>
