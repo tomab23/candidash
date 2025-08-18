@@ -28,7 +28,7 @@ const LanguageDropdown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline"><Globe />{i18n.language == 'fr' ? "Français" : "English"}</Button>
+        <Button variant="outline" className="blur-none"><Globe />{i18n.language == 'fr' ? "Français" : "English"}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40" align="start">
         <DropdownMenuRadioGroup value={position} onValueChange={setPosition} className="hover:cursor-pointer">
