@@ -7,6 +7,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import LanguageDropdown from "@/components/LanguageDropdown";
 import { Info } from "lucide-react";
 import { useState } from "react";
+import { PasswordInput } from "@/components/ui/password-input";
 
 const RegisterPage = () => {
   // const navigate = useNavigate();
@@ -81,8 +82,7 @@ const RegisterPage = () => {
           </div>
           <div>
             <p className="font-bold mb-1">Password</p>
-            <Input
-              type="password"
+            <PasswordInput
               id="password"
               name="password"
               onChange={formik.handleChange}
