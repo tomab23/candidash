@@ -19,7 +19,8 @@ const RouterApp = () => {
       <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
       <Route path="/settings" element={<PrivateRoute><SettingsPage /></PrivateRoute>} />
       {/* TEST */}
-      <Route path="/test/:id" element={<PrivateRoute><TestPage /></PrivateRoute>} />
+      <Route path="/test/:id" element={<PrivateRoute><TestPage edit /></PrivateRoute>} />
+      <Route path="/test" element={<PrivateRoute><TestPage edit={false} /></PrivateRoute>} />
     </Routes>
   );
 };
