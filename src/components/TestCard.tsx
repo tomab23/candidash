@@ -11,10 +11,11 @@ const TestCard = (props: CardProps) => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-60 max-sm:w-40 p-2 border-1 border-red-700 rounded-lg  flex flex-col max-sm:text-xs">
+    <div className="w-60 max-sm:w-40 p-2 border-1 border-secondary-foreground rounded-lg  flex flex-col max-sm:text-xs">
         <p className="font-bold">{props.test.name}</p>
       <div className="flex gap-2">
         <p>{props.test.age} ans</p>
+        <p>{props.test.gender}</p>
               <p>{props.test.place}</p>
       </div>
         <p className="text-sm max-sm:text-xs"> Ajouté le {DateFormat(props.test.created_at)}</p>

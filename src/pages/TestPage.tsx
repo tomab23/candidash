@@ -1,9 +1,11 @@
+import DeleteTestDIalog from "@/components/custom/DeleteTestDialog";
+import { StatusTestBox } from "@/components/custom/StatusTestBox";
 import Navbar from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
 import { useTest } from "@/hooks/useTest";
 import type Test from "@/models/Test";
 import { useFormik } from "formik";
-import { Archive, Trash2 } from "lucide-react";
+import { Archive } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -12,7 +14,7 @@ type Props = {
 };
 
 const TestPage = (props: Props) => {
-  const { fetchTestById, editTest, removeTest, addTest } = useTest();
+  const { fetchTestById, editTest, addTest } = useTest();
   const { id } = useParams();
   const navigate = useNavigate();
   const [test, setTest] = useState<Test | null>(null);
@@ -27,31 +29,28 @@ const TestPage = (props: Props) => {
     loadTest();
   }, [id, fetchTestById]);
 
-  const HandleDelete = () => {
-    removeTest(Number(id));
-    navigate("/home");
-  };
-
   const formik = useFormik({
     initialValues: {
       id: test ? test.id : 0,
       name: test ? test.name : "",
       age: test ? test?.age : 0,
       place: test ? test?.place : "",
+      gender: test ? test?.gender : "Select genre",
     },
     enableReinitialize: true,
     // validationSchema: ValidSchema,
     onSubmit: (values) => {
       if(props.edit) {
-        editTest(values.id, values.name, values.age, values.place);
+        editTest(values.id, values.name, values.age, values.place, values.gender);
       } else {
-        addTest(values.name, values.age, values.place)
+        addTest(values.name, values.age, values.place, values.gender)
       }
       navigate("/home");
     },
   });
 
   // if (!test) return <p>Chargement...</p>;
+  
 
   return (
     <div>
@@ -94,6 +93,14 @@ const TestPage = (props: Props) => {
               value={formik.values.place}
               placeholder="place"
             />
+            {/* STATUS */}
+            <StatusTestBox
+              name="gender"
+              value={formik.values.gender}
+              onChange={
+                (val) => formik.setFieldValue("gender", val)
+              }
+            />
             <button
               className="border-1 border-red-600 px-2 cursor-pointer"
               type="submit"
@@ -107,13 +114,7 @@ const TestPage = (props: Props) => {
                 <Archive /> Archiver
               </Button>
 
-              <Button
-                className=""
-                onClick={HandleDelete}
-                variant={"destructive"}
-              >
-                <Trash2 /> Supprimer
-              </Button>
+              <DeleteTestDIalog id={Number(id)} />
             </div>
           )}
         </div>

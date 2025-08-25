@@ -24,9 +24,9 @@ const fetchTests = useCallback(async () => {
 }, [user])
 
 // ajouter un test
-  const addTest = async (name: string, age: number, place: string) => {
+  const addTest = async (name: string, age: number, place: string, gender: string) => {
     if (!user) return
-    await insertTestData(user.id, name, age, place)
+    await insertTestData(user.id, name, age, place, gender)
     await fetchTests()
   }
 
@@ -37,9 +37,9 @@ const fetchTests = useCallback(async () => {
   //   await fetchTests()
   // }
   const editTest = useCallback(
-    async (id: number, name: string, age: number, place: string) => {
+    async (id: number, name: string, age: number, place: string, gender: string) => {
       if (!user) return
-      await updateTestData(id, user.id, name, age, place)
+      await updateTestData(id, user.id, name, age, place, gender)
       await fetchTests()
     },
     [user, fetchTests]
