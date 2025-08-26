@@ -1,0 +1,36 @@
+export default class Candidature{
+    id: number;
+    created_at: string;
+    company: string;
+    job: number;
+    date: Date;
+    status: string;
+    link?: string;
+    note?: string;
+    id_user: string;
+
+    constructor(
+        id: number,
+        created_at: string,
+        company: string,
+        job: number,
+        date: Date,
+        status: string,
+        link: string,
+        note: string,
+        id_user: string,
+    ){
+        this.id = id;
+        this.created_at = created_at
+        this.job = job;
+        this.company = company;
+        this.date = date;
+        this.status = status;
+        this.link = link;
+        this.note = note;
+        this.id_user = id_user;
+
+    }
+
+
+}

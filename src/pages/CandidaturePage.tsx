@@ -1,7 +1,9 @@
 import DeleteTestDIalog from "@/components/custom/DeleteTestDialog";
+import { StatusBox } from "@/components/custom/StatusBox";
 import { StatusTestBox } from "@/components/custom/StatusTestBox";
 import Navbar from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { useTest } from "@/hooks/useTest";
 import type Test from "@/models/Test";
 import { useFormik } from "formik";
@@ -13,7 +15,7 @@ type Props = {
   edit: boolean;
 };
 
-const TestPage = (props: Props) => {
+const CandidaturePage = (props: Props) => {
   const { fetchTestById, editTest, addTest } = useTest();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -31,26 +33,28 @@ const TestPage = (props: Props) => {
 
   const formik = useFormik({
     initialValues: {
-      id: test ? test.id : 0,
-      name: test ? test.name : "",
-      age: test ? test?.age : 0,
-      place: test ? test?.place : "",
-      gender: test ? test?.gender : "Select genre",
+      id: "",
+      company: "",
+      job: "",
+      date: "",
+      status: "Select status...",
+      link: "",
+      note: "",
     },
     enableReinitialize: true,
     // validationSchema: ValidSchema,
     onSubmit: (values) => {
-      if(props.edit) {
-        editTest(values.id, values.name, values.age, values.place, values.gender);
-      } else {
-        addTest(values.name, values.age, values.place, values.gender)
-      }
-      navigate("/home");
+      alert(JSON.stringify(values));
+      // if(props.edit) {
+      //   editTest(values.id, values.name, values.age, values.place, values.status);
+      // } else {
+      //   addTest(values.name, values.age, values.place, values.status)
+      // }
+      // navigate("/home");
     },
   });
 
   // if (!test) return <p>Chargement...</p>;
-  
 
   return (
     <div>
@@ -60,7 +64,9 @@ const TestPage = (props: Props) => {
           <Button onClick={() => navigate(-1)} className="">
             Retour
           </Button>
-          <h1 className="font-bold">{props.edit ? "Edit" : "New test"}</h1>
+          <h1 className="font-bold">
+            {props.edit ? "Modification" : "Nouvelle candidature"}
+          </h1>
           <p className="text-center">ID : {props.edit ? id : "new"}</p>
         </div>
         <div>
@@ -70,36 +76,52 @@ const TestPage = (props: Props) => {
           >
             <input
               className="outline p-1"
-              id="name"
-              name="name"
+              id="company"
+              name="company"
               onChange={formik.handleChange}
-              value={formik.values.name}
-              placeholder="name"
+              value={formik.values.company}
+              placeholder="company"
             />
             <input
               className="outline p-1"
-              id="age"
-              name="age"
+              id="job"
+              name="job"
               onChange={formik.handleChange}
-              value={formik.values.age}
-              type="number"
-              placeholder="age"
+              value={formik.values.job}
+              placeholder="job"
             />
             <input
+              type="date"
               className="outline p-1"
-              id="place"
-              name="place"
+              id="date"
+              name="date"
               onChange={formik.handleChange}
-              value={formik.values.place}
-              placeholder="place"
+              value={formik.values.date}
+              placeholder="date"
             />
             {/* STATUS */}
-            <StatusTestBox
-              name="gender"
-              value={formik.values.gender}
-              onChange={
-                (val) => formik.setFieldValue("gender", val)
-              }
+            <StatusBox
+              edit={props.edit}
+              name="status"
+              value={formik.values.status}
+              onChange={(val) => formik.setFieldValue("status", val)}
+            />
+            <input
+              className="outline p-1"
+              id="link"
+              name="link"
+              onChange={formik.handleChange}
+              value={formik.values.link}
+              placeholder="link*"
+            />
+
+            <Textarea
+              className="outline p-1"
+              id="note"
+              name="note"
+              onChange={formik.handleChange}
+              value={formik.values.note}
+              placeholder="Type your note here.*"
             />
             <button
               className="border-1 border-red-600 px-2 cursor-pointer"
@@ -123,4 +145,4 @@ const TestPage = (props: Props) => {
   );
 };
 
-export default TestPage;
+export default CandidaturePage;

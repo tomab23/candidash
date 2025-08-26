@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, List, } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -18,26 +18,19 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ItemStatusList } from "@/models/ItemStatusList";
 
-const frameworks = [
-  {
-    value: "male",
-    label: "male",
-  },
-  {
-    value: "female",
-    label: "female",
-  },
-];
 
 type Props = {
   name: string;
   value: string;
   onChange: (value: string) => void;
+  edit: boolean
 };
 
-export function StatusTestBox({ name, value, onChange }: Props) {
+export function StatusBox({ name, value, onChange, edit}: Props) {
   const [open, setOpen] = React.useState(false);
+  const [status, setStatus] = React.useState("Select status...")
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -48,36 +41,38 @@ export function StatusTestBox({ name, value, onChange }: Props) {
           aria-expanded={open}
           className="w-48 justify-between rounded-none"
         >
-          {value}
+          {edit ? value : status}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search status..." className="h-9" />
+          {/* <CommandInput placeholder="Search status..." className="h-9" /> */}
           <CommandList>
             <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup>
-              {frameworks.map((framework) => (
+              {ItemStatusList.map((item) => (
                 <CommandItem
                   className="hover:cursor-pointer"
-                  key={framework.value}
-                  value={framework.value}
+                  key={item.value}
+                  value={item.value}
                   onSelect={(currentValue) => {
                     onChange(currentValue);
                     setOpen(false);
+                    setStatus(item.label)
                   }}
                   id={name}
                 >
-                  {framework.label}
+                    <List className={item.classname}/>
+                  {item.label}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === framework.value ? "opacity-100" : "opacity-0"
+                      value === item.value ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem>
-              ))}
+              )).slice(1)}
             </CommandGroup>
           </CommandList>
         </Command>

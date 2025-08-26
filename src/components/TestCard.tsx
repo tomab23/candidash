@@ -21,14 +21,14 @@ const TestCard = (props: CardProps) => {
         <p className="text-sm max-sm:text-xs"> Ajouté le {DateFormat(props.test.created_at)}</p>
 
         <div className="flex justify-between items-center mt-2">
-        <Button variant={"ghost"} title="Archive">
+        <Button variant={"ghost"} title="Archive" disabled>
             <Archive className="" />
             </Button>      
       <Button
         onClick={() => navigate(`/test/${props.test.id}`)} variant={"default"}
       >
         <Pen className="h-4 w-4 hover:cursor-pointer hover:scale-110 stroke-1 " />{" "}
-        Edit
+        Edit test
       </Button>
         </div>
     </div>
