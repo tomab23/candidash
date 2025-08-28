@@ -1,13 +1,9 @@
 import DeleteTestDIalog from "@/components/custom/DeleteTestDialog";
+import InputDateCalendar from "@/components/custom/InputDateCalendar";
 import { StatusBox } from "@/components/custom/StatusBox";
 import Navbar from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Contenu from "@/helpers/Contenu";
@@ -17,6 +13,7 @@ import { useFormik } from "formik";
 import { Archive } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import * as Yup from "yup";
 
 type Props = {
   edit: boolean;
@@ -39,18 +36,25 @@ const CandidaturePage = (props: Props) => {
   //   loadTest();
   // }, [id, fetchTestById]);
 
+  const ValidSchema = Yup.object().shape({
+    date: Yup.date().required("La date est obligatoire"),
+  });
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
   const formik = useFormik({
     initialValues: {
       id: "",
       company: "",
       job: "",
-      date: "",
-      status: "Select status...",
+      date: today,
+      status: "",
       link: "",
       note: "",
     },
     enableReinitialize: true,
-    // validationSchema: ValidSchema,
+    validationSchema: ValidSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values));
       // if(props.edit) {
@@ -83,7 +87,9 @@ const CandidaturePage = (props: Props) => {
         {/* FORM */}
         <Card className="w-full max-w-sm justify-self-center mt-5">
           <CardHeader>
-            <CardTitle className="text-center text-xl">Ajouter une candidature</CardTitle>
+            <CardTitle className="text-center text-xl">
+              Ajouter une candidature
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <form
@@ -106,14 +112,13 @@ const CandidaturePage = (props: Props) => {
                 value={formik.values.job}
                 placeholder="job"
               />
-              <Input
-                type="date"
-                className=""
-                id="date"
+              <InputDateCalendar
+                // edit={props.edit}
                 name="date"
-                onChange={formik.handleChange}
                 value={formik.values.date}
-                placeholder="date"
+                onChange={(val) => formik.setFieldValue("date", val)}
+                placeholder={"Select date"} 
+                // error={formik.touched.date && formik.errors.date}
               />
               {/* STATUS */}
               <StatusBox
@@ -139,11 +144,10 @@ const CandidaturePage = (props: Props) => {
                 value={formik.values.note}
                 placeholder="Type your note here.*"
               />
-              <Button
-                className="mt-5"
-                type="submit"
-              >
-                {props.edit ? "Modifier la candidature" : "Valider la candidature"}
+              <Button className="mt-5" type="submit">
+                {props.edit
+                  ? "Modifier la candidature"
+                  : "Valider la candidature"}
               </Button>
             </form>
           </CardContent>

@@ -29,7 +29,7 @@ type Props = {
 
 export function StatusBox({ name, value, onChange, edit}: Props) {
   const [open, setOpen] = React.useState(false);
-  const [status, setStatus] = React.useState("Select status...")
+  const [status, setStatus] = React.useState("Select status")
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -38,7 +38,7 @@ export function StatusBox({ name, value, onChange, edit}: Props) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="justify-between w-full"
+          className="justify-between w-full font-normal"
           // w-48
         >
           {edit ? value : status}
