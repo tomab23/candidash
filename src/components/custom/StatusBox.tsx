@@ -9,7 +9,6 @@ import {
   Command,
   CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
@@ -39,13 +38,14 @@ export function StatusBox({ name, value, onChange, edit}: Props) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-48 justify-between rounded-none"
+          className="justify-between w-full"
+          // w-48
         >
           {edit ? value : status}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[340px] p-0">
         <Command>
           {/* <CommandInput placeholder="Search status..." className="h-9" /> */}
           <CommandList>
