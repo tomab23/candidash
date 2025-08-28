@@ -1,8 +1,4 @@
-"use client";
-
-import * as React from "react";
 import { Check, ChevronsUpDown, List, } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,6 +14,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { ItemStatusList } from "@/models/ItemStatusList";
+import { useState } from "react";
 
 
 type Props = {
@@ -28,20 +25,21 @@ type Props = {
 };
 
 export function StatusBox({ name, value, onChange, edit}: Props) {
-  const [open, setOpen] = React.useState(false);
-  const [status, setStatus] = React.useState("Select status")
+  const [open, setOpen] = useState(false);
+  const [status, setStatus] = useState("Select status")
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
+        id={name}
           variant="outline"
           role="combobox"
           aria-expanded={open}
           className="justify-between w-full font-normal"
           // w-48
         >
-          {edit ? value : status}
+          {value}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
