@@ -1,14 +1,10 @@
 import DeleteTestDIalog from "@/components/custom/DeleteTestDialog";
+import InputCandidature from "@/components/custom/InputCandidature";
+import InputDateCalendar from "@/components/custom/InputDateCalendar";
 import { StatusBox } from "@/components/custom/StatusBox";
 import Navbar from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import Contenu from "@/helpers/Contenu";
 import { useTest } from "@/hooks/useTest";
@@ -17,6 +13,7 @@ import { useFormik } from "formik";
 import { Archive } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import * as Yup from "yup";
 
 type Props = {
   edit: boolean;
@@ -39,18 +36,26 @@ const CandidaturePage = (props: Props) => {
   //   loadTest();
   // }, [id, fetchTestById]);
 
+  const ValidSchema = Yup.object().shape({
+    date: Yup.date().required("La date est obligatoire"),
+  });
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
   const formik = useFormik({
     initialValues: {
       id: "",
       company: "",
       job: "",
-      date: "",
-      status: "Select status...",
+      date: today,
+      place: "",
+      status: "Select status",
       link: "",
       note: "",
     },
     enableReinitialize: true,
-    // validationSchema: ValidSchema,
+    validationSchema: ValidSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values));
       // if(props.edit) {
@@ -81,69 +86,84 @@ const CandidaturePage = (props: Props) => {
           <p className="text-center">ID : {props.edit ? id : "new"}</p>
         </div>
         {/* FORM */}
-        <Card className="w-full max-w-sm justify-self-center mt-5">
+        <Card className="w-full max-w-sm justify-self-center mt-2">
           <CardHeader>
-            <CardTitle className="text-center text-xl">Ajouter une candidature</CardTitle>
+            <CardTitle className="text-center text-xl">
+              Ajouter une candidature
+            </CardTitle>
+            <CardAction><Button variant={"ghost"} size={"sm"} onClick={() => formik.resetForm()}>reset</Button></CardAction>
           </CardHeader>
           <CardContent>
             <form
               onSubmit={formik.handleSubmit}
-              className="flex flex-col items-center justify-center gap-4 mt-5"
+              className="flex flex-col justify-center gap-4"
             >
-              <Input
-                className=""
-                id="company"
-                name="company"
-                onChange={formik.handleChange}
+              <InputCandidature
+                name={"company"}
                 value={formik.values.company}
-                placeholder="company"
-              />
-              <Input
-                className=""
-                id="job"
-                name="job"
                 onChange={formik.handleChange}
-                value={formik.values.job}
-                placeholder="job"
-              />
-              <Input
-                type="date"
-                className=""
-                id="date"
-                name="date"
-                onChange={formik.handleChange}
-                value={formik.values.date}
-                placeholder="date"
-              />
-              {/* STATUS */}
-              <StatusBox
-                edit={props.edit}
-                name="status"
-                value={formik.values.status}
-                onChange={(val) => formik.setFieldValue("status", val)}
-              />
-              <Input
-                className=""
-                id="link"
-                name="link"
-                onChange={formik.handleChange}
-                value={formik.values.link}
-                placeholder="link*"
+                placeholder={"test"}
+                label="Test company"
               />
 
-              <Textarea
-                className=""
-                id="note"
-                name="note"
+              <InputCandidature
+                name={"job"}
+                value={formik.values.job}
                 onChange={formik.handleChange}
-                value={formik.values.note}
-                placeholder="Type your note here.*"
+                placeholder={"job"}
+                label="Test job"
               />
-              <Button
-                className="mt-5"
-                type="submit"
-              >
-                {props.edit ? "Modifier la candidature" : "Valider la candidature"}
+              <InputCandidature name={"date"} classname={""} label="test date">
+                <InputDateCalendar
+                  // edit={props.edit}
+                  name="date"
+                  value={formik.values.date}
+                  onChange={(val) => formik.setFieldValue("date", val)}
+                  placeholder={"Select date"}
+                  // error={formik.touched.date && formik.errors.date}
+                />
+              </InputCandidature>
+              <InputCandidature
+                name={"place"}
+                value={formik.values.place}
+                onChange={formik.handleChange}
+                placeholder={"place"}
+                label="Test place"
+              />
+              {/* STATUS */}
+
+              <InputCandidature name={"status"} label={"Test status"}>
+                <StatusBox
+                  edit={props.edit}
+                  name="status"
+                  value={formik.values.status}
+                  onChange={(val) => formik.setFieldValue("status", val)}
+                />
+              </InputCandidature>
+
+              <InputCandidature
+                name={"link"}
+                value={formik.values.link}
+                onChange={formik.handleChange}
+                placeholder={"link"}
+                label="Test link"
+              />
+
+              <InputCandidature name={"note"} label={"Test note"}>
+                <Textarea
+                  className=""
+                  id="note"
+                  name="note"
+                  onChange={formik.handleChange}
+                  value={formik.values.note}
+                  placeholder="Type your note here.*"
+                />
+              </InputCandidature>
+
+              <Button className="mt-5" type="submit">
+                {props.edit
+                  ? "Modifier la candidature"
+                  : "Valider la candidature"}
               </Button>
             </form>
           </CardContent>
