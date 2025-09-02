@@ -79,15 +79,11 @@ const HomePage = () => {
         )}
         <br />
         <br />
-        {list ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <CandidatureCard n={true} />
-          <CandidatureCard n={false} />
-          <CandidatureCard n={false} />
-        </div>
-        ) : (
-          <NoList />
-        )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <CandidatureCard n={true} />
+            <CandidatureCard n={false} />
+            <CandidatureCard n={false} />
+          </div>
         <NoList />
       </Contenu>
     </div>
