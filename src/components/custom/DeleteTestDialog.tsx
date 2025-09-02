@@ -16,9 +16,10 @@ import { useNavigate } from "react-router-dom";
 
 type Props = {
   id: number;
+  name: string;
 };
 
-export default function DeleteTestDIalog({ id }: Props) {
+export default function DeleteTestDIalog({ id, name }: Props) {
   const { removeTest } = useTest();
   const navigate = useNavigate();
 
@@ -36,7 +37,7 @@ export default function DeleteTestDIalog({ id }: Props) {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            Are you absolutely sure? id : {id}
+            Are you sure you want to delete <b>{name}</b> ?
           </AlertDialogTitle>
           <AlertDialogDescription>
             This action cannot be undone. This will permanently delete your

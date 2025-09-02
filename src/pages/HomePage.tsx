@@ -11,12 +11,16 @@ import SkeletonTestCard from "@/components/skeleton/SkeletonTestCard";
 import { useState } from "react";
 import FilterCandidature from "@/components/FilterCandidature";
 import Contenu from "@/helpers/Contenu";
+import CandidatureCard from "@/components/CandidatureCard";
+import NoList from "@/components/NoList";
 
 const HomePage = () => {
   const { tests } = useTest();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [statusFilter, setStatusFilter] = useState<string>("all");
+
+  const list = true;
 
   // const testsByDate = tests.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
   // const testsById = tests.sort((a, b) => a.id - b.id);
@@ -60,6 +64,7 @@ const HomePage = () => {
             setStatus={setStatusFilter}
           />
         </div>
+        <p className="text-center">Filtre : {statusFilter}</p>
         {/* LIST */}
         {!tests && <SkeletonTestCard />}
         {tests && (
@@ -72,8 +77,19 @@ const HomePage = () => {
             </div>
           </div>
         )}
+        <br />
+        <br />
+        {list ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <CandidatureCard n={true} />
+          <CandidatureCard n={false} />
+          <CandidatureCard n={false} />
+        </div>
+        ) : (
+          <NoList />
+        )}
+        <NoList />
       </Contenu>
-      <p className="mt-10 text-center">Filtre : {statusFilter}</p>
     </div>
   );
 };

@@ -4,7 +4,13 @@ import InputDateCalendar from "@/components/custom/InputDateCalendar";
 import { StatusBox } from "@/components/custom/StatusBox";
 import Navbar from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import Contenu from "@/helpers/Contenu";
 import { useTest } from "@/hooks/useTest";
@@ -50,7 +56,7 @@ const CandidaturePage = (props: Props) => {
       job: "",
       date: today,
       place: "",
-      status: "Select status",
+      status: "",
       link: "",
       note: "",
     },
@@ -69,8 +75,11 @@ const CandidaturePage = (props: Props) => {
 
   // if (!test) return <p>Chargement...</p>;
 
+//   console.log("Largeur écran : " + screen.width + "px");
+// console.log("Hauteur écran : " + screen.height + "px");
+
   return (
-    <div>
+    <div className="pb-10">
       <Navbar />
       <Contenu>
         {/* HEADER */}
@@ -85,15 +94,24 @@ const CandidaturePage = (props: Props) => {
           </h1> */}
           <p className="text-center">ID : {props.edit ? id : "new"}</p>
         </div>
-        {/* FORM */}
+        {/* CARD */}
         <Card className="w-full max-w-sm justify-self-center mt-2">
           <CardHeader>
             <CardTitle className="text-center text-xl">
               Ajouter une candidature
             </CardTitle>
-            <CardAction><Button variant={"ghost"} size={"sm"} onClick={() => formik.resetForm()}>reset</Button></CardAction>
+            <CardAction>
+              <Button
+                variant={"ghost"}
+                size={"sm"}
+                onClick={() => formik.resetForm()}
+              >
+                reset
+              </Button>
+            </CardAction>
           </CardHeader>
           <CardContent>
+            {/* FORM */}
             <form
               onSubmit={formik.handleSubmit}
               className="flex flex-col justify-center gap-4"
@@ -103,7 +121,7 @@ const CandidaturePage = (props: Props) => {
                 value={formik.values.company}
                 onChange={formik.handleChange}
                 placeholder={"test"}
-                label="Test company"
+                label="Entreprise"
               />
 
               <InputCandidature
@@ -111,30 +129,29 @@ const CandidaturePage = (props: Props) => {
                 value={formik.values.job}
                 onChange={formik.handleChange}
                 placeholder={"job"}
-                label="Test job"
+                label="Poste"
               />
-              <InputCandidature name={"date"} classname={""} label="test date">
-                <InputDateCalendar
-                  // edit={props.edit}
-                  name="date"
-                  value={formik.values.date}
-                  onChange={(val) => formik.setFieldValue("date", val)}
-                  placeholder={"Select date"}
-                  // error={formik.touched.date && formik.errors.date}
+              <div className="flex justify-between">
+                <InputCandidature name={"date"} classname={""} label="Date de candidature">
+                  <InputDateCalendar
+                    name="date"
+                    value={formik.values.date}
+                    onChange={(val) => formik.setFieldValue("date", val)}
+                    placeholder={"Select date"}
+                    // error={formik.touched.date && formik.errors.date}
+                  />
+                </InputCandidature>
+                <InputCandidature
+                  name={"place"}
+                  value={formik.values.place}
+                  onChange={formik.handleChange}
+                  placeholder={"place"}
+                  label="Lieu"
                 />
-              </InputCandidature>
-              <InputCandidature
-                name={"place"}
-                value={formik.values.place}
-                onChange={formik.handleChange}
-                placeholder={"place"}
-                label="Test place"
-              />
+              </div>
               {/* STATUS */}
-
-              <InputCandidature name={"status"} label={"Test status"}>
+              <InputCandidature name={"status"} label={"Statut"}>
                 <StatusBox
-                  edit={props.edit}
                   name="status"
                   value={formik.values.status}
                   onChange={(val) => formik.setFieldValue("status", val)}
@@ -146,10 +163,10 @@ const CandidaturePage = (props: Props) => {
                 value={formik.values.link}
                 onChange={formik.handleChange}
                 placeholder={"link"}
-                label="Test link"
+                label="Lien*"
               />
 
-              <InputCandidature name={"note"} label={"Test note"}>
+              <InputCandidature name={"note"} label={"Note*"}>
                 <Textarea
                   className=""
                   id="note"
@@ -175,14 +192,14 @@ const CandidaturePage = (props: Props) => {
           </CardFooter> */}
         </Card>
         {/* {props.edit && ( */}
-        <div className="flex justify-around mt-20">
+        <div className="flex justify-around mt-10">
           <Button variant={"secondary"} title="Archive" disabled>
             <Archive /> Archiver
           </Button>
 
-          <DeleteTestDIalog id={Number(id)} />
+          <DeleteTestDIalog id={Number(id)} name={""} />
         </div>
-        {/* )} */}
+         {/* )}  */}
       </Contenu>
     </div>
   );

@@ -114,7 +114,7 @@ const TestPage = (props: Props) => {
                 <Archive /> Archiver
               </Button>
 
-              <DeleteTestDIalog id={Number(id)} />
+              <DeleteTestDIalog id={Number(id)} name={formik.values.name} />
             </div>
           )}
         </div>

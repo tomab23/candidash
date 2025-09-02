@@ -21,12 +21,14 @@ type Props = {
   name: string;
   value: string;
   onChange: (value: string) => void;
-  edit: boolean
 };
 
-export function StatusBox({ name, value, onChange, edit}: Props) {
+export function StatusBox({ name, value, onChange}: Props) {
   const [open, setOpen] = useState(false);
-  const [status, setStatus] = useState("Select status")
+  const [status, setStatus] = useState("Select status");
+
+  // console.log("status : ", status);
+  
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -39,7 +41,7 @@ export function StatusBox({ name, value, onChange, edit}: Props) {
           className="justify-between w-full font-normal"
           // w-48
         >
-          {value}
+          {status}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
