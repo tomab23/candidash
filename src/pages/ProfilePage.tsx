@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import StatCard from "@/components/StatCard";
+import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
 import DateFormat from "@/helpers/DateFormat";
 import IntervalDate from "@/helpers/IntervalDate";
@@ -18,22 +19,29 @@ const ProfilePage = () => {
         {/*  */}
         <div className="flex flex-col gap-5 mt-10">
           {/* USER INFO AUTH */}
-          <div className="flex items-center gap-1">
-            <SquareUserRound className="w-20 h-20" />
-            <div>
-              <p className="text-lg font-semibold">{user?.email}</p>
-              <p className="italic text-sm max-sm:text-xs">
-                Inscript depuis : {DateFormat(String(user?.created_at))} | Il y
-                a {IntervalDate(String(user?.created_at))}
-              </p>
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-1">
+              <SquareUserRound className="w-20 h-20" />
+              <div>
+                <p className="text-lg font-semibold">{user?.email}</p>
+                <p className="italic text-sm max-sm:text-xs">
+                  Inscript depuis : {DateFormat(String(user?.created_at))} | Il
+                  y a {IntervalDate(String(user?.created_at))}
+                </p>
+              </div>
             </div>
+            <Button variant="outline" disabled>Modifier mon profil</Button>
           </div>
           {/* MORE */}
-            <div className="grid grid-rows-1 grid-cols-4 sm:grid-cols-6 gap-4">
-              <StatCard title={"Test"} value={tests.length} icon={<List className="h-4 w-4" />} />
-              {/* <StatCard title={"Test"} value={tests.length} icon={<List />} /> */}
-              {/* <StatCard title={"Test"} value={tests.length} icon={<List />} /> */}
-            </div>
+          <div className="grid grid-rows-1 grid-cols-4 sm:grid-cols-6 gap-4">
+            <StatCard
+              title={"Test"}
+              value={tests.length}
+              icon={<List className="h-4 w-4" />}
+            />
+            {/* <StatCard title={"Test"} value={tests.length} icon={<List />} /> */}
+            {/* <StatCard title={"Test"} value={tests.length} icon={<List />} /> */}
+          </div>
         </div>
       </div>
     </div>
