@@ -5,6 +5,7 @@ export default class Test{
     age: number;
     place: string;
     id_user: string;
+    gender: string;
 
     constructor(
         id: number,
@@ -13,6 +14,7 @@ export default class Test{
         age: number,
         place: string,
         id_user: string,
+        gender: string,
     ){
         this.id = id;
         this.created_at = created_at
@@ -20,6 +22,7 @@ export default class Test{
         this.name = name;
         this.place = place;
         this.id_user = id_user;
+        this.gender = gender
 
     }
 

@@ -1,0 +1,208 @@
+import DeleteTestDIalog from "@/components/custom/DeleteTestDialog";
+import InputCandidature from "@/components/custom/InputCandidature";
+import InputDateCalendar from "@/components/custom/InputDateCalendar";
+import { StatusBox } from "@/components/custom/StatusBox";
+import Navbar from "@/components/layout/Navbar";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
+import Contenu from "@/helpers/Contenu";
+import { useTest } from "@/hooks/useTest";
+import Candidature from "@/models/Candidature";
+import { useFormik } from "formik";
+import { Archive } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import * as Yup from "yup";
+
+type Props = {
+  edit: boolean;
+};
+
+const CandidaturePage = (props: Props) => {
+  // const { fetchTestById, editTest, addTest } = useTest();
+  const { id } = useParams();
+  const navigate = useNavigate();
+  // const [test, setTest] = useState<Test | null>(null);
+  // const [Candidature, setCandidature] = useState<Candidature | null>(null);
+
+  // useEffect(() => {
+  //   const loadTest = async () => {
+  //     if (id) {
+  //       const testData = await fetchTestById(parseInt(id));
+  //       setTest(testData);
+  //     }
+  //   };
+  //   loadTest();
+  // }, [id, fetchTestById]);
+
+  const ValidSchema = Yup.object().shape({
+    date: Yup.date().required("La date est obligatoire"),
+  });
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const formik = useFormik({
+    initialValues: {
+      id: "",
+      company: "",
+      job: "",
+      date: today,
+      place: "",
+      status: "",
+      link: "",
+      note: "",
+    },
+    enableReinitialize: true,
+    validationSchema: ValidSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values));
+      // if(props.edit) {
+      //   editTest(values.id, values.name, values.age, values.place, values.status);
+      // } else {
+      //   addTest(values.name, values.age, values.place, values.status)
+      // }
+      // navigate("/home");
+    },
+  });
+
+  // if (!test) return <p>Chargement...</p>;
+
+//   console.log("Largeur écran : " + screen.width + "px");
+// console.log("Hauteur écran : " + screen.height + "px");
+
+  return (
+    <div className="pb-10">
+      <Navbar />
+      <Contenu>
+        {/* HEADER */}
+        <div className="flex justify-between items-center px-5 mt-5">
+          <Button onClick={() => navigate(-1)} className="">
+            Retour
+          </Button>
+          {/* <h1 className="font-bold text-xl">
+            {props.edit
+              ? "Modifier votre candidature"
+              : "Ajouter une candidature"}
+          </h1> */}
+          <p className="text-center">ID : {props.edit ? id : "new"}</p>
+        </div>
+        {/* CARD */}
+        <Card className="w-full max-w-sm justify-self-center mt-2">
+          <CardHeader>
+            <CardTitle className="text-center text-xl">
+              Ajouter une candidature
+            </CardTitle>
+            <CardAction>
+              <Button
+                variant={"ghost"}
+                size={"sm"}
+                onClick={() => formik.resetForm()}
+              >
+                reset
+              </Button>
+            </CardAction>
+          </CardHeader>
+          <CardContent>
+            {/* FORM */}
+            <form
+              onSubmit={formik.handleSubmit}
+              className="flex flex-col justify-center gap-4"
+            >
+              <InputCandidature
+                name={"company"}
+                value={formik.values.company}
+                onChange={formik.handleChange}
+                placeholder={"test"}
+                label="Entreprise"
+              />
+
+              <InputCandidature
+                name={"job"}
+                value={formik.values.job}
+                onChange={formik.handleChange}
+                placeholder={"job"}
+                label="Poste"
+              />
+              <div className="flex justify-between">
+                <InputCandidature name={"date"} classname={""} label="Date de candidature">
+                  <InputDateCalendar
+                    name="date"
+                    value={formik.values.date}
+                    onChange={(val) => formik.setFieldValue("date", val)}
+                    placeholder={"Select date"}
+                    // error={formik.touched.date && formik.errors.date}
+                  />
+                </InputCandidature>
+                <InputCandidature
+                  name={"place"}
+                  value={formik.values.place}
+                  onChange={formik.handleChange}
+                  placeholder={"place"}
+                  label="Lieu"
+                />
+              </div>
+              {/* STATUS */}
+              <InputCandidature name={"status"} label={"Statut"}>
+                <StatusBox
+                  name="status"
+                  value={formik.values.status}
+                  onChange={(val) => formik.setFieldValue("status", val)}
+                />
+              </InputCandidature>
+
+              <InputCandidature
+                name={"link"}
+                value={formik.values.link}
+                onChange={formik.handleChange}
+                placeholder={"link"}
+                label="Lien*"
+              />
+
+              <InputCandidature name={"note"} label={"Note*"}>
+                <Textarea
+                  className=""
+                  id="note"
+                  name="note"
+                  onChange={formik.handleChange}
+                  value={formik.values.note}
+                  placeholder="Type your note here.*"
+                />
+              </InputCandidature>
+
+              <Button className="mt-5" type="submit">
+                {props.edit
+                  ? "Modifier la candidature"
+                  : "Valider la candidature"}
+              </Button>
+            </form>
+          </CardContent>
+          {/* <CardFooter className="flex justify-between">
+            <Button variant={"secondary"} title="Archive" disabled>
+              <Archive /> Archiver
+            </Button>
+            <DeleteTestDIalog id={Number(id)} />
+          </CardFooter> */}
+        </Card>
+        {/* {props.edit && ( */}
+        <div className="flex justify-around mt-10">
+          <Button variant={"secondary"} title="Archive" disabled>
+            <Archive /> Archiver
+          </Button>
+
+          <DeleteTestDIalog id={Number(id)} name={""} />
+        </div>
+         {/* )}  */}
+      </Contenu>
+    </div>
+  );
+};
+
+export default CandidaturePage;

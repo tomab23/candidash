@@ -1,96 +1,91 @@
 import Navbar from "@/components/layout/Navbar";
-import DateFormat from "@/helpers/DateFormat";
-// import * as Yup from "yup";
-import { useFormik } from "formik";
-import { Pen, Trash2 } from "lucide-react";
+import { Search, SquarePlus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useTest } from "@/hooks/useTest";
+import TestCard from "@/components/TestCard";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import SkeletonTestCard from "@/components/skeleton/SkeletonTestCard";
+
+import { useState } from "react";
+import FilterCandidature from "@/components/FilterCandidature";
+import Contenu from "@/helpers/Contenu";
+import CandidatureCard from "@/components/CandidatureCard";
+import NoList from "@/components/NoList";
 
 const HomePage = () => {
-  const { tests, addTest, removeTest} = useTest();
+  const { tests } = useTest();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [statusFilter, setStatusFilter] = useState<string>("all");
 
+  const list = true;
 
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      age: 0,
-      place: "",
-    },
-    enableReinitialize: true,
-    // validationSchema: ValidSchema,
-    onSubmit: (values) => {
-      addTest(values.name, values.age, values.place);
-    },
-  });
+  // const testsByDate = tests.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+  // const testsById = tests.sort((a, b) => a.id - b.id);
 
   return (
     <div className="">
       <Navbar />
-      <br />
-      <br />
-
-      <div className="h-full max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
-        {tests.map((test) => (
-          <div className="flex justify-center items-center" key={test.id}>
-            {test.name} - {test.age} ans - {test.place} - Ajouté le {" "} {DateFormat(test.created_at)}
-            
-            <button className="flex mx-2 items-center" onClick={() => navigate(`/test/${test.id}`)}>
-              <Pen className="h-4 w-4 hover:cursor-pointer hover:scale-110 stroke-1 stroke-blue-300" />
-            </button>
-            <button className="flex mx-1 items-center" onClick={() => removeTest(test.id)}>
-              <Trash2 className="h-4 w-4 hover:cursor-pointer hover:scale-110 stroke-1 stroke-red-600" />
-            </button>
+      <Contenu>
+        {/* HEADER */}
+        <div className="flex justify-between my-5 items-center">
+          <div>
+            <h1 className="text-3xl font-bold">Mes Candidatures</h1>
+            <p>
+              {/* {tests.length} candidature{tests.length > 1 && "s"} au total */}
+              0 candidature / applications au total
+            </p>
           </div>
-        )).reverse()}
-      </div>
-      <br />
-      <br />
-
-      <form
-        onSubmit={formik.handleSubmit}
-        className="flex justify-center gap-4"
-      >
-        <input
-          className="outline"
-          id="name"
-          name="name"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-          placeholder="name"
-        />
-        <input
-          className="outline"
-          id="age"
-          name="age"
-          onChange={formik.handleChange}
-          value={formik.values.age}
-          type="number"
-          placeholder="age"
-        />
-        <input
-          className="outline"
-          id="place"
-          name="place"
-          onChange={formik.handleChange}
-          value={formik.values.place}
-          placeholder="place"
-        />
-        <button
-          className="border-1 border-red-600 px-2 cursor-pointer"
-          type="submit"
-        >
-          Ajouter
-        </button>
-      </form>
-      <br /><br /><br />
-      
-      <p className="text-center">{t('HELLO')}</p>
-      
- 
-      
+          <Button onClick={() => navigate("/test")} className="">
+            <SquarePlus />
+            test
+          </Button>
+          <Button onClick={() => navigate("/candidature")} className="">
+            <SquarePlus />
+            Nouvelle candidature
+          </Button>
+        </div>
+        {/* SEARCH & FILTER */}
+        <div className="flex gap-2 mb-8 flex-wrap">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Input
+              placeholder="Rechercher par entreprise, poste ou lieu..."
+              // value={searchTerm}
+              // onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10"
+            />
+          </div>
+          {/* <FilterTest /> */}
+          <FilterCandidature
+            status={statusFilter}
+            setStatus={setStatusFilter}
+          />
+        </div>
+        <p className="text-center">Filtre : {statusFilter}</p>
+        {/* LIST */}
+        {!tests && <SkeletonTestCard />}
+        {tests && (
+          <div className="flex justify-center max-sm:mb-10">
+            <div className=" grid grid-cols-3 gap-4 xl:grid-cols-4 xl:gap-y-2 xl:gap-x-6 max-sm:grid-cols-2">
+              {/* grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 */}
+              {tests
+                .map((test) => <TestCard key={test.id} test={test} />)
+                .reverse()}
+            </div>
+          </div>
+        )}
+        <br />
+        <br />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <CandidatureCard n={true} />
+            <CandidatureCard n={false} />
+            <CandidatureCard n={false} />
+          </div>
+        <NoList />
+      </Contenu>
     </div>
   );
 };

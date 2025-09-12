@@ -23,8 +23,8 @@ export const getTestDatabyDate = async (userId: string) => {
 }
 
   // 🆕 Insérer un nouvel enregistrement dans la table "test"
-export const insertTestData = async (userId: string, name: string, age: number, place: string) => {
-  const { error } = await supabase.from("test").insert([{ name, age, place, id_user: userId }])
+export const insertTestData = async (userId: string, name: string, age: number, place: string, gender: string) => {
+  const { error } = await supabase.from("test").insert([{ name, age, place, id_user: userId, gender }])
   if (error) throw new Error(error.message)
 }
 
@@ -39,10 +39,10 @@ export const deleteTestData = async (id: number, userId: string) => {
 }
 
 // 🔄 Modifier des informations dans la table "test"
-export const updateTestData = async (id: number, userId: string, name: string, age: number, place: string) => {
+export const updateTestData = async (id: number, userId: string, name: string, age: number, place: string, gender: string) => {
   const { error } = await supabase
     .from("test")
-    .update({ name, age, place })
+    .update({ name, age, place, gender })
     .eq("id", id)
     .eq("id_user", userId)
   if (error) throw new Error(error.message)
@@ -55,7 +55,7 @@ export const getTestById = async (id: number, userId: string) => {
     .select("*")
     .eq("id", id)
     .eq("id_user", userId)
-    .single()
+    .maybeSingle()
 
   if (error) throw new Error(error.message)
   return data
