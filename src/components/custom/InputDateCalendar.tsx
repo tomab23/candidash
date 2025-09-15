@@ -8,6 +8,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { useState } from "react"
+import DateFormat from "@/helpers/DateFormat"
 
 type Props = {
   name: string;
@@ -20,13 +21,12 @@ type Props = {
 const InputDateCalendar = ({ name, value, onChange, placeholder } : Props) => {
     const [open, setOpen] = useState(false)
     // const [date, setDate] = useState<Date | undefined>()
+
     
+     
 
   return (
         <div className="flex flex-col gap-3 w-full">
-      {/* <Label htmlFor="date" className="px-1">
-        Date of birth
-      </Label> */}
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -35,7 +35,7 @@ const InputDateCalendar = ({ name, value, onChange, placeholder } : Props) => {
             name={name}
             className="w-auto justify-between font-normal"
           >
-            {value ? value.toLocaleDateString() : placeholder}
+            {value ? DateFormat(value, false) : placeholder}
             <ChevronDownIcon />
           </Button>
         </PopoverTrigger>

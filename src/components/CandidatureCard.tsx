@@ -1,7 +1,6 @@
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -54,8 +53,7 @@ const CandidatureCard = ({ candidature }: Props) => {
         </div>
         <div className="flex items-center text-sm text-muted-foreground">
           <Calendar className="h-4 w-4 mr-2" />
-          {/* {new Date(candidature.date).toLocaleDateString(i18n.language === "fr" ? 'fr-FR' : 'en-EN')} */}
-          {DateFormat(candidature.date)}
+          {DateFormat(candidature.date, false)}
         </div>
 
         <div className="flex items-start text-sm text-muted-foreground">

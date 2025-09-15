@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import Contenu from "@/helpers/Contenu";
+import { useCandidature } from "@/hooks/useCandidature";
 import { useTest } from "@/hooks/useTest";
 import Candidature from "@/models/Candidature";
 import { useFormik } from "formik";
@@ -27,20 +28,21 @@ type Props = {
 
 const CandidaturePage = (props: Props) => {
   // const { fetchTestById, editTest, addTest } = useTest();
+  const { fetchCandidatureById, editCandidature, addCandidature } = useCandidature();
   const { id } = useParams();
   const navigate = useNavigate();
   // const [test, setTest] = useState<Test | null>(null);
-  // const [Candidature, setCandidature] = useState<Candidature | null>(null);
+  const [Candidature, setCandidature] = useState<Candidature | null>(null);
 
-  // useEffect(() => {
-  //   const loadTest = async () => {
-  //     if (id) {
-  //       const testData = await fetchTestById(parseInt(id));
-  //       setTest(testData);
-  //     }
-  //   };
-  //   loadTest();
-  // }, [id, fetchTestById]);
+  useEffect(() => {
+    const loadTest = async () => {
+      if (id) {
+        const data = await fetchCandidatureById(parseInt(id));
+        setCandidature(data);
+      }
+    };
+    loadTest();
+  }, [id, fetchCandidatureById]);
 
   const ValidSchema = Yup.object().shape({
     date: Yup.date().required("La date est obligatoire"),
@@ -52,13 +54,13 @@ const CandidaturePage = (props: Props) => {
   const formik = useFormik({
     initialValues: {
       id: "",
-      company: "",
-      job: "",
-      date: today,
-      place: "",
-      status: "",
-      link: "",
-      note: "",
+      company: Candidature ? Candidature.company : "",
+      job: Candidature ? Candidature.job : "",
+      date: Candidature ? Candidature.date : today,
+      place: Candidature ? Candidature.place : "",
+      status: Candidature ? Candidature.status : "",
+      link: Candidature ? Candidature.link : "",
+      note: Candidature ? Candidature.note : "",
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,

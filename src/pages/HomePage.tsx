@@ -18,7 +18,7 @@ const HomePage = () => {
   const { t } = useTranslation();
   const [statusFilter, setStatusFilter] = useState<string>("all");
 
-  console.log(candidatures);
+  // console.log(candidatures);
   
 
   // const testsByDate = tests.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
@@ -65,7 +65,6 @@ const HomePage = () => {
         </div>
         <p className="text-center">Filtre : {statusFilter}</p>
         {/* LIST */}
-        {/* {!candidatures && <SkeletonTestCard />} */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {candidatures.map((c) => (
               <CandidatureCard key={c.id} candidature={c} />
