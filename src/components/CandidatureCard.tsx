@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
 import type Candidature from "@/models/Candidature";
 import { useTranslation } from "react-i18next";
+import DateFormat from "@/helpers/DateFormat";
 
 type Props = {
   candidature: Candidature;
@@ -53,7 +54,8 @@ const CandidatureCard = ({ candidature }: Props) => {
         </div>
         <div className="flex items-center text-sm text-muted-foreground">
           <Calendar className="h-4 w-4 mr-2" />
-          {new Date(candidature.date).toLocaleDateString(i18n.language === "fr" ? 'fr-FR' : 'en-EN')}
+          {/* {new Date(candidature.date).toLocaleDateString(i18n.language === "fr" ? 'fr-FR' : 'en-EN')} */}
+          {DateFormat(candidature.date)}
         </div>
 
         <div className="flex items-start text-sm text-muted-foreground">
