@@ -1,7 +1,7 @@
 import { supabase } from "@/lib/supabaseClient";
 
 // ⬇️ Récupérer les données de la table "candidature" pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
-export const getCandidatureData = async (userId: string) => {
+export const getCandidatures = async (userId: string) => {
   const { data, error } = await supabase
     .from("candidature")
     .select("*")
@@ -11,7 +11,7 @@ export const getCandidatureData = async (userId: string) => {
 };
 
 // ⬇️ Récupérer les données de la table "candidature" pour l'utilisateur connecté dans l'ordre de date de création
-export const getCandidatureDatabyDate = async (userId: string) => {
+export const getCandidaturesbyDate = async (userId: string) => {
   const { data, error } = await supabase
     .from("candidature")
     .select("*")
@@ -22,7 +22,7 @@ export const getCandidatureDatabyDate = async (userId: string) => {
 };
 
 // 🆕 Insérer un nouvel enregistrement dans la table "candidature"
-export const insertCandidatureData = async (
+export const insertCandidature = async (
   userId: string,
   company: string,
   job: string,
@@ -38,7 +38,7 @@ export const insertCandidatureData = async (
 };
 
 // ❌ Supprimer dans la table "candidature" par id
-export const deleteCandidatureData = async (id: number, userId: string) => {
+export const deleteCandidature = async (id: number, userId: string) => {
   const { error } = await supabase
     .from("candidature")
     .delete()
@@ -48,7 +48,7 @@ export const deleteCandidatureData = async (id: number, userId: string) => {
 };
 
 // 🔄 Modifier des informations dans la table "candidature" par id
-export const updateCandidatureData = async (
+export const updateCandidature = async (
   id: number,
   userId: string,
   company: string,
