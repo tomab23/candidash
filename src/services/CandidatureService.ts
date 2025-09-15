@@ -29,11 +29,12 @@ export const insertCandidature = async (
   date: Date,
   status: string,
   link: string,
-  note: string
+  note: string,
+  place: string
 ) => {
   const { error } = await supabase
     .from("candidature")
-    .insert([{ user_id: userId, company, job, date, status, link, note }]);
+    .insert([{ user_id: userId, company, job, date, status, link, note, place }]);
   if (error) throw new Error(error.message);
 };
 
@@ -56,11 +57,12 @@ export const updateCandidature = async (
   date: Date,
   status: string,
   link: string,
-  note: string
+  note: string,
+  place: string
 ) => {
   const { error } = await supabase
     .from("test")
-    .update({ company, job, date, status, link, note })
+    .update({ company, job, date, status, link, note, place })
     .eq("id", id)
     .eq("user_id", userId);
   if (error) throw new Error(error.message);

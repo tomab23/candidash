@@ -1,7 +1,9 @@
-import React from "react";
 import { Button } from "./ui/button";
+import { useNavigate } from "react-router-dom";
 
 const NoList = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="text-center py-12">
       <div className="text-6xl mb-4">📄</div>
@@ -12,7 +14,7 @@ const NoList = () => {
           Commencez par ajouter votre première candidature !
       </p>
 
-        <Button >
+        <Button onClick={() => navigate("/candidature")}>
           Ajouter une candidature
         </Button>
 

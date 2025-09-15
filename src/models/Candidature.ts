@@ -5,6 +5,7 @@ export default class Candidature{
     job: number;
     date: Date;
     status: string;
+    place: string;
     link?: string;
     note?: string;
     id_user: string;
@@ -16,6 +17,7 @@ export default class Candidature{
         job: number,
         date: Date,
         status: string,
+        place: string,
         link: string,
         note: string,
         id_user: string,
@@ -26,6 +28,7 @@ export default class Candidature{
         this.company = company;
         this.date = date;
         this.status = status;
+        this.place = place;
         this.link = link;
         this.note = note;
         this.id_user = id_user;

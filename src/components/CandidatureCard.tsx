@@ -9,12 +9,16 @@ import { Archive, Calendar, Edit, FileText, MapPin, User2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
+import type Candidature from "@/models/Candidature";
+import { useTranslation } from "react-i18next";
 
 type Props = {
-  n: boolean;
+  candidature: Candidature;
 };
-const CandidatureCard = ({ n }: Props) => {
+const CandidatureCard = ({ candidature }: Props) => {
     const navigate = useNavigate();
+
+    const { i18n } = useTranslation();
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -22,7 +26,7 @@ const CandidatureCard = ({ n }: Props) => {
         return "bg-green-500 hover:bg-green-600 ";
       case "refus":
         return "bg-red-500 hover:bg-red-600 ";
-      case "sans":
+      case "attente":
         return "bg-gray-500 hover:bg-gray-600 ";
       default:
         return "bg-yellow-500 hover:bg-yellow-600 ";
@@ -33,29 +37,28 @@ const CandidatureCard = ({ n }: Props) => {
     <Card className="hover:shadow-lg transition-shadow duration-200">
       <CardHeader className="">
         <div className="flex justify-between items-start">
-          <CardTitle className="text-lg">{"nomEntreprise"}</CardTitle>
-          <Badge className={getStatusColor("sans")}>resultat</Badge>
+          <CardTitle className="text-lg">{candidature.company}</CardTitle>
+          <Badge className={getStatusColor(candidature.status)}>{candidature.status}</Badge>
         </div>
       </CardHeader>
       <CardContent className="space-y-3">
         {/* <div className="space-y-3 bg-green-900"> */}
         <div className="flex items-center text-sm text-muted-foreground">
           <User2 className="h-4 w-4 mr-2" />
-          {"candidature.Poste"}
+          {candidature.job}
         </div>
         <div className="flex items-center text-sm text-muted-foreground">
           <MapPin className="h-4 w-4 mr-2" />
-          {"candidature.lieu"}
+          {candidature.place}
         </div>
         <div className="flex items-center text-sm text-muted-foreground">
           <Calendar className="h-4 w-4 mr-2" />
-          {/* {new Date(candidature.date).toLocaleDateString('fr-FR')} */}
-          Date
+          {new Date(candidature.date).toLocaleDateString(i18n.language === "fr" ? 'fr-FR' : 'en-EN')}
         </div>
 
         <div className="flex items-start text-sm text-muted-foreground">
           <FileText className="h-4 w-4 mr-2 mt-0.5" />
-          {n && <span className="line-clamp-2">{"candidature.note"}</span>}
+          <span className="line-clamp-2">{candidature.note}</span>
         </div>
 
         {/* </div> */}
@@ -66,8 +69,7 @@ const CandidatureCard = ({ n }: Props) => {
           <Button
             variant="outline"
             size="sm"
-            // onClick={() => navigate(`/candidature/${candidature.id}`)}
-            onClick={() => navigate(`/candidature`)}
+            onClick={() => navigate(`/candidature/${candidature.id}`)}
           >
             <Edit className="h-4 w-4" />
           </Button>
