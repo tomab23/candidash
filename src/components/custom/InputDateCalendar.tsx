@@ -20,7 +20,7 @@ type Props = {
 
 const InputDateCalendar = ({ name, value, onChange, placeholder } : Props) => {
     const [open, setOpen] = useState(false)
-    // const [date, setDate] = useState<Date | undefined>()
+    // const [date, setDate] = useState<Date | null>()
 
     
      

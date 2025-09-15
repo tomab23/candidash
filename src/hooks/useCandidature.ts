@@ -29,8 +29,8 @@ const addCandidature = async (
   job: string,
   date: Date,
   status: string,
-  link: string,
-  note: string,
+  link: string | undefined,
+  note: string | undefined,
   place: string
   ) => {
     if (!user) return
@@ -44,8 +44,8 @@ const addCandidature = async (
   job: string,
   date: Date,
   status: string,
-  link: string,
-  note: string,
+  link: string | undefined,
+  note: string | undefined,
   place: string
 ) => {
       if (!user) return

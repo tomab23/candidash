@@ -28,8 +28,8 @@ export const insertCandidature = async (
   job: string,
   date: Date,
   status: string,
-  link: string,
-  note: string,
+  link: string | undefined,
+  note: string | undefined,
   place: string
 ) => {
   const { error } = await supabase
@@ -56,12 +56,12 @@ export const updateCandidature = async (
   job: string,
   date: Date,
   status: string,
-  link: string,
-  note: string,
+  link: string | undefined,
+  note: string | undefined,
   place: string
 ) => {
   const { error } = await supabase
-    .from("test")
+    .from("candidature")
     .update({ company, job, date, status, link, note, place })
     .eq("id", id)
     .eq("user_id", userId);

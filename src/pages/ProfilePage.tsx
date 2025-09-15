@@ -4,12 +4,13 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
 import IntervalDate from "@/helpers/IntervalDate";
 import StringToDate from "@/helpers/StringToDate";
+import { useCandidature } from "@/hooks/useCandidature";
 import { useTest } from "@/hooks/useTest";
 import { List, SquareUserRound } from "lucide-react";
 
 const ProfilePage = () => {
   const { user } = useAuth();
-  const { tests } = useTest();
+  const { candidatures } = useCandidature();
 
   return (
     <div>
@@ -35,8 +36,8 @@ const ProfilePage = () => {
           {/* MORE */}
           <div className="grid grid-rows-1 grid-cols-4 sm:grid-cols-6 gap-4">
             <StatCard
-              title={"Test"}
-              value={tests.length}
+              title={"Candidatures"}
+              value={candidatures.length}
               icon={<List className="h-4 w-4" />}
             />
             {/* <StatCard title={"Test"} value={tests.length} icon={<List />} /> */}

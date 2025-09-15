@@ -68,7 +68,7 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {candidatures.map((c) => (
               <CandidatureCard key={c.id} candidature={c} />
-            ))}
+            )).reverse()}
           </div>
         {loading && <p className="text-center mt-5">Chargement...</p>}
         {candidatures.length === 0 && !loading && <NoList />}
