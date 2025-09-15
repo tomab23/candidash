@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import Contenu from "@/helpers/Contenu";
-import { useTest } from "@/hooks/useTest";
+import { useCandidature } from "@/hooks/useCandidature";
 import Candidature from "@/models/Candidature";
 import { useFormik } from "formik";
 import { Archive } from "lucide-react";
@@ -27,20 +27,21 @@ type Props = {
 
 const CandidaturePage = (props: Props) => {
   // const { fetchTestById, editTest, addTest } = useTest();
+  const { fetchCandidatureById, editCandidature, addCandidature } = useCandidature();
   const { id } = useParams();
   const navigate = useNavigate();
   // const [test, setTest] = useState<Test | null>(null);
-  // const [Candidature, setCandidature] = useState<Candidature | null>(null);
+  const [Candidature, setCandidature] = useState<Candidature | null>(null);
 
-  // useEffect(() => {
-  //   const loadTest = async () => {
-  //     if (id) {
-  //       const testData = await fetchTestById(parseInt(id));
-  //       setTest(testData);
-  //     }
-  //   };
-  //   loadTest();
-  // }, [id, fetchTestById]);
+  useEffect(() => {
+    const loadTest = async () => {
+      if (id) {
+        const data = await fetchCandidatureById(parseInt(id));
+        setCandidature(data);
+      }
+    };
+    loadTest();
+  }, [id, fetchCandidatureById]);
 
   const ValidSchema = Yup.object().shape({
     date: Yup.date().required("La date est obligatoire"),
@@ -51,25 +52,25 @@ const CandidaturePage = (props: Props) => {
 
   const formik = useFormik({
     initialValues: {
-      id: "",
-      company: "",
-      job: "",
-      date: today,
-      place: "",
-      status: "",
-      link: "",
-      note: "",
+      id: Candidature ? Candidature.id : 0 ,
+      company: Candidature ? Candidature.company : "",
+      job: Candidature ? Candidature.job : "",
+      date: Candidature ? Candidature.date : today,
+      status: Candidature ? Candidature.status : "",
+      link: Candidature ? Candidature.link : "",
+      note: Candidature ? Candidature.note : "",
+      place: Candidature ? Candidature.place : "",
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values));
-      // if(props.edit) {
-      //   editTest(values.id, values.name, values.age, values.place, values.status);
-      // } else {
-      //   addTest(values.name, values.age, values.place, values.status)
-      // }
-      // navigate("/home");
+      alert(JSON.stringify(values))
+      if(props.edit) {
+        editCandidature(values.id, values.company, values.job, values.date, values.status, values.link, values.note, values.place);
+      } else {
+        addCandidature(values.company, values.job, values.date, values.status, values.link, values.note, values.place)
+      }
+      navigate("/home");
     },
   });
 
@@ -87,11 +88,6 @@ const CandidaturePage = (props: Props) => {
           <Button onClick={() => navigate(-1)} className="">
             Retour
           </Button>
-          {/* <h1 className="font-bold text-xl">
-            {props.edit
-              ? "Modifier votre candidature"
-              : "Ajouter une candidature"}
-          </h1> */}
           <p className="text-center">ID : {props.edit ? id : "new"}</p>
         </div>
         {/* CARD */}
@@ -131,8 +127,8 @@ const CandidaturePage = (props: Props) => {
                 placeholder={"job"}
                 label="Poste"
               />
-              <div className="flex justify-between">
-                <InputCandidature name={"date"} classname={""} label="Date de candidature">
+              <div className="flex justify-between gap-2">
+                {/* <InputCandidature name={"date"} classname={""} label="Date de candidature">
                   <InputDateCalendar
                     name="date"
                     value={formik.values.date}
@@ -140,7 +136,7 @@ const CandidaturePage = (props: Props) => {
                     placeholder={"Select date"}
                     // error={formik.touched.date && formik.errors.date}
                   />
-                </InputCandidature>
+                </InputCandidature> */}
                 <InputCandidature
                   name={"place"}
                   value={formik.values.place}
@@ -172,7 +168,7 @@ const CandidaturePage = (props: Props) => {
                   id="note"
                   name="note"
                   onChange={formik.handleChange}
-                  value={formik.values.note}
+                  value={formik.values.note ? formik.values.note : ""}
                   placeholder="Type your note here.*"
                 />
               </InputCandidature>
@@ -184,12 +180,6 @@ const CandidaturePage = (props: Props) => {
               </Button>
             </form>
           </CardContent>
-          {/* <CardFooter className="flex justify-between">
-            <Button variant={"secondary"} title="Archive" disabled>
-              <Archive /> Archiver
-            </Button>
-            <DeleteTestDIalog id={Number(id)} />
-          </CardFooter> */}
         </Card>
         {/* {props.edit && ( */}
         <div className="flex justify-around mt-10">
@@ -197,7 +187,7 @@ const CandidaturePage = (props: Props) => {
             <Archive /> Archiver
           </Button>
 
-          <DeleteTestDIalog id={Number(id)} name={""} />
+          <DeleteTestDIalog id={Number(id)} company={Candidature?.company} job={Candidature?.job} />
         </div>
          {/* )}  */}
       </Contenu>

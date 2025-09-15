@@ -2,14 +2,15 @@ import Navbar from "@/components/layout/Navbar";
 import StatCard from "@/components/StatCard";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
-import DateFormat from "@/helpers/DateFormat";
 import IntervalDate from "@/helpers/IntervalDate";
+import StringToDate from "@/helpers/StringToDate";
+import { useCandidature } from "@/hooks/useCandidature";
 import { useTest } from "@/hooks/useTest";
 import { List, SquareUserRound } from "lucide-react";
 
 const ProfilePage = () => {
   const { user } = useAuth();
-  const { tests } = useTest();
+  const { candidatures } = useCandidature();
 
   return (
     <div>
@@ -25,7 +26,7 @@ const ProfilePage = () => {
               <div>
                 <p className="text-lg font-semibold">{user?.email}</p>
                 <p className="italic text-sm max-sm:text-xs">
-                  Inscript depuis : {DateFormat(String(user?.created_at))} | Il
+                  Inscript depuis : {StringToDate(String(user?.created_at), true)} | Il
                   y a {IntervalDate(String(user?.created_at))}
                 </p>
               </div>
@@ -35,8 +36,8 @@ const ProfilePage = () => {
           {/* MORE */}
           <div className="grid grid-rows-1 grid-cols-4 sm:grid-cols-6 gap-4">
             <StatCard
-              title={"Test"}
-              value={tests.length}
+              title={"Candidatures"}
+              value={candidatures.length}
               icon={<List className="h-4 w-4" />}
             />
             {/* <StatCard title={"Test"} value={tests.length} icon={<List />} /> */}
