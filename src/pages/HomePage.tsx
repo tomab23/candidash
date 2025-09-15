@@ -33,8 +33,8 @@ const HomePage = () => {
           <div>
             <h1 className="text-3xl font-bold">Mes Candidatures</h1>
             <p>
-              {/* {tests.length} candidature{tests.length > 1 && "s"} au total */}
-              0 candidature / applications au total
+              {candidatures.length} candidature{candidatures.length > 1 && "s"} au total
+              {/* 0 candidature / applications au total */}
             </p>
           </div>
           <Button onClick={() => navigate("/test")} className="">

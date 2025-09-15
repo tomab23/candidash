@@ -11,20 +11,21 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
-import { useTest } from "@/hooks/useTest";
 import { useNavigate } from "react-router-dom";
+import { useCandidature } from "@/hooks/useCandidature";
 
 type Props = {
   id: number;
-  name: string;
+  company: string | undefined;
+  job: string | undefined;
 };
 
-export default function DeleteTestDIalog({ id, name }: Props) {
-  const { removeTest } = useTest();
+export default function DeleteTestDIalog({ id, company, job }: Props) {
+  const { removeCandidature } = useCandidature();
   const navigate = useNavigate();
 
   const HandleDelete = () => {
-    removeTest(id);
+    removeCandidature(id);
     navigate("/home");
   };
   return (
@@ -37,9 +38,10 @@ export default function DeleteTestDIalog({ id, name }: Props) {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            Are you sure you want to delete <b>{name}</b> ?
+            Are you sure you want to delete ?
           </AlertDialogTitle>
           <AlertDialogDescription>
+            <b>{job}</b> chez <b>{company}</b><br />
             This action cannot be undone. This will permanently delete your
             account and remove all of your data from our servers. You will not
             be able to recover your account.

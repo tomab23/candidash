@@ -187,7 +187,7 @@ const CandidaturePage = (props: Props) => {
             <Archive /> Archiver
           </Button>
 
-          <DeleteTestDIalog id={Number(id)} name={""} />
+          <DeleteTestDIalog id={Number(id)} company={Candidature?.company} job={Candidature?.job} />
         </div>
          {/* )}  */}
       </Contenu>
