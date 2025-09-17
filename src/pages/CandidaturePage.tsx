@@ -120,7 +120,7 @@ const today = normalizeDate(new Date());
           <Button onClick={() => navigate(-1)} className="">
             Retour
           </Button>
-          <p className="text-center">ID : {props.edit ? id : "new"}</p>
+          {/* <p className="text-center">ID : {props.edit ? id : "new"}</p> */}
         </div>
         {/* CARD */}
         <Card className="w-full max-w-sm justify-self-center mt-2">
@@ -220,7 +220,7 @@ const today = normalizeDate(new Date());
             </form>
           </CardContent>
         </Card>
-        {/* {props.edit && ( */}
+        {props.edit && (
         <div className="flex justify-around mt-10">
           <Button variant={"secondary"} title="Archive" disabled>
             <Archive /> Archiver
@@ -232,7 +232,7 @@ const today = normalizeDate(new Date());
             job={Candidature?.job}
           />
         </div>
-        {/* )}  */}
+        )} 
       </Contenu>
     </div>
   );
