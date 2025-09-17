@@ -27,7 +27,7 @@ const fetchCandidatures = useCallback(async () => {
 const addCandidature = async (
   company: string,
   job: string,
-  date: Date,
+  date: string,
   status: string,
   link: string | undefined,
   note: string | undefined,
@@ -42,7 +42,7 @@ const addCandidature = async (
   const editCandidature = useCallback(
     async (id: number,   company: string,
   job: string,
-  date: Date,
+  date: string,
   status: string,
   link: string | undefined,
   note: string | undefined,
@@ -72,10 +72,14 @@ const addCandidature = async (
 //   )
 
 //  récuperer une candidature par son id
-  const fetchCandidatureById = async (id: number) => {
-    if (!user) return null
-    return await getCandidatureById(id, user.id)
-  }
+  // const fetchCandidatureById = async (id: number) => {
+  //   if (!user) return null
+  //   return await getCandidatureById(id, user.id)
+  // }
+  const fetchCandidatureById = useCallback(async (id: number) => {
+  if (!user) return null;
+  return await getCandidatureById(id, user.id);
+}, [user]);
 
 // Effect pour charger les données initiales
   useEffect(() => {

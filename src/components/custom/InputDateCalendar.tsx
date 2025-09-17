@@ -1,7 +1,6 @@
 import { ChevronDownIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
-// import { Label } from "@/components/ui/label"
 import {
   Popover,
   PopoverContent,
@@ -15,15 +14,10 @@ type Props = {
   value: Date;
   onChange: (value: Date| null) => void
   error?: string
-  placeholder: string
 };
 
-const InputDateCalendar = ({ name, value, onChange, placeholder } : Props) => {
+const InputDateCalendar = ({ name, value, onChange } : Props) => {
     const [open, setOpen] = useState(false)
-    // const [date, setDate] = useState<Date | null>()
-
-    
-     
 
   return (
         <div className="flex flex-col gap-3 w-full">
@@ -35,7 +29,7 @@ const InputDateCalendar = ({ name, value, onChange, placeholder } : Props) => {
             name={name}
             className="w-auto justify-between font-normal"
           >
-            {value ? DateFormat(value, false) : placeholder}
+            {DateFormat(value, false)}
             <ChevronDownIcon />
           </Button>
         </PopoverTrigger>
