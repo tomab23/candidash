@@ -63,7 +63,7 @@ const CandidatureCard = ({ candidature }: Props) => {
 
         {/* </div> */}
         <div className="flex justify-end space-x-2 ">
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size="sm" disabled>
             <Archive className="h-4 w-4" />
           </Button>
           <Button
