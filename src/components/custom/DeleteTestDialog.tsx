@@ -38,10 +38,10 @@ export default function DeleteTestDIalog({ id, company, job }: Props) {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            Are you sure you want to delete ?
+            <p><span className="font-bold">{job}</span> chez <span className="font-bold">{company}</span></p>
           </AlertDialogTitle>
           <AlertDialogDescription>
-            <b>{job}</b> chez <b>{company}</b><br />
+            <b>Supprimer cette candidature ?</b><br />
             This action cannot be undone. This will permanently delete your
             account and remove all of your data from our servers. You will not
             be able to recover your account.
