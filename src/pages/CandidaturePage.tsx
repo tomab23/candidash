@@ -15,6 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import Contenu from "@/helpers/Contenu";
 import { useCandidature } from "@/hooks/useCandidature";
 import Candidature from "@/models/Candidature";
+import { format } from "date-fns";
 import { useFormik } from "formik";
 import { Archive } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -25,12 +26,13 @@ type Props = {
   edit: boolean;
 };
 
+
+
 const CandidaturePage = (props: Props) => {
-  // const { fetchTestById, editTest, addTest } = useTest();
-  const { fetchCandidatureById, editCandidature, addCandidature } = useCandidature();
+  const { fetchCandidatureById, editCandidature, addCandidature } =
+    useCandidature();
   const { id } = useParams();
   const navigate = useNavigate();
-  // const [test, setTest] = useState<Test | null>(null);
   const [Candidature, setCandidature] = useState<Candidature | null>(null);
 
   useEffect(() => {
@@ -47,15 +49,22 @@ const CandidaturePage = (props: Props) => {
     date: Yup.date().required("La date est obligatoire"),
   });
 
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+
+  const normalizeDate = (d: Date) => {
+  const date = new Date(d);
+  date.setHours(0, 0, 0, 0);
+  return date;
+};
+
+const today = normalizeDate(new Date());
+
 
   const formik = useFormik({
     initialValues: {
-      id: Candidature ? Candidature.id : 0 ,
+      id: Candidature ? Candidature.id : 0,
       company: Candidature ? Candidature.company : "",
       job: Candidature ? Candidature.job : "",
-      date: Candidature ? Candidature.date : today,
+      date: Candidature ? format(new Date(Candidature.date), 'yyyy-MM-dd') : format(today, 'yyyy-MM-dd'),
       status: Candidature ? Candidature.status : "",
       link: Candidature ? Candidature.link : "",
       note: Candidature ? Candidature.note : "",
@@ -64,20 +73,43 @@ const CandidaturePage = (props: Props) => {
     enableReinitialize: true,
     validationSchema: ValidSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values))
-      if(props.edit) {
-        editCandidature(values.id, values.company, values.job, values.date, values.status, values.link, values.note, values.place);
+      // alert(JSON.stringify(values));
+
+      // console.log('Valeur brute de values.date:', values.date);
+    const normalizedDate = format(new Date(values.date), 'yyyy-MM-dd');
+    // console.log('Date normalisée:', normalizedDate);
+
+      if (props.edit) {
+        editCandidature(
+          values.id,
+          values.company,
+          values.job,
+          normalizedDate,
+          values.status,
+          values.link,
+          values.note,
+          values.place
+        );
       } else {
-        addCandidature(values.company, values.job, values.date, values.status, values.link, values.note, values.place)
+        addCandidature(
+          values.company,
+          values.job,
+          normalizedDate,
+          values.status,
+          values.link,
+          values.note,
+          values.place
+        );
       }
+
       navigate("/home");
     },
   });
 
   // if (!test) return <p>Chargement...</p>;
 
-//   console.log("Largeur écran : " + screen.width + "px");
-// console.log("Hauteur écran : " + screen.height + "px");
+  //   console.log("Largeur écran : " + screen.width + "px");
+  // console.log("Hauteur écran : " + screen.height + "px");
 
   return (
     <div className="pb-10">
@@ -88,7 +120,7 @@ const CandidaturePage = (props: Props) => {
           <Button onClick={() => navigate(-1)} className="">
             Retour
           </Button>
-          <p className="text-center">ID : {props.edit ? id : "new"}</p>
+          {/* <p className="text-center">ID : {props.edit ? id : "new"}</p> */}
         </div>
         {/* CARD */}
         <Card className="w-full max-w-sm justify-self-center mt-2">
@@ -128,15 +160,22 @@ const CandidaturePage = (props: Props) => {
                 label="Poste"
               />
               <div className="flex justify-between gap-2">
-                {/* <InputCandidature name={"date"} classname={""} label="Date de candidature">
+                <InputCandidature
+                  name={"date"}
+                  classname={""}
+                  label="Date de candidature"
+                >
                   <InputDateCalendar
                     name="date"
-                    value={formik.values.date}
+                    value={new Date(formik.values.date)}
                     onChange={(val) => formik.setFieldValue("date", val)}
-                    placeholder={"Select date"}
-                    // error={formik.touched.date && formik.errors.date}
+                    error={
+                      formik.touched.date
+                        ? (formik.errors.date as string)
+                        : undefined
+                    }
                   />
-                </InputCandidature> */}
+                </InputCandidature>
                 <InputCandidature
                   name={"place"}
                   value={formik.values.place}
@@ -181,15 +220,19 @@ const CandidaturePage = (props: Props) => {
             </form>
           </CardContent>
         </Card>
-        {/* {props.edit && ( */}
+        {props.edit && (
         <div className="flex justify-around mt-10">
           <Button variant={"secondary"} title="Archive" disabled>
             <Archive /> Archiver
           </Button>
 
-          <DeleteTestDIalog id={Number(id)} company={Candidature?.company} job={Candidature?.job} />
+          <DeleteTestDIalog
+            id={Number(id)}
+            company={Candidature?.company}
+            job={Candidature?.job}
+          />
         </div>
-         {/* )}  */}
+        )} 
       </Contenu>
     </div>
   );

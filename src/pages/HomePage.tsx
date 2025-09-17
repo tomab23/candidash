@@ -37,10 +37,6 @@ const HomePage = () => {
               {/* 0 candidature / applications au total */}
             </p>
           </div>
-          <Button onClick={() => navigate("/test")} className="">
-            <SquarePlus />
-            test
-          </Button>
           <Button onClick={() => navigate("/candidature")} className="">
             <SquarePlus />
             Nouvelle candidature
