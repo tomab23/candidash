@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useCandidature } from "@/hooks/useCandidature";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   id: number;
@@ -22,6 +23,7 @@ type Props = {
 
 export default function DeleteTestDIalog({ id, company, job }: Props) {
   const { removeCandidature } = useCandidature();
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const HandleDelete = () => {
@@ -38,22 +40,24 @@ export default function DeleteTestDIalog({ id, company, job }: Props) {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            <p><span className="font-bold">{job}</span> chez <span className="font-bold">{company}</span></p>
+            <p>
+              <span className="font-bold">{job}</span> {t("DELETE.TITLE")}{" "}
+              <span className="font-bold">{company}</span>
+            </p>
           </AlertDialogTitle>
           <AlertDialogDescription>
-            <b>Supprimer cette candidature ?</b><br />
-            This action cannot be undone. This will permanently delete your
-            account and remove all of your data from our servers. You will not
-            be able to recover your account.
+            <b className="text-xl">{t("DELETE.QUESTION")}</b>
+            <br />
+            {t("DELETE.MESSAGE")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>{t("BUTTON.CANCEL")}</AlertDialogCancel>
           <AlertDialogAction
             onClick={HandleDelete}
             className="bg-destructive text-white hover:bg-destructive/90"
           >
-            Supprimer
+            {t("BUTTON.DELETE")}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
