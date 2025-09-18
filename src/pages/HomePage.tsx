@@ -53,7 +53,6 @@ const HomePage = () => {
               className="pl-10"
             />
           </div>
-          {/* <FilterTest /> */}
           <FilterCandidature
             status={statusFilter}
             setStatus={setStatusFilter}

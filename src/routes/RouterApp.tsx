@@ -3,7 +3,6 @@ import ProfilePage from "@/pages/ProfilePage";
 import { Route, Routes } from "react-router-dom";
 import SettingsPage from "@/pages/SettingsPage";
 import PrivateRoute from "./PrivatesRoute";
-import TestPage from "@/pages/TestPage";
 import ForgotPasswordPage from "@/pages/auth/ForgotPasswordPage";
 import AuthPage from "@/pages/auth/AuthPage";
 import CandidaturePage from "@/pages/CandidaturePage";
@@ -26,8 +25,6 @@ const RouterApp = () => {
       <Route path="/candidature" element={<PrivateRoute><CandidaturePage edit={false} /></PrivateRoute>} />
       <Route path="/candidature/:id" element={<PrivateRoute><CandidaturePage edit={true} /></PrivateRoute>} />
       {/* TEST */}
-      <Route path="/test/:id" element={<PrivateRoute><TestPage edit /></PrivateRoute>} />
-      <Route path="/test" element={<PrivateRoute><TestPage edit={false} /></PrivateRoute>} />
     </Routes>
   );
 };
