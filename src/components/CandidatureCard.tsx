@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Archive, Calendar, Edit, FileText, Link, MapPin, User2, Workflow } from "lucide-react";
+import { Archive, Calendar, Edit, FileText, Link, MapPin, User2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
@@ -61,7 +61,7 @@ const CandidatureCard = ({ candidature }: Props) => {
 
         <div className="flex items-start text-sm text-muted-foreground">
           <FileText className="h-4 w-4 mr-2 mt-0.5" />
-          <span className="line-clamp-2">{candidature.note}</span>
+          <span className="line-clamp-2" title={candidature.note}>{candidature.note}</span>
         </div>
 
         {/* </div> */}
