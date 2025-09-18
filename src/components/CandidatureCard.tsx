@@ -1,10 +1,5 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Archive, Calendar, Edit, FileText, MapPin, User2 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Archive, Calendar, Edit, FileText, Link, MapPin, User2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
@@ -16,9 +11,9 @@ type Props = {
   candidature: Candidature;
 };
 const CandidatureCard = ({ candidature }: Props) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const { i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -38,7 +33,9 @@ const CandidatureCard = ({ candidature }: Props) => {
       <CardHeader className="">
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg">{candidature.company}</CardTitle>
-          <Badge className={getStatusColor(candidature.status)}>{candidature.status}</Badge>
+          <Badge className={getStatusColor(candidature.status)}>
+            {candidature.status}
+          </Badge>
         </div>
       </CardHeader>
       <CardContent className="space-y-3">
@@ -57,8 +54,14 @@ const CandidatureCard = ({ candidature }: Props) => {
         </div>
 
         <div className="flex items-start text-sm text-muted-foreground">
+          <Link className="h-4 w-4 mr-2 mt-0.5" />
+          <span className="line-clamp-2 hover:underline hover: cursor-pointer"
+           onClick={() => window.open(candidature.link)}>{candidature.link}</span>
+        </div>
+
+        <div className="flex items-start text-sm text-muted-foreground">
           <FileText className="h-4 w-4 mr-2 mt-0.5" />
-          <span className="line-clamp-2">{candidature.note}</span>
+          <span className="line-clamp-2" title={candidature.note}>{candidature.note}</span>
         </div>
 
         {/* </div> */}

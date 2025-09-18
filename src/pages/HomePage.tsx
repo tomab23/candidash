@@ -19,7 +19,6 @@ const HomePage = () => {
   const [statusFilter, setStatusFilter] = useState<string>("all");
 
   // console.log(candidatures);
-  
 
   // const testsByDate = tests.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
   // const testsById = tests.sort((a, b) => a.id - b.id);
@@ -33,7 +32,8 @@ const HomePage = () => {
           <div>
             <h1 className="text-3xl font-bold">Mes Candidatures</h1>
             <p>
-              {candidatures.length} candidature{candidatures.length > 1 && "s"} au total
+              {candidatures.length} candidature{candidatures.length > 1 && "s"}{" "}
+              au total
               {/* 0 candidature / applications au total */}
             </p>
           </div>
@@ -53,7 +53,6 @@ const HomePage = () => {
               className="pl-10"
             />
           </div>
-          {/* <FilterTest /> */}
           <FilterCandidature
             status={statusFilter}
             setStatus={setStatusFilter}
@@ -61,12 +60,20 @@ const HomePage = () => {
         </div>
         <p className="text-center">Filtre : {statusFilter}</p>
         {/* LIST */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {candidatures.map((c) => (
-              <CandidatureCard key={c.id} candidature={c} />
-            )).reverse()}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {candidatures
+            .map((c) => <CandidatureCard key={c.id} candidature={c} />)
+            .reverse()}
+        </div>
+
+        <br />
         {loading && <p className="text-center mt-5">Chargement...</p>}
+        {/* {loading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <SkeletonCard />
+            <SkeletonCard />
+          </div>
+        )} */}
         {candidatures.length === 0 && !loading && <NoList />}
       </Contenu>
     </div>
