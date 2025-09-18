@@ -122,8 +122,9 @@ const AuthPage = (props: Props) => {
               </p>
             ) : (
               <p
-                onClick={() => navigate("forgot-password")}
-                className="mt-2 text-right text-sm block underline text-muted-foreground hover:cursor-pointer"
+                // onClick={() => navigate("forgot-password")}
+                // className="mt-2 text-right text-sm block underline text-muted-foreground hover:cursor-pointer"
+                className="mt-2 text-right text-sm block text-muted"
               >
                 Forgot your password?
               </p>
