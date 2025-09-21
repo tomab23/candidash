@@ -27,9 +27,27 @@ type Props = {
 export function StatusBox({ name, value, onChange}: Props) {
   const { t } = useTranslation()
   const [open, setOpen] = useState(false);
-  const [status, setStatus] = useState("Select status");
 
   // console.log("status : ", status);
+
+     const getStatusTranslate = (status: string) => {
+    switch (status) {
+      case "valid":
+        return t("STATUS.VALID");
+      case "refused":
+        return t("STATUS.REFUSED");
+      case "wait":
+        return t("STATUS.WAITING");
+      case "interview":
+        return t("STATUS.INTERVIEW");
+      case "again":
+        return t("STATUS.AGAIN");
+      case "abandoned":
+        return t("STATUS.ABANDONED");
+      default:
+        return t("STATUS.SELECT");
+    }
+  };
   
 
   return (
@@ -43,7 +61,7 @@ export function StatusBox({ name, value, onChange}: Props) {
           className="justify-between w-full font-normal"
           // w-48
         >
-          {value ? value : status}
+          {getStatusTranslate(value)}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -61,7 +79,6 @@ export function StatusBox({ name, value, onChange}: Props) {
                   onSelect={(currentValue) => {
                     onChange(currentValue);
                     setOpen(false);
-                    setStatus(t(item.label))
                   }}
                   id={name}
                 >

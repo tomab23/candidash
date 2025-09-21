@@ -26,6 +26,7 @@
     "INTERVIEW": "Entretien",
     "NONE": "Pas de status trouvé",
     "REFUSED": "Refusé",
+    "SELECT": "Choisir le status",
     "VALID": "Validé",
     "WAITING": "En attente"
   }
