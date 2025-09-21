@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/popover";
 import { ItemStatusList } from "@/models/ItemStatusList";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 
 type Props = {
@@ -24,6 +25,7 @@ type Props = {
 };
 
 export function StatusBox({ name, value, onChange}: Props) {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState("Select status");
 
@@ -41,7 +43,7 @@ export function StatusBox({ name, value, onChange}: Props) {
           className="justify-between w-full font-normal"
           // w-48
         >
-          {status}
+          {value ? value : status}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -49,7 +51,7 @@ export function StatusBox({ name, value, onChange}: Props) {
         <Command>
           {/* <CommandInput placeholder="Search status..." className="h-9" /> */}
           <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandEmpty>{t("STATUS.NONE")}</CommandEmpty>
             <CommandGroup>
               {ItemStatusList.map((item) => (
                 <CommandItem
@@ -59,12 +61,12 @@ export function StatusBox({ name, value, onChange}: Props) {
                   onSelect={(currentValue) => {
                     onChange(currentValue);
                     setOpen(false);
-                    setStatus(item.label)
+                    setStatus(t(item.label))
                   }}
                   id={name}
                 >
                     <List className={item.classname}/>
-                  {item.label}
+                  {t(item.label)}
                   <Check
                     className={cn(
                       "ml-auto",

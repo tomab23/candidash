@@ -30,16 +30,16 @@ const HomePage = () => {
         {/* HEADER */}
         <div className="flex justify-between my-5 items-center">
           <div>
-            <h1 className="text-3xl font-bold">Mes Candidatures</h1>
+            <h1 className="text-3xl font-bold">{t("HOME.TITLE")}</h1>
             <p>
-              {candidatures.length} candidature{candidatures.length > 1 && "s"}{" "}
-              au total
+              {candidatures.length} {t("CANDIDATURE")}{candidatures.length > 1 && "s"}{" "}
+              {t("HOME.TOTAL")}
               {/* 0 candidature / applications au total */}
             </p>
           </div>
           <Button onClick={() => navigate("/candidature")} className="">
             <SquarePlus />
-            Nouvelle candidature
+            {t("BUTTON.ADD")}
           </Button>
         </div>
         {/* SEARCH & FILTER */}
@@ -47,7 +47,7 @@ const HomePage = () => {
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
-              placeholder="Rechercher par entreprise, poste ou lieu..."
+              placeholder={t("INPUT.SEARCH")}
               // value={searchTerm}
               // onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"

@@ -1,13 +1,32 @@
 {
   "BUTTON": {
+    "ADD": "New application",
     "CANCEL": "Cancel",
     "DELETE": "Delete"
   },
+  "CANDIDATURE": "application",
   "DELETE": {
     "MESSAGE": "This action cannot be undone. This will permanently delete your application",
     "QUESTION": "Delete this application ?",
     "TITLE": "at"
   },
   "HELLO": "Application en Anglais",
-  "LOADING": "Loading"
+  "HOME": {
+    "TITLE": "My Applications",
+    "TOTAL": "in total"
+  },
+  "INPUT": {
+    "SEARCH": "Search by company, job or location..."
+  },
+  "LOADING": "Loading",
+  "STATUS": {
+    "ABANDONED": "Abandoned",
+    "AGAIN": "Throw again",
+    "ALL": "All status",
+    "INTERVIEW": "Interview",
+    "NONE": "No status found",
+    "REFUSED": "Refused",
+    "VALID": "Approved",
+    "WAITING": "Waiting"
+  }
 }
