@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/select";
 import { ItemStatusList } from "@/models/ItemStatusList";
 import { ListFilter } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     status: string
@@ -14,6 +15,7 @@ type Props = {
 }
 
 const FilterCandidature = ({ status, setStatus } : Props) => {
+  const { t } = useTranslation()
   return (
           <Select value={status} onValueChange={setStatus}>
         <SelectTrigger className="w-full sm:w-48">
@@ -29,7 +31,7 @@ const FilterCandidature = ({ status, setStatus } : Props) => {
           <SelectItem value="refusé">Refusé</SelectItem>
           <SelectItem value="abandoné">Abandonné</SelectItem> */}
           {ItemStatusList.map((item) => (
-            <SelectItem key={item.value} value={item.value}><ListFilter className={item.classname} /> {item.label}</SelectItem>
+            <SelectItem key={item.value} value={item.value}><ListFilter className={item.classname} /> {t(item.label)}</SelectItem>
           ))}
         </SelectContent>
       </Select>

@@ -1,12 +1,33 @@
 {
   "BUTTON": {
+    "ADD": "Nouvelle candidature",
     "CANCEL": "Annuler",
     "DELETE": "Supprimer"
   },
+  "CANDIDATURE": "candidature",
   "DELETE": {
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
     "QUESTION": "Supprimer cette candidature ?",
     "TITLE": "chez "
   },
-  "HELLO": "Application en Français"
+  "HELLO": "Application en Français",
+  "HOME": {
+    "TITLE": "Mes Candidatures",
+    "TOTAL": "au total"
+  },
+  "INPUT": {
+    "SEARCH": "Rechercher par entreprise, poste ou lieu..."
+  },
+  "LOADING": "Chargement",
+  "STATUS": {
+    "ABANDONED": "Abandonné",
+    "AGAIN": "Relance",
+    "ALL": "Tous les status",
+    "INTERVIEW": "Entretien",
+    "NONE": "Pas de status trouvé",
+    "REFUSED": "Refusé",
+    "SELECT": "Choisir le status",
+    "VALID": "Validé",
+    "WAITING": "En attente"
+  }
 }
