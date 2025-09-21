@@ -67,7 +67,7 @@ const HomePage = () => {
         </div>
 
         <br />
-        {loading && <p className="text-center mt-5">Chargement...</p>}
+        {loading && <p className="text-center mt-5">{t("LOADING")}...</p>}
         {/* {loading && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <SkeletonCard />
