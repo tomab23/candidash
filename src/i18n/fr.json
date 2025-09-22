@@ -34,5 +34,12 @@
     "SELECT": "Choisir le status",
     "VALID": "Validé",
     "WAITING": "En attente"
+  },
+  "TITLE": {
+    "HOME": "Accueil",
+    "LOGOUT": "Déconnexion",
+    "PROFILE": "Profil",
+    "SETTINGS": "Paramètres",
+    "UPDATES": "Mises à jour"
   }
 }

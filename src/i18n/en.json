@@ -34,5 +34,12 @@
     "SELECT": "Select status",
     "VALID": "Approved",
     "WAITING": "Waiting"
+  },
+  "TITLE": {
+    "HOME": "Home",
+    "LOGOUT": "Logout",
+    "PROFILE": "Profile",
+    "SETTINGS": "Settings",
+    "UPDATES": "Updates"
   }
 }
