@@ -17,9 +17,13 @@
   "BUTTON": {
     "404": "Retour à l'accueil",
     "ADD": "Nouvelle candidature",
+    "ARCHIVE": "Archiver",
+    "BACK": "Retour",
     "CANCEL": "Annuler",
     "DELETE": "Supprimer",
+    "EDIT": "Modifier la candidature",
     "LOGIN": "Connexion",
+    "PROFILE": "Modifier mon profil",
     "REGISTER": "Inscription"
   },
   "CANDIDATURE": "candidature",
@@ -33,10 +37,23 @@
       "INVALID": "Adresse email invalide.",
       "NEED": "Adresse email obligatoire."
     },
+    "FORM": "Tous les champs avec * sont obligatoires et doivent être remplis.",
     "PASSWORD": {
       "MIN": "Votre mot de passe est trop court.",
       "NEED": "Le mot de passe est obligatoire."
-    }
+    },
+    "REQUIRED": "Ce champ est obligatoire.",
+    "URL": "Le lien doit être une URL valide."
+  },
+  "FORM": {
+    "ADD": "Ajouter la candidature",
+    "COMPANY": "Entreprise",
+    "DATE": "Date de candidature",
+    "JOB": "Poste",
+    "LINK": "Lien",
+    "PLACE": "Lieu",
+    "RESET": "réinitialiser",
+    "TITLE": "Ajouter une candidature"
   },
   "HELLO": "Application en Français",
   "HOME": {
@@ -48,6 +65,9 @@
   },
   "LANGUAGE": "Langue",
   "LOADING": "Chargement",
+  "PLACEHOLDER": {
+    "NOTE": "Tapez votre note ici."
+  },
   "PROFILE": {
     "SINCE": "Inscript depuis"
   },

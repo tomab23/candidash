@@ -57,7 +57,7 @@ const ProfilePage = () => {
               </div>
             </div>
             <Button variant="outline" disabled>
-              Modifier mon profil
+              {t("BUTTON.PROFILE")}
             </Button>
           </div>
           {/* MORE */}

@@ -17,9 +17,13 @@
   "BUTTON": {
     "404": "Back to home page",
     "ADD": "New application",
+    "ARCHIVE": "Archive",
+    "BACK": "Back",
     "CANCEL": "Cancel",
     "DELETE": "Delete",
+    "EDIT": "Edit application",
     "LOGIN": "Login",
+    "PROFILE": "Edit my profile",
     "REGISTER": "Register"
   },
   "CANDIDATURE": "application",
@@ -33,10 +37,23 @@
       "INVALID": "Invalid email address.",
       "NEED": "Email address required."
     },
+    "FORM": "All fields marked with * are required and must be completed.",
     "PASSWORD": {
       "MIN": "Your password is too short.",
       "NEED": "A password is required."
-    }
+    },
+    "REQUIRED": "This field is required.",
+    "URL": "The link must be a valid URL."
+  },
+  "FORM": {
+    "ADD": "Add new application",
+    "COMPANY": "Company",
+    "DATE": "Application date",
+    "JOB": "Job",
+    "LINK": "Link",
+    "PLACE": "Place",
+    "RESET": "reset",
+    "TITLE": "Add a job application"
   },
   "HELLO": "Application en Anglais",
   "HOME": {
@@ -48,6 +65,9 @@
   },
   "LANGUAGE": "Language",
   "LOADING": "Loading",
+  "PLACEHOLDER": {
+    "NOTE": "Type your note here."
+  },
   "PROFILE": {
     "SINCE": "Registered since"
   },
