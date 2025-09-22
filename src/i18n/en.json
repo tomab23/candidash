@@ -65,6 +65,10 @@
   },
   "LANGUAGE": "Language",
   "LOADING": "Loading",
+  "NONE": {
+    "FIRST": "Start by adding your first application!",
+    "NONE": "No applications"
+  },
   "PLACEHOLDER": {
     "NOTE": "Type your note here."
   },

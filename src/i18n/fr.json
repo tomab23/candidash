@@ -65,6 +65,10 @@
   },
   "LANGUAGE": "Langue",
   "LOADING": "Chargement",
+  "NONE": {
+    "FIRST": "Commencez par ajouter votre première candidature !",
+    "NONE": "Aucune candidature"
+  },
   "PLACEHOLDER": {
     "NOTE": "Tapez votre note ici."
   },
