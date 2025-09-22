@@ -3,17 +3,40 @@
     "TEXT": "Désolé, la page que vous cherchez n'existe pas ou a été déplacée.",
     "TITLE": "Page non trouvée"
   },
+  "AUTH": {
+    "CREATE": "Créer un compte",
+    "FORGOT": "Mot de passe oublié?",
+    "HAVE": "Vous avez déjà un compte ?",
+    "LOG": "Se connecter",
+    "LOGIN": "Connectez-vous à",
+    "NONE": "Vous n'avez pas de compte ?",
+    "PASSWORD": "Mot de passe",
+    "REGISTER": "Inscrivez-vous sur",
+    "RULE": "Votre mot de passe doit contenir au moins 8 caractères, 1 lettre majuscule et 1 chiffre."
+  },
   "BUTTON": {
     "404": "Retour à l'accueil",
     "ADD": "Nouvelle candidature",
     "CANCEL": "Annuler",
-    "DELETE": "Supprimer"
+    "DELETE": "Supprimer",
+    "LOGIN": "Connexion",
+    "REGISTER": "Inscription"
   },
   "CANDIDATURE": "candidature",
   "DELETE": {
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
     "QUESTION": "Supprimer cette candidature ?",
     "TITLE": "chez "
+  },
+  "ERROR": {
+    "EMAIL": {
+      "INVALID": "Adresse email invalide.",
+      "NEED": "Adresse email obligatoire."
+    },
+    "PASSWORD": {
+      "MIN": "Votre mot de passe est trop court.",
+      "NEED": "Le mot de passe est obligatoire."
+    }
   },
   "HELLO": "Application en Français",
   "HOME": {
