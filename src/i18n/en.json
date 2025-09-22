@@ -46,7 +46,11 @@
   "INPUT": {
     "SEARCH": "Search by company, job or location..."
   },
+  "LANGUAGE": "Language",
   "LOADING": "Loading",
+  "PROFILE": {
+    "SINCE": "Registered since"
+  },
   "STATUS": {
     "ABANDONED": "Abandoned",
     "AGAIN": "Throw again",
@@ -64,5 +68,10 @@
     "PROFILE": "Profile",
     "SETTINGS": "Settings",
     "UPDATES": "Updates"
+  },
+  "UPDATE": {
+    "ADD": "Addition",
+    "DELETE": "Deletion",
+    "UPDATE": "Update"
   }
 }

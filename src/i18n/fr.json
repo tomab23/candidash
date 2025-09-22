@@ -46,7 +46,11 @@
   "INPUT": {
     "SEARCH": "Rechercher par entreprise, poste ou lieu..."
   },
+  "LANGUAGE": "Langue",
   "LOADING": "Chargement",
+  "PROFILE": {
+    "SINCE": "Inscript depuis"
+  },
   "STATUS": {
     "ABANDONED": "Abandonné",
     "AGAIN": "Relance",
@@ -64,5 +68,10 @@
     "PROFILE": "Profil",
     "SETTINGS": "Paramètres",
     "UPDATES": "Mises à jour"
+  },
+  "UPDATE": {
+    "ADD": "Ajout",
+    "DELETE": "Suppression",
+    "UPDATE": "Mise a jour"
   }
 }
