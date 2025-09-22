@@ -1,21 +1,23 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "./ui/button";
 import { useNavigate } from "react-router-dom";
 
 const NoList = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation()
 
   return (
     <div className="text-center py-12">
       <div className="text-6xl mb-4">📄</div>
       <h3 className="text-lg font-semibold mb-2">
-        Aucune candidature
+        {t("NONE.NONE")}
       </h3>
       <p className="text-muted-foreground mb-4">
-          Commencez par ajouter votre première candidature !
+          {t("NONE.FIRST")}
       </p>
 
         <Button onClick={() => navigate("/candidature")}>
-          Ajouter une candidature
+          {t("FORM.TITLE")}
         </Button>
 
     </div>

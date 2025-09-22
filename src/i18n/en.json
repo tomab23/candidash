@@ -1,14 +1,59 @@
 {
+  "404": {
+    "TEXT": "Sorry, the page you are looking for either doesn't exist or has been moved.",
+    "TITLE": "Page not found"
+  },
+  "AUTH": {
+    "CREATE": "Create account",
+    "FORGOT": "Forgot your password?",
+    "HAVE": "Already have an account?",
+    "LOG": "Log in",
+    "LOGIN": "Login to",
+    "NONE": "Don't have an account?",
+    "PASSWORD": "Password",
+    "REGISTER": "Sign up to",
+    "RULE": "Your password must contain at least 8 characters, 1 uppercase letter, and 1 number."
+  },
   "BUTTON": {
+    "404": "Back to home page",
     "ADD": "New application",
+    "ARCHIVE": "Archive",
+    "BACK": "Back",
     "CANCEL": "Cancel",
-    "DELETE": "Delete"
+    "DELETE": "Delete",
+    "EDIT": "Edit application",
+    "LOGIN": "Login",
+    "PROFILE": "Edit my profile",
+    "REGISTER": "Register"
   },
   "CANDIDATURE": "application",
   "DELETE": {
     "MESSAGE": "This action cannot be undone. This will permanently delete your application",
     "QUESTION": "Delete this application ?",
     "TITLE": "at"
+  },
+  "ERROR": {
+    "EMAIL": {
+      "INVALID": "Invalid email address.",
+      "NEED": "Email address required."
+    },
+    "FORM": "All fields marked with * are required and must be completed.",
+    "PASSWORD": {
+      "MIN": "Your password is too short.",
+      "NEED": "A password is required."
+    },
+    "REQUIRED": "This field is required.",
+    "URL": "The link must be a valid URL."
+  },
+  "FORM": {
+    "ADD": "Add new application",
+    "COMPANY": "Company",
+    "DATE": "Application date",
+    "JOB": "Job",
+    "LINK": "Link",
+    "PLACE": "Place",
+    "RESET": "reset",
+    "TITLE": "Add a job application"
   },
   "HELLO": "Application en Anglais",
   "HOME": {
@@ -18,7 +63,18 @@
   "INPUT": {
     "SEARCH": "Search by company, job or location..."
   },
+  "LANGUAGE": "Language",
   "LOADING": "Loading",
+  "NONE": {
+    "FIRST": "Start by adding your first application!",
+    "NONE": "No applications"
+  },
+  "PLACEHOLDER": {
+    "NOTE": "Type your note here."
+  },
+  "PROFILE": {
+    "SINCE": "Registered since"
+  },
   "STATUS": {
     "ABANDONED": "Abandoned",
     "AGAIN": "Throw again",
@@ -29,5 +85,17 @@
     "SELECT": "Select status",
     "VALID": "Approved",
     "WAITING": "Waiting"
+  },
+  "TITLE": {
+    "HOME": "Home",
+    "LOGOUT": "Logout",
+    "PROFILE": "Profile",
+    "SETTINGS": "Settings",
+    "UPDATES": "Updates"
+  },
+  "UPDATE": {
+    "ADD": "Addition",
+    "DELETE": "Deletion",
+    "UPDATE": "Update"
   }
 }

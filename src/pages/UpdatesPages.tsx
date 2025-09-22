@@ -5,10 +5,12 @@ import { CircleArrowUp, Plus, Trash2, Wrench } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ImgTitle from "@/components/ImgTitle";
+import { useTranslation } from "react-i18next";
 
 const UpdatesPages = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -33,26 +35,26 @@ const UpdatesPages = () => {
           </nav>
         </div>
       )}
-      <h1 className="text-center text-2xl font-bold mt-2 mb-5">Updates</h1>
+      <h1 className="text-center text-2xl font-bold mt-2 mb-5">{t("TITLE.UPDATES")}</h1>
       <Contenu>
         <div className="flex justify-center items-center gap-10">
           <p className="flex items-center gap-1">
             <Plus className="w-5 h-5 dark:stroke-green-400 stroke-green-600" />{" "}
-            Ajout
+            {t("UPDATE.ADD")}
           </p>
           <p className="flex items-center gap-1">
             {" "}
             <Wrench className="w-5 h-5 dark:stroke-orange-400 stroke-orange-600" />
-            Corection
+            Correction
           </p>
           <p className="flex items-center gap-1">
             {" "}
             <CircleArrowUp className="w-5 h-5 dark:stroke-blue-400 stroke-blue-600" />{" "}
-            Mise a jour
+            {t("UPDATE.UPDATE")}
           </p>
           <p className="flex items-center gap-1">
             <Trash2 className="w-5 h-5 dark:stroke-red-400 stroke-red-600" />
-            Suppression
+            {t("UPDATE.DELETE")}
           </p>
         </div>
       </Contenu>

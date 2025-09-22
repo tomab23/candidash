@@ -34,7 +34,7 @@ export default function DeleteTestDIalog({ id, company, job }: Props) {
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button variant="destructive">
-          <Trash2 /> Supprimer
+          <Trash2 /> {t("BUTTON.DELETE")}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>

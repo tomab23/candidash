@@ -1,14 +1,59 @@
 {
+  "404": {
+    "TEXT": "Désolé, la page que vous cherchez n'existe pas ou a été déplacée.",
+    "TITLE": "Page non trouvée"
+  },
+  "AUTH": {
+    "CREATE": "Créer un compte",
+    "FORGOT": "Mot de passe oublié?",
+    "HAVE": "Vous avez déjà un compte ?",
+    "LOG": "Se connecter",
+    "LOGIN": "Connectez-vous à",
+    "NONE": "Vous n'avez pas de compte ?",
+    "PASSWORD": "Mot de passe",
+    "REGISTER": "Inscrivez-vous sur",
+    "RULE": "Votre mot de passe doit contenir au moins 8 caractères, 1 lettre majuscule et 1 chiffre."
+  },
   "BUTTON": {
+    "404": "Retour à l'accueil",
     "ADD": "Nouvelle candidature",
+    "ARCHIVE": "Archiver",
+    "BACK": "Retour",
     "CANCEL": "Annuler",
-    "DELETE": "Supprimer"
+    "DELETE": "Supprimer",
+    "EDIT": "Modifier la candidature",
+    "LOGIN": "Connexion",
+    "PROFILE": "Modifier mon profil",
+    "REGISTER": "Inscription"
   },
   "CANDIDATURE": "candidature",
   "DELETE": {
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
     "QUESTION": "Supprimer cette candidature ?",
     "TITLE": "chez "
+  },
+  "ERROR": {
+    "EMAIL": {
+      "INVALID": "Adresse email invalide.",
+      "NEED": "Adresse email obligatoire."
+    },
+    "FORM": "Tous les champs avec * sont obligatoires et doivent être remplis.",
+    "PASSWORD": {
+      "MIN": "Votre mot de passe est trop court.",
+      "NEED": "Le mot de passe est obligatoire."
+    },
+    "REQUIRED": "Ce champ est obligatoire.",
+    "URL": "Le lien doit être une URL valide."
+  },
+  "FORM": {
+    "ADD": "Ajouter la candidature",
+    "COMPANY": "Entreprise",
+    "DATE": "Date de candidature",
+    "JOB": "Poste",
+    "LINK": "Lien",
+    "PLACE": "Lieu",
+    "RESET": "réinitialiser",
+    "TITLE": "Ajouter une candidature"
   },
   "HELLO": "Application en Français",
   "HOME": {
@@ -18,7 +63,18 @@
   "INPUT": {
     "SEARCH": "Rechercher par entreprise, poste ou lieu..."
   },
+  "LANGUAGE": "Langue",
   "LOADING": "Chargement",
+  "NONE": {
+    "FIRST": "Commencez par ajouter votre première candidature !",
+    "NONE": "Aucune candidature"
+  },
+  "PLACEHOLDER": {
+    "NOTE": "Tapez votre note ici."
+  },
+  "PROFILE": {
+    "SINCE": "Inscript depuis"
+  },
   "STATUS": {
     "ABANDONED": "Abandonné",
     "AGAIN": "Relance",
@@ -29,5 +85,17 @@
     "SELECT": "Choisir le status",
     "VALID": "Validé",
     "WAITING": "En attente"
+  },
+  "TITLE": {
+    "HOME": "Accueil",
+    "LOGOUT": "Déconnexion",
+    "PROFILE": "Profil",
+    "SETTINGS": "Paramètres",
+    "UPDATES": "Mises à jour"
+  },
+  "UPDATE": {
+    "ADD": "Ajout",
+    "DELETE": "Suppression",
+    "UPDATE": "Mise a jour"
   }
 }

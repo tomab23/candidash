@@ -7,10 +7,12 @@ import { useCandidature } from "@/hooks/useCandidature";
 import i18n from "@/i18n/i18n";
 import { intervalToDuration } from "date-fns";
 import { List, SquareUserRound } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const ProfilePage = () => {
   const { user } = useAuth();
   const { candidatures } = useCandidature();
+  const { t } = useTranslation()
 
   const dateRegister = new Date(String(user?.created_at)).setHours(0, 0, 0, 0);
   const today = new Date().setHours(0, 0, 0, 0);
@@ -28,7 +30,7 @@ const ProfilePage = () => {
     <div>
       <Navbar />
       <div className="h-full max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-center text-2xl font-bold mt-2 mb-10">Profile</h1>
+        <h1 className="text-center text-2xl font-bold mt-2 mb-10">{t("TITLE.PROFILE")}</h1>
         {/*  */}
         <div className="flex flex-col gap-5 mt-10">
           {/* USER INFO AUTH */}
@@ -38,7 +40,7 @@ const ProfilePage = () => {
               <div>
                 <p className="text-lg font-semibold">{user?.email}</p>
                 <p className="italic text-sm max-sm:text-xs">
-                  Inscript depuis :{" "}
+                  {t("PROFILE.SINCE")} :{" "}
                   {StringToDate(String(user?.created_at), true)}{" "}
                   {interval.months && interval.months && (
                     <span>
@@ -55,13 +57,13 @@ const ProfilePage = () => {
               </div>
             </div>
             <Button variant="outline" disabled>
-              Modifier mon profil
+              {t("BUTTON.PROFILE")}
             </Button>
           </div>
           {/* MORE */}
           <div className="grid grid-rows-1 grid-cols-4 sm:grid-cols-6 gap-4">
             <StatCard
-              title={"Candidatures"}
+              title={t("CANDIDATURE") + "s"}
               value={candidatures.length}
               icon={<List className="h-4 w-4" />}
             />

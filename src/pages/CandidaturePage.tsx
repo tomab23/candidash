@@ -19,6 +19,7 @@ import { format } from "date-fns";
 import { useFormik } from "formik";
 import { Archive } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 
@@ -26,13 +27,12 @@ type Props = {
   edit: boolean;
 };
 
-
-
 const CandidaturePage = (props: Props) => {
   const { fetchCandidatureById, editCandidature, addCandidature } =
     useCandidature();
   const { id } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [Candidature, setCandidature] = useState<Candidature | null>(null);
 
   useEffect(() => {
@@ -45,26 +45,33 @@ const CandidaturePage = (props: Props) => {
     loadTest();
   }, [id, fetchCandidatureById]);
 
+  const requiredMsg = t("ERROR.REQUIRED");
+
   const ValidSchema = Yup.object().shape({
-    date: Yup.date().required("La date est obligatoire"),
+    date: Yup.date().required(requiredMsg),
+    company: Yup.string().required(requiredMsg),
+    job: Yup.string().required(requiredMsg),
+    status: Yup.string().required(requiredMsg),
+    place: Yup.string().required(requiredMsg),
+    link: Yup.string().url(t("ERROR.URL") + " (ex: https://exemple.com)"),
   });
 
-
   const normalizeDate = (d: Date) => {
-  const date = new Date(d);
-  date.setHours(0, 0, 0, 0);
-  return date;
-};
+    const date = new Date(d);
+    date.setHours(0, 0, 0, 0);
+    return date;
+  };
 
-const today = normalizeDate(new Date());
-
+  const today = normalizeDate(new Date());
 
   const formik = useFormik({
     initialValues: {
       id: Candidature ? Candidature.id : 0,
       company: Candidature ? Candidature.company : "",
       job: Candidature ? Candidature.job : "",
-      date: Candidature ? format(new Date(Candidature.date), 'yyyy-MM-dd') : format(today, 'yyyy-MM-dd'),
+      date: Candidature
+        ? format(new Date(Candidature.date), "yyyy-MM-dd")
+        : format(today, "yyyy-MM-dd"),
       status: Candidature ? Candidature.status : "",
       link: Candidature ? Candidature.link : "",
       note: Candidature ? Candidature.note : "",
@@ -76,8 +83,8 @@ const today = normalizeDate(new Date());
       // alert(JSON.stringify(values));
 
       // console.log('Valeur brute de values.date:', values.date);
-    const normalizedDate = format(new Date(values.date), 'yyyy-MM-dd');
-    // console.log('Date normalisée:', normalizedDate);
+      const normalizedDate = format(new Date(values.date), "yyyy-MM-dd");
+      // console.log('Date normalisée:', normalizedDate);
 
       if (props.edit) {
         editCandidature(
@@ -112,7 +119,6 @@ const today = normalizeDate(new Date());
   // console.log("Hauteur écran : " + screen.height + "px");
 
   console.log(Candidature?.status);
-  
 
   return (
     <div className="pb-10">
@@ -121,7 +127,7 @@ const today = normalizeDate(new Date());
         {/* HEADER */}
         <div className="flex justify-between items-center px-5 mt-5">
           <Button onClick={() => navigate(-1)} className="">
-            Retour
+            {t("BUTTON.BACK")}
           </Button>
           {/* <p className="text-center">ID : {props.edit ? id : "new"}</p> */}
         </div>
@@ -129,7 +135,7 @@ const today = normalizeDate(new Date());
         <Card className="w-full max-w-sm justify-self-center mt-2">
           <CardHeader>
             <CardTitle className="text-center text-xl">
-              Ajouter une candidature
+              {t("FORM.TITLE")}
             </CardTitle>
             <CardAction>
               <Button
@@ -137,7 +143,7 @@ const today = normalizeDate(new Date());
                 size={"sm"}
                 onClick={() => formik.resetForm()}
               >
-                reset
+                {t("FORM.RESET")}
               </Button>
             </CardAction>
           </CardHeader>
@@ -151,22 +157,22 @@ const today = normalizeDate(new Date());
                 name={"company"}
                 value={formik.values.company}
                 onChange={formik.handleChange}
-                placeholder={"test"}
-                label="Entreprise"
+                placeholder={t("FORM.COMPANY")}
+                label={t("FORM.COMPANY") + "*"}
               />
 
               <InputCandidature
                 name={"job"}
                 value={formik.values.job}
                 onChange={formik.handleChange}
-                placeholder={"job"}
-                label="Poste"
+                placeholder={t("FORM.JOB")}
+                label={t("FORM.JOB") + "*"}
               />
               <div className="flex justify-between gap-2">
                 <InputCandidature
                   name={"date"}
                   classname={""}
-                  label="Date de candidature"
+                  label={t("FORM.DATE") + "*"}
                 >
                   <InputDateCalendar
                     name="date"
@@ -183,12 +189,12 @@ const today = normalizeDate(new Date());
                   name={"place"}
                   value={formik.values.place}
                   onChange={formik.handleChange}
-                  placeholder={"place"}
-                  label="Lieu"
+                  placeholder={t("FORM.PLACE")}
+                  label={t("FORM.PLACE") + "*"}
                 />
               </div>
               {/* STATUS */}
-              <InputCandidature name={"status"} label={"Statut"}>
+              <InputCandidature name={"status"} label={"Statut*"}>
                 <StatusBox
                   name="status"
                   value={formik.values.status}
@@ -200,42 +206,49 @@ const today = normalizeDate(new Date());
                 name={"link"}
                 value={formik.values.link}
                 onChange={formik.handleChange}
-                placeholder={"link"}
-                label="Lien*"
+                placeholder={t("FORM.LINK")}
+                label={t("FORM.LINK")}
               />
 
-              <InputCandidature name={"note"} label={"Note*"}>
+              <InputCandidature name={"note"} label={"Note"}>
                 <Textarea
                   className=""
                   id="note"
                   name="note"
                   onChange={formik.handleChange}
                   value={formik.values.note ? formik.values.note : ""}
-                  placeholder="Type your note here.*"
+                  placeholder={t("PLACEHOLDER.NOTE")}
                 />
               </InputCandidature>
 
               <Button className="mt-5" type="submit">
-                {props.edit
-                  ? "Modifier la candidature"
-                  : "Valider la candidature"}
+                {props.edit ? t("BUTTON.EDIT") : t("FORM.ADD")}
               </Button>
+
+              {/* ERRORS */}
+              {formik.submitCount > 0 && !formik.errors.link &&
+                Object.values(formik.errors).length > 0 && (
+                  <div className="text-destructive">{t("ERROR.FORM")}</div>
+                )}
+              {formik.touched.link && formik.errors.link && (
+                <div className="text-destructive">{formik.errors.link}</div>
+              )}
             </form>
           </CardContent>
         </Card>
         {props.edit && (
-        <div className="flex justify-around mt-10">
-          <Button variant={"secondary"} title="Archive" disabled>
-            <Archive /> Archiver
-          </Button>
+          <div className="flex justify-around mt-10">
+            <Button variant={"secondary"} title="Archive" disabled>
+              <Archive /> {t("BUTTON.ARCHIVE")}
+            </Button>
 
-          <DeleteTestDIalog
-            id={Number(id)}
-            company={Candidature?.company}
-            job={Candidature?.job}
-          />
-        </div>
-        )} 
+            <DeleteTestDIalog
+              id={Number(id)}
+              company={Candidature?.company}
+              job={Candidature?.job}
+            />
+          </div>
+        )}
       </Contenu>
     </div>
   );
