@@ -1,5 +1,10 @@
 {
+  "404": {
+    "TEXT": "Désolé, la page que vous cherchez n'existe pas ou a été déplacée.",
+    "TITLE": "Page non trouvée"
+  },
   "BUTTON": {
+    "404": "Retour à l'accueil",
     "ADD": "Nouvelle candidature",
     "CANCEL": "Annuler",
     "DELETE": "Supprimer"

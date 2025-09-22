@@ -1,5 +1,10 @@
 {
+  "404": {
+    "TEXT": "Sorry, the page you are looking for either doesn't exist or has been moved.",
+    "TITLE": "Page not found"
+  },
   "BUTTON": {
+    "404": "Back to home page",
     "ADD": "New application",
     "CANCEL": "Cancel",
     "DELETE": "Delete"
