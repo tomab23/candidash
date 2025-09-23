@@ -24,13 +24,19 @@
     "EDIT": "Edit application",
     "LOGIN": "Login",
     "PROFILE": "Edit my profile",
-    "REGISTER": "Register"
+    "REGISTER": "Register",
+    "USER": {
+      "DELETE": "Delete my account"
+    }
   },
   "CANDIDATURE": "application",
   "DELETE": {
     "MESSAGE": "This action cannot be undone. This will permanently delete your application",
     "QUESTION": "Delete this application ?",
-    "TITLE": "at"
+    "TITLE": "at",
+    "USER": {
+      "TEXT": "Are you sure you want to delete your account?"
+    }
   },
   "ERROR": {
     "EMAIL": {

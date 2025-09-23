@@ -24,13 +24,19 @@
     "EDIT": "Modifier la candidature",
     "LOGIN": "Connexion",
     "PROFILE": "Modifier mon profil",
-    "REGISTER": "Inscription"
+    "REGISTER": "Inscription",
+    "USER": {
+      "DELETE": "Supprimer mon compte"
+    }
   },
   "CANDIDATURE": "candidature",
   "DELETE": {
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
     "QUESTION": "Supprimer cette candidature ?",
-    "TITLE": "chez "
+    "TITLE": "chez ",
+    "USER": {
+      "TEXT": "Voulez-vous vraiment supprimer votre compte ?"
+    }
   },
   "ERROR": {
     "EMAIL": {

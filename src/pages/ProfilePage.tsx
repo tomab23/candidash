@@ -83,13 +83,13 @@ const ProfilePage = () => {
         </div>
         
         <div className="flex flex-col justify-center items-center gap-10 mt-20">
-          <Button variant={"destructive"} onClick={() => setDel(true)}>Supprimer mon compte</Button>
+          <Button variant={"destructive"} onClick={() => setDel(true)}>{t("BUTTON.USER.DELETE")}</Button>
           {del && 
            <div className="flex flex-col items-center gap-5">
-            <p>Voulez-vous vraiment supprimer votre compte ?</p>
+            <p>{t("BUTTON.USER.DELETE")}</p>
             <div className="flex gap-10">
-              <Button onClick={() => setDel(false)}>Annuler</Button>
-              <Button variant={"destructive"} onClick={() => deleteUser()}>Supprimer mon compte</Button>
+              <Button onClick={() => setDel(false)}>{t("BUTTON.CANCEL")}</Button>
+              <Button variant={"destructive"} onClick={() => deleteUser()}>{t("BUTTON.USER.DELETE")}</Button>
             </div>
            </div>
           }
