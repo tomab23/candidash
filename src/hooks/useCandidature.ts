@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
 import { useAuth } from "@/context/AuthContext"
-import { getCandidatures, insertCandidature, updateCandidature, deleteCandidature, getCandidatureById  } from "@/services/CandidatureService"
+import { getCandidatures, insertCandidature, updateCandidature, deleteCandidature, getCandidatureById, deleteUser  } from "@/services/CandidatureService"
 import type Candidature from "@/models/Candidature"
 
 export const useCandidature = () => {
@@ -71,6 +71,11 @@ const addCandidature = async (
 //     [user]
 //   )
 
+//   supprimer une candidature
+  const removeUser = async () => {
+    if (!user) return
+    await deleteUser(user.id)
+  }
 //  récuperer une candidature par son id
   // const fetchCandidatureById = async (id: number) => {
   //   if (!user) return null
@@ -102,6 +107,7 @@ const addCandidature = async (
     editCandidature,
     removeCandidature,
     fetchCandidatureById,
+    removeUser
     // count,
     // fetchTestCount,
   }

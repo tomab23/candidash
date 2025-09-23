@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ImgTitle from "@/components/ImgTitle";
 import { useTranslation } from "react-i18next";
+import { Version } from "@/models/Version";
 
 const UpdatesPages = () => {
   const { user } = useAuth();
@@ -35,7 +36,8 @@ const UpdatesPages = () => {
           </nav>
         </div>
       )}
-      <h1 className="text-center text-2xl font-bold mt-2 mb-5">{t("TITLE.UPDATES")}</h1>
+      <h1 className="text-center text-2xl font-bold mt-2">{t("TITLE.UPDATES")}</h1>
+      <p className=" text-center my-5"><i>{t("VERSION")}</i> : <b>{Version}</b></p>
       <Contenu>
         <div className="flex justify-center items-center gap-10">
           <p className="flex items-center gap-1">

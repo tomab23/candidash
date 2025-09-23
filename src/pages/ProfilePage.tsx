@@ -2,17 +2,22 @@ import Navbar from "@/components/layout/Navbar";
 import StatCard from "@/components/StatCard";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
+import Contenu from "@/helpers/Contenu";
 import StringToDate from "@/helpers/StringToDate";
 import { useCandidature } from "@/hooks/useCandidature";
 import i18n from "@/i18n/i18n";
 import { intervalToDuration } from "date-fns";
 import { List, SquareUserRound } from "lucide-react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
   const { user } = useAuth();
-  const { candidatures } = useCandidature();
+  const { candidatures, removeUser } = useCandidature();
   const { t } = useTranslation()
+  const navigate = useNavigate()
+  const [del, setDel] = useState<boolean>(false);
 
   const dateRegister = new Date(String(user?.created_at)).setHours(0, 0, 0, 0);
   const today = new Date().setHours(0, 0, 0, 0);
@@ -26,10 +31,15 @@ const ProfilePage = () => {
   const jour = interval.days && interval.days > 1 ? " jours" : " jour";
   const month = interval.months && interval.months > 1 ? " months " : " month ";
 
+  const deleteUser = () => {
+    removeUser();
+    navigate("/")
+  }
+
   return (
     <div>
       <Navbar />
-      <div className="h-full max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
+      <Contenu>
         <h1 className="text-center text-2xl font-bold mt-2 mb-10">{t("TITLE.PROFILE")}</h1>
         {/*  */}
         <div className="flex flex-col gap-5 mt-10">
@@ -71,7 +81,20 @@ const ProfilePage = () => {
             {/* <StatCard title={"Test"} value={tests.length} icon={<List />} /> */}
           </div>
         </div>
-      </div>
+        
+        <div className="flex flex-col justify-center items-center gap-10 mt-20">
+          <Button variant={"destructive"} onClick={() => setDel(true)}>{t("BUTTON.USER.DELETE")}</Button>
+          {del && 
+           <div className="flex flex-col items-center gap-5">
+            <p>{t("BUTTON.USER.DELETE")}</p>
+            <div className="flex gap-10">
+              <Button onClick={() => setDel(false)}>{t("BUTTON.CANCEL")}</Button>
+              <Button variant={"destructive"} onClick={() => deleteUser()}>{t("BUTTON.USER.DELETE")}</Button>
+            </div>
+           </div>
+          }
+        </div>
+      </Contenu>
     </div>
   );
 };

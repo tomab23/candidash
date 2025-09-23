@@ -80,3 +80,16 @@ export const getCandidatureById = async (id: number, userId: string) => {
   if (error) throw new Error(error.message);
   return data;
 };
+
+// ❌ Supprimer toutes les infos de candidature de l'utilisateur puis l'utilisateur
+export const deleteUser = async (userId: string) => {
+  // Supprimer les données liées
+  const { error: canError } = await supabase.from("candidature").delete().eq("user_id", userId)
+  if (canError) throw canError
+
+  // Supprimer l'utilisateur
+  const { error: userError } = await supabase.auth.admin.deleteUser(userId)
+  if (userError) throw userError
+
+  return true
+}
