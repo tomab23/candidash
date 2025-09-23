@@ -97,5 +97,6 @@
     "ADD": "Addition",
     "DELETE": "Deletion",
     "UPDATE": "Update"
-  }
+  },
+  "VERSION": "Current version"
 }

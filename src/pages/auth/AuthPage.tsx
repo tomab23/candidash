@@ -9,6 +9,7 @@ import { useState } from "react";
 import { PasswordInput } from "@/components/ui/password-input";
 import { Info, Loader2Icon } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Version } from './../../models/Version';
 
 type Props = {
   register?: boolean;
@@ -74,6 +75,7 @@ const AuthPage = (props: Props) => {
       {/* HEADER */}
       <div className="absolute top-10 flex gap-5 ">
         <ModeToggle />
+        <Button variant={"outline"} onClick={() => window.location.href = "/updates"} title="Version">{Version}</Button>
         <LanguageDropdown />
       </div>
       {/* FORM */}

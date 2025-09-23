@@ -97,5 +97,6 @@
     "ADD": "Ajout",
     "DELETE": "Suppression",
     "UPDATE": "Mise a jour"
-  }
+  },
+  "VERSION": "Version actuelle"
 }
