@@ -117,9 +117,7 @@ const CandidaturePage = (props: Props) => {
 
   //   console.log("Largeur écran : " + screen.width + "px");
   // console.log("Hauteur écran : " + screen.height + "px");
-
-  console.log(Candidature?.status);
-
+  
   return (
     <div className="pb-10">
       <Navbar />

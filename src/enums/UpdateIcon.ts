@@ -1,0 +1,1 @@
+export type UpdateIcon = "add" | "correction" | "update" | "delete";
