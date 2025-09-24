@@ -8,12 +8,12 @@ import {
   MapPin,
   User2,
 } from "lucide-react";
-import { Button } from "./ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
 import type Candidature from "@/models/Candidature";
 import { useTranslation } from "react-i18next";
 import DateFormat from "@/helpers/DateFormat";
+import { Button } from '@/components/ui/button';
 
 type Props = {
   candidature: Candidature;

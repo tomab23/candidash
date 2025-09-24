@@ -1,5 +1,5 @@
 import Navbar from "@/components/layout/Navbar";
-import StatCard from "@/components/StatCard";
+import StatCard from "@/components/cards/StatCard";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
 import Contenu from "@/helpers/Contenu";
