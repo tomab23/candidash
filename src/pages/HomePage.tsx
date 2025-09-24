@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import FilterCandidature from "@/components/FilterCandidature";
 import Contenu from "@/helpers/Contenu";
-import CandidatureCard from "@/components/CandidatureCard";
+import CandidatureCard from "@/components/cards/CandidatureCard";
 import NoList from "@/components/NoList";
 import { useCandidature } from "@/hooks/useCandidature";
 
