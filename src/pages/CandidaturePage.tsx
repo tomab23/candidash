@@ -1,3 +1,4 @@
+import ButtonBack from "@/components/custom/ButtonBack";
 import DeleteTestDIalog from "@/components/custom/DeleteTestDialog";
 import InputCandidature from "@/components/custom/InputCandidature";
 import InputDateCalendar from "@/components/custom/InputDateCalendar";
@@ -124,9 +125,7 @@ const CandidaturePage = (props: Props) => {
       <Contenu>
         {/* HEADER */}
         <div className="flex justify-between items-center px-5 mt-5">
-          <Button onClick={() => navigate(-1)} className="">
-            {t("BUTTON.BACK")}
-          </Button>
+          <ButtonBack />
           {/* <p className="text-center">ID : {props.edit ? id : "new"}</p> */}
         </div>
         {/* CARD */}

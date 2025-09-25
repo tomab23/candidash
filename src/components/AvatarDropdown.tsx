@@ -61,7 +61,7 @@ const AvatarDropdown = () => {
         <DropdownMenuItem onClick={() => navigate("/updates")}>
           <List className="h-4 w-4" /> {t("TITLE.UPDATES")}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => navigate("/")} disabled>
+        <DropdownMenuItem onClick={() => navigate("/contact")}>
           <Mail className="h-4 w-4" /> Contact
         </DropdownMenuItem>
         <Separator />
