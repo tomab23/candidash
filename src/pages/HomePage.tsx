@@ -43,7 +43,7 @@ const HomePage = () => {
           </Button>
         </div>
         {/* SEARCH & FILTER */}
-        <div className="flex gap-2 mb-5 flex-wrap">
+        {/* <div className="flex gap-2 mb-5 flex-wrap">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
@@ -58,7 +58,7 @@ const HomePage = () => {
             setStatus={setStatusFilter}
           />
         </div>
-        <p className="text-center">Filtre : {statusFilter}</p>
+        <p className="text-center">Filtre : {statusFilter}</p> */}
         {/* LIST */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {candidatures
