@@ -2,7 +2,7 @@ import ImgTitle from "@/components/ImgTitle";
 import Navbar from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
@@ -22,24 +22,25 @@ const ContactPage = () => {
 
   const ValidSchema = Yup.object().shape({
     email: Yup.string().required(requiredMsg),
-    object: Yup.string().required(requiredMsg),
+    subject: Yup.string().required(requiredMsg),
     message: Yup.string().required(requiredMsg),
     terms: Yup.boolean()
-      .oneOf([true], "Vous devez accepter les conditions")
+      .oneOf([true], t("ERROR.TERMS"))
       .required(requiredMsg),
   });
 
   const formik = useFormik({
     initialValues: {
       email: user ? user.email : "",
-      object: "",
+      subject: "",
       message: "",
       terms: false,
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       alert(JSON.stringify(values));
+      resetForm();
     },
   });
 
@@ -72,11 +73,10 @@ const ContactPage = () => {
         </b>
         <ButtonBack />
         <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-          Chat with our friendly team!
+          {t("CONTACT.TITLE")}
         </h2>
         <p className="mt-3 text-base sm:text-lg text-muted-foreground">
-          We&apos;d love to hear from you. Please fill out this form or shoot us
-          an email.
+          {t("CONTACT.TEXT")}
         </p>
         <div className="md:mt-10 max-sm:mt-5 grid lg:grid-cols-2 gap-16 md:gap-10 xl:-mt-3">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12"></div>
@@ -86,11 +86,14 @@ const ContactPage = () => {
               <form onSubmit={formik.handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
                   <div className="col-span-2">
-                    <Label htmlFor="firstName">First Name</Label>
+                    <Label htmlFor="object">{t("SUBEJECT")}*</Label>
                     <Input
-                      placeholder="First name"
-                      id="firstName"
+                      placeholder={t("SUBEJECT")}
+                      id="subject"
+                      name="subject"
                       className="mt-2 bg-white h-10 shadow-none w-full"
+                      value={formik.values.subject}
+                      onChange={formik.handleChange}
                     />
                   </div>
                   {/* <div className="col-span-2 sm:col-span-1">
@@ -102,7 +105,7 @@ const ContactPage = () => {
                       />
                     </div> */}
                   <div className="col-span-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">Email*</Label>
                     <Input
                       type="email"
                       name="email"
@@ -114,12 +117,15 @@ const ContactPage = () => {
                     />
                   </div>
                   <div className="col-span-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message">Message*</Label>
                     <Textarea
                       id="message"
+                      name="message"
                       placeholder="Message"
                       className="mt-2 bg-white shadow-none"
                       rows={6}
+                      value={formik.values.message}
+                      onChange={formik.handleChange}
                     />
                   </div>
                   <div className="col-span-2 flex items-center gap-2">
@@ -134,17 +140,19 @@ const ContactPage = () => {
                       onBlur={() => formik.setFieldTouched("terms", true)}
                     />
                     <Label htmlFor="terms" className="gap-0">
-                      You agree to our
-                      <a href="#" className="underline ml-1">
-                        terms and conditions
-                      </a>
+                      {t("TERMS.TEXT")}
+                      <Link to={"#"} className="underline ml-1">
+                        {t("TERMS.LINK")}
+                      </Link>
                       <span>.</span>
                     </Label>
                   </div>
                 </div>
                 {formik.submitCount > 0 &&
-                  Object.values(formik.errors).length > 0  && (
-                    <p className="text-destructive text-sm mt-5">{t("ERROR.FORM")}</p>
+                  Object.values(formik.errors).length > 0 && formik.values.terms && (
+                    <p className="text-destructive text-sm mt-5">
+                      {t("ERROR.FORM")}
+                    </p>
                   )}
                 {formik.touched.terms && formik.errors.terms ? (
                   <p className="text-destructive text-sm mt-5">
@@ -152,7 +160,7 @@ const ContactPage = () => {
                   </p>
                 ) : null}
                 <Button className="mt-6 w-full" size="lg" type="submit">
-                  Submit
+                  {t("BUTTON.SUBMIT")}
                 </Button>
               </form>
             </CardContent>

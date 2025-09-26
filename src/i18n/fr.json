@@ -25,11 +25,16 @@
     "LOGIN": "Connexion",
     "PROFILE": "Modifier mon profil",
     "REGISTER": "Inscription",
+    "SUBMIT": "Envoyer",
     "USER": {
       "DELETE": "Supprimer mon compte"
     }
   },
   "CANDIDATURE": "candidature",
+  "CONTACT": {
+    "TEXT": "Nous serions ravis de vous lire. Veuillez remplir ce formulaire ou nous envoyer un e-mail.",
+    "TITLE": "Discutez avec notre équipe!"
+  },
   "DELETE": {
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
     "QUESTION": "Supprimer cette candidature ?",
@@ -49,6 +54,7 @@
       "NEED": "Le mot de passe est obligatoire."
     },
     "REQUIRED": "Ce champ est obligatoire.",
+    "TERMS": "Vous devez accepter les conditions",
     "URL": "Le lien doit être une URL valide."
   },
   "FORM": {
@@ -91,6 +97,11 @@
     "SELECT": "Choisir le status",
     "VALID": "Validé",
     "WAITING": "En attente"
+  },
+  "SUBEJECT": "Objet",
+  "TERMS": {
+    "LINK": "conditions générales.",
+    "TEXT": "Vous acceptez nos "
   },
   "TITLE": {
     "HOME": "Accueil",
