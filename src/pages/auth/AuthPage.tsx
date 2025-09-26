@@ -7,9 +7,9 @@ import { ModeToggle } from "@/components/mode-toggle";
 import LanguageDropdown from "@/components/LanguageDropdown";
 import { useState } from "react";
 import { PasswordInput } from "@/components/ui/password-input";
-import { Info, Loader2Icon } from "lucide-react";
+import { Info, Loader2Icon, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Version } from './../../models/Version';
+import { Version } from "./../../models/Version";
 
 type Props = {
   register?: boolean;
@@ -71,11 +71,17 @@ const AuthPage = (props: Props) => {
     },
   });
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center">
       {/* HEADER */}
       <div className="absolute top-10 flex gap-5 ">
         <ModeToggle />
-        <Button variant={"outline"} onClick={() => window.location.href = "/updates"} title="Version">{Version}</Button>
+        <Button
+          variant={"outline"}
+          onClick={() => (window.location.href = "/updates")}
+          title="Version"
+        >
+          {Version}
+        </Button>
         <LanguageDropdown />
       </div>
       {/* FORM */}
@@ -170,6 +176,17 @@ const AuthPage = (props: Props) => {
           )}
         </div>
       </form>
+      <div>
+        <div className="absolute bottom-20 flex justify-self-center gap-5">
+          <Button
+            variant={"outline"}
+            onClick={() => (window.location.href = "/contact")}
+            title="Version"
+          >
+            <Mail /> Contact
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

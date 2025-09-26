@@ -25,11 +25,17 @@
     "LOGIN": "Login",
     "PROFILE": "Edit my profile",
     "REGISTER": "Register",
+    "SENDING": "Sending...",
+    "SUBMIT": "Submit",
     "USER": {
       "DELETE": "Delete my account"
     }
   },
   "CANDIDATURE": "application",
+  "CONTACT": {
+    "TEXT": "We'd love to hear from you. Please fill out this form or shoot us an email.",
+    "TITLE": "Chat with our team!"
+  },
   "DELETE": {
     "MESSAGE": "This action cannot be undone. This will permanently delete your application",
     "QUESTION": "Delete this application ?",
@@ -49,6 +55,7 @@
       "NEED": "A password is required."
     },
     "REQUIRED": "This field is required.",
+    "TERMS": "You must accept the terms and conditions.",
     "URL": "The link must be a valid URL."
   },
   "FORM": {
@@ -91,6 +98,11 @@
     "SELECT": "Select status",
     "VALID": "Approved",
     "WAITING": "Waiting"
+  },
+  "SUBEJECT": "Subject",
+  "TERMS": {
+    "LINK": "terms and conditions",
+    "TEXT": "You agree to our"
   },
   "TITLE": {
     "HOME": "Home",
