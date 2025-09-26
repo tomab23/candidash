@@ -7,7 +7,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import LanguageDropdown from "@/components/LanguageDropdown";
 import { useState } from "react";
 import { PasswordInput } from "@/components/ui/password-input";
-import { Info, Loader2Icon, Mail } from "lucide-react";
+import { Info, InfoIcon, Loader2Icon, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Version } from "./../../models/Version";
 
@@ -80,7 +80,7 @@ const AuthPage = (props: Props) => {
           onClick={() => (window.location.href = "/updates")}
           title="Version"
         >
-          {Version}
+          <InfoIcon />{Version}
         </Button>
         <LanguageDropdown />
       </div>
