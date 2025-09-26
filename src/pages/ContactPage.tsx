@@ -12,11 +12,20 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import ButtonBack from "@/components/custom/ButtonBack";
+import { useState } from "react";
+
+type MailType = {
+  email: string;
+  subject: string;
+  message: string;
+  terms: boolean;
+};
 
 const ContactPage = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const requiredMsg = t("ERROR.REQUIRED");
 
@@ -24,10 +33,30 @@ const ContactPage = () => {
     email: Yup.string().required(requiredMsg),
     subject: Yup.string().required(requiredMsg),
     message: Yup.string().required(requiredMsg),
-    terms: Yup.boolean()
-      .oneOf([true], t("ERROR.TERMS"))
-      .required(requiredMsg),
+    terms: Yup.boolean().oneOf([true], t("ERROR.TERMS")).required(requiredMsg),
   });
+
+  // Email parameters email.js to contact
+  const yourServiceId = import.meta.env.VITE_EMAILJS_SERVICE;
+  const yourTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE;
+  const yourPublicId = import.meta.env.VITE_EMAILJS_PUBLIC;
+
+  // const sendMail = (values : MailType, { resetForm }) => {
+  //   setLoading(true);
+  //   emailjs.send(yourServiceId, yourTemplateId, values, yourPublicId).then(
+  //     () => {
+  //       // toastSuccess();
+  //       setLoading(false);
+  //       resetForm();
+  //     },
+  //     (error) => {
+  //       console.log("FAILED...", error.text);
+  //       toastCancel();
+  //       setLoading(false);
+  //       // resetForm();
+  //     }
+  //   );
+  // };
 
   const formik = useFormik({
     initialValues: {
@@ -78,7 +107,7 @@ const ContactPage = () => {
         <p className="mt-3 text-base sm:text-lg text-muted-foreground">
           {t("CONTACT.TEXT")}
         </p>
-        <div className="md:mt-10 max-sm:mt-5 grid lg:grid-cols-2 gap-16 md:gap-10 xl:-mt-3">
+        <div className="md:mt-10 max-sm:mt-5 grid lg:grid-cols-2 xl:gap-40 md:gap-10 xl:-mt-1">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12"></div>
           {/* Form */}
           <Card className="bg-accent shadow-none py-0">
@@ -149,7 +178,8 @@ const ContactPage = () => {
                   </div>
                 </div>
                 {formik.submitCount > 0 &&
-                  Object.values(formik.errors).length > 0 && formik.values.terms && (
+                  Object.values(formik.errors).length > 0 &&
+                  formik.values.terms && (
                     <p className="text-destructive text-sm mt-5">
                       {t("ERROR.FORM")}
                     </p>
