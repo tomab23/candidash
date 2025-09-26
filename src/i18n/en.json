@@ -25,6 +25,7 @@
     "LOGIN": "Login",
     "PROFILE": "Edit my profile",
     "REGISTER": "Register",
+    "SENDING": "Sending...",
     "SUBMIT": "Submit",
     "USER": {
       "DELETE": "Delete my account"

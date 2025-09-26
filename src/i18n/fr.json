@@ -25,6 +25,7 @@
     "LOGIN": "Connexion",
     "PROFILE": "Modifier mon profil",
     "REGISTER": "Inscription",
+    "SENDING": "Envoi...",
     "SUBMIT": "Envoyer",
     "USER": {
       "DELETE": "Supprimer mon compte"
