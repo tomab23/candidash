@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import ButtonBack from "@/components/custom/ButtonBack";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 type MailType = {
   email: string | undefined;
@@ -42,8 +42,8 @@ const ContactPage = () => {
   const yourTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE;
   const yourPublicId = import.meta.env.VITE_EMAILJS_PUBLIC;
 
-  const sendMail = (values : MailType, helpers: FormikHelpers<MailType>) => {
-    const { resetForm } = helpers
+  const sendMail = (values: MailType, helpers: FormikHelpers<MailType>) => {
+    const { resetForm } = helpers;
     setLoading(true);
     emailjs.send(yourServiceId, yourTemplateId, values, yourPublicId).then(
       () => {
@@ -55,7 +55,6 @@ const ContactPage = () => {
         console.log("FAILED...", error.text);
         // toastCancel();
         setLoading(false);
-        // resetForm();
       }
     );
   };
@@ -71,7 +70,7 @@ const ContactPage = () => {
     validationSchema: ValidSchema,
     onSubmit: (values, helpers) => {
       // alert(JSON.stringify(values));
-      sendMail(values, helpers)
+      sendMail(values, helpers);
     },
   });
 
@@ -191,7 +190,12 @@ const ContactPage = () => {
                     {formik.errors.terms}
                   </p>
                 ) : null}
-                <Button className="mt-6 w-full" size="lg" type="submit" disabled={loading}>
+                <Button
+                  className="mt-6 w-full"
+                  size="lg"
+                  type="submit"
+                  disabled={loading}
+                >
                   {loading ? t("BUTTON.SENDING") : t("BUTTON.SUBMIT")}
                 </Button>
               </form>
