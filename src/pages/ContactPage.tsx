@@ -3,7 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { useFormik } from "formik";
+import { useFormik, type FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,9 +13,10 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import ButtonBack from "@/components/custom/ButtonBack";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 type MailType = {
-  email: string;
+  email: string | undefined;
   subject: string;
   message: string;
   terms: boolean;
@@ -41,22 +42,23 @@ const ContactPage = () => {
   const yourTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE;
   const yourPublicId = import.meta.env.VITE_EMAILJS_PUBLIC;
 
-  // const sendMail = (values : MailType, { resetForm }) => {
-  //   setLoading(true);
-  //   emailjs.send(yourServiceId, yourTemplateId, values, yourPublicId).then(
-  //     () => {
-  //       // toastSuccess();
-  //       setLoading(false);
-  //       resetForm();
-  //     },
-  //     (error) => {
-  //       console.log("FAILED...", error.text);
-  //       toastCancel();
-  //       setLoading(false);
-  //       // resetForm();
-  //     }
-  //   );
-  // };
+  const sendMail = (values : MailType, helpers: FormikHelpers<MailType>) => {
+    const { resetForm } = helpers
+    setLoading(true);
+    emailjs.send(yourServiceId, yourTemplateId, values, yourPublicId).then(
+      () => {
+        // toastSuccess();
+        setLoading(false);
+        resetForm();
+      },
+      (error) => {
+        console.log("FAILED...", error.text);
+        // toastCancel();
+        setLoading(false);
+        // resetForm();
+      }
+    );
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -67,9 +69,9 @@ const ContactPage = () => {
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,
-    onSubmit: (values, { resetForm }) => {
-      alert(JSON.stringify(values));
-      resetForm();
+    onSubmit: (values, helpers) => {
+      // alert(JSON.stringify(values));
+      sendMail(values, helpers)
     },
   });
 
@@ -189,8 +191,8 @@ const ContactPage = () => {
                     {formik.errors.terms}
                   </p>
                 ) : null}
-                <Button className="mt-6 w-full" size="lg" type="submit">
-                  {t("BUTTON.SUBMIT")}
+                <Button className="mt-6 w-full" size="lg" type="submit" disabled={loading}>
+                  {loading ? t("BUTTON.SENDING") : t("BUTTON.SUBMIT")}
                 </Button>
               </form>
             </CardContent>
