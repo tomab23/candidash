@@ -28,7 +28,7 @@ const AuthPage = (props: Props) => {
       .min(8, t("ERROR.PASSWORD.MIN"))
       .required(t("ERROR.PASSWORD.NEED")),
           confirm: Yup.string()
-        .oneOf([Yup.ref("password")], "Les mots de passe doivent être identiques")
+        .oneOf([Yup.ref("password")], t("ERROR.PASSWORD.CONFIRM"))
   });
 
   const handleLogin = async (email: string, password: string) => {
@@ -179,7 +179,7 @@ const AuthPage = (props: Props) => {
           <div className="text-destructive mt-5">{formik.errors.confirm}</div>
         )}
         {error != null && (
-          <p className="text-xs my-5 text-destructive text-center">{error}</p>
+          <p className="text-destructive mt-5">{error}</p>
         )}
         <div className="mt-5 space-y-5">
           {props.register ? (

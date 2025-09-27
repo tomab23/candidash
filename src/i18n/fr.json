@@ -51,8 +51,9 @@
     },
     "FORM": "Tous les champs avec * sont obligatoires et doivent être remplis.",
     "PASSWORD": {
-      "MIN": "Votre mot de passe est trop court.",
-      "NEED": "Le mot de passe est obligatoire."
+      "CONFIRM": "Les mots de passe doivent être identiques",
+      "MIN": "Votre mot de passe est trop court",
+      "NEED": "Le mot de passe est obligatoire"
     },
     "REQUIRED": "Ce champ est obligatoire.",
     "TERMS": "Vous devez accepter les conditions",
