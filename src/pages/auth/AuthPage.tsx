@@ -27,6 +27,8 @@ const AuthPage = (props: Props) => {
     password: Yup.string()
       .min(8, t("ERROR.PASSWORD.MIN"))
       .required(t("ERROR.PASSWORD.NEED")),
+          confirm: Yup.string()
+        .oneOf([Yup.ref("password")], "Les mots de passe doivent être identiques")
   });
 
   const handleLogin = async (email: string, password: string) => {
@@ -59,12 +61,15 @@ const AuthPage = (props: Props) => {
     initialValues: {
       email: "",
       password: "",
+      confirm: "",
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,
     onSubmit: (values) => {
       if (props.register) {
-        handleRegister(values.email, values.password);
+        if (values.password === values.confirm) {
+          handleRegister(values.email, values.password);
+        } 
       } else {
         handleLogin(values.email, values.password);
       }
@@ -80,7 +85,8 @@ const AuthPage = (props: Props) => {
           onClick={() => (window.location.href = "/updates")}
           title="Version"
         >
-          <InfoIcon />{Version}
+          <InfoIcon />
+          {Version}
         </Button>
         <LanguageDropdown />
       </div>
@@ -136,6 +142,23 @@ const AuthPage = (props: Props) => {
                 {t("AUTH.FORGOT")}
               </p>
             )}
+
+                        {props.register && (
+              <div>
+                <p className="font-bold mb-1 mt-3">Confirm password</p>
+                <PasswordInput
+                  id="confirm"
+                  name="confirm"
+                  onChange={formik.handleChange}
+                  value={formik.values.confirm}
+                  required
+                  placeholder={t("AUTH.PASSWORD")}
+                  className="w-full"
+                  min="8"
+                  // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                />
+              </div>
+            )}
           </div>
           {/* BUTTON */}
           <Button type="submit" className="mt-4 w-full" disabled={loading}>
@@ -151,6 +174,9 @@ const AuthPage = (props: Props) => {
         {/* ERRORS */}
         {formik.touched.password && formik.errors.password && (
           <div className="text-destructive mt-5">{formik.errors.password}</div>
+        )}
+        {props.register && formik.touched.confirm && formik.errors.confirm && (
+          <div className="text-destructive mt-5">{formik.errors.confirm}</div>
         )}
         {error != null && (
           <p className="text-xs my-5 text-destructive text-center">{error}</p>
