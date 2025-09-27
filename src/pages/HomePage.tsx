@@ -30,14 +30,14 @@ const HomePage = () => {
         {/* HEADER */}
         <div className="flex justify-between my-5 items-center">
           <div>
-            <h1 className="text-3xl font-bold">{t("HOME.TITLE")}</h1>
-            <p>
+            <h1 className="text-3xl max-sm:text-xl font-bold">{t("HOME.TITLE")}</h1>
+            <p className="max-sm:text-sm">
               {candidatures.length} {t("CANDIDATURE")}{candidatures.length > 1 && "s"}{" "}
               {t("HOME.TOTAL")}
               {/* 0 candidature / applications au total */}
             </p>
           </div>
-          <Button onClick={() => navigate("/candidature")} className="">
+          <Button onClick={() => navigate("/candidature")} className="max-sm:text-xs">
             <SquarePlus />
             {t("BUTTON.ADD")}
           </Button>

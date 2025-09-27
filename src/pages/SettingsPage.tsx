@@ -1,4 +1,5 @@
 import LanguageDropdown from "@/components/LanguageDropdown";
+import Header from "@/components/layout/Header";
 import Navbar from "@/components/layout/Navbar";
 import Contenu from "@/helpers/Contenu";
 import { useTranslation } from "react-i18next";
@@ -10,8 +11,8 @@ const SettingsPage = () => {
     <div>
       <Navbar />
       <Contenu>
-        <h1 className="text-center text-2xl font-bold mt-2 mb-10">{t("TITLE.SETTINGS")}</h1>
-        <div className="flex gap-4 items-center justify-center">
+        <Header title={t("TITLE.SETTINGS")} />
+        <div className="flex gap-4 items-center justify-center mt-2">
           <h2 className="text-xl">{t("LANGUAGE")}</h2>
           <LanguageDropdown />
         </div>

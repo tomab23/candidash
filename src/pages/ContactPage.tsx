@@ -11,9 +11,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import ButtonBack from "@/components/custom/ButtonBack";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import Contenu from "@/helpers/Contenu";
+import Header from "@/components/layout/Header";
 
 type MailType = {
   email: string | undefined;
@@ -75,7 +76,7 @@ const ContactPage = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="">
       {user ? (
         <Navbar />
       ) : (
@@ -97,36 +98,33 @@ const ContactPage = () => {
           </nav>
         </div>
       )}
-      <div className="w-full max-w-(--breakpoint-xl) mx-auto px-6 xl:px-0 mt-2 flex flex-col">
-        <b className="text-muted-foreground uppercase font-semibold text-sm mb-2">
-          Contact Us
-        </b>
-        <ButtonBack />
-        <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-          {t("CONTACT.TITLE")}
-        </h2>
-        <p className="mt-3 text-base sm:text-lg text-muted-foreground">
-          {t("CONTACT.TEXT")}
-        </p>
-        <div className="md:mt-10 max-sm:mt-5 grid lg:grid-cols-2 xl:gap-40 md:gap-10 xl:-mt-1">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12"></div>
-          {/* Form */}
-          <Card className="bg-accent shadow-none py-0">
-            <CardContent className="p-6 md:p-8">
-              <form onSubmit={formik.handleSubmit}>
-                <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
-                  <div className="col-span-2">
-                    <Label htmlFor="object">{t("SUBEJECT")}*</Label>
-                    <Input
-                      placeholder={t("SUBEJECT")}
-                      id="subject"
-                      name="subject"
-                      className="mt-2 bg-white h-10 shadow-none w-full"
-                      value={formik.values.subject}
-                      onChange={formik.handleChange}
-                    />
-                  </div>
-                  {/* <div className="col-span-2 sm:col-span-1">
+      <Contenu>
+          <Header title="Contact" />
+          <h2 className="mt-3 text-3xl max-sm:text-2xl md:text-4xl font-semibold tracking-tight">
+            {t("CONTACT.TITLE")}
+          </h2>
+          <p className="mt-3 text-base sm:text-lg text-muted-foreground">
+            {t("CONTACT.TEXT")}
+          </p>
+          <div className="md:mt-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12"></div>
+            {/* Form */}
+            <Card className="bg-accent shadow-none py-0 mt-3">
+              <CardContent className="p-6 md:p-8">
+                <form onSubmit={formik.handleSubmit}>
+                  <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div className="col-span-2">
+                      <Label htmlFor="object">{t("SUBEJECT")}*</Label>
+                      <Input
+                        placeholder={t("SUBEJECT")}
+                        id="subject"
+                        name="subject"
+                        className="mt-2 bg-white h-10 shadow-none w-full"
+                        value={formik.values.subject}
+                        onChange={formik.handleChange}
+                      />
+                    </div>
+                    {/* <div className="col-span-2 sm:col-span-1">
                       <Label htmlFor="lastName">Last Name</Label>
                       <Input
                         placeholder="Last name"
@@ -134,75 +132,75 @@ const ContactPage = () => {
                         className="mt-2 bg-white h-10 shadow-none"
                       />
                     </div> */}
-                  <div className="col-span-2">
-                    <Label htmlFor="email">Email*</Label>
-                    <Input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      id="email"
-                      className="mt-2 bg-white h-10 shadow-none"
-                      value={formik.values.email}
-                      onChange={formik.handleChange}
-                    />
+                    <div className="col-span-2">
+                      <Label htmlFor="email">Email*</Label>
+                      <Input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        id="email"
+                        className="mt-2 bg-white h-10 shadow-none"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                      />
+                    </div>
+                    <div className="col-span-2">
+                      <Label htmlFor="message">Message*</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="Message"
+                        className="mt-2 bg-white shadow-none"
+                        rows={6}
+                        value={formik.values.message}
+                        onChange={formik.handleChange}
+                      />
+                    </div>
+                    <div className="col-span-2 flex items-center gap-2">
+                      <Checkbox
+                        id="terms"
+                        checked={formik.values.terms}
+                        className="bg-background"
+                        // important : convertir en boolean
+                        onCheckedChange={(checked) =>
+                          formik.setFieldValue("terms", checked === true)
+                        }
+                        onBlur={() => formik.setFieldTouched("terms", true)}
+                      />
+                      <Label htmlFor="terms" className="gap-0">
+                        {t("TERMS.TEXT")}
+                        <Link to={"#"} className="underline ml-1">
+                          {t("TERMS.LINK")}
+                        </Link>
+                        <span>.</span>
+                      </Label>
+                    </div>
                   </div>
-                  <div className="col-span-2">
-                    <Label htmlFor="message">Message*</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Message"
-                      className="mt-2 bg-white shadow-none"
-                      rows={6}
-                      value={formik.values.message}
-                      onChange={formik.handleChange}
-                    />
-                  </div>
-                  <div className="col-span-2 flex items-center gap-2">
-                    <Checkbox
-                      id="terms"
-                      checked={formik.values.terms}
-                      className="bg-background"
-                      // important : convertir en boolean
-                      onCheckedChange={(checked) =>
-                        formik.setFieldValue("terms", checked === true)
-                      }
-                      onBlur={() => formik.setFieldTouched("terms", true)}
-                    />
-                    <Label htmlFor="terms" className="gap-0">
-                      {t("TERMS.TEXT")}
-                      <Link to={"#"} className="underline ml-1">
-                        {t("TERMS.LINK")}
-                      </Link>
-                      <span>.</span>
-                    </Label>
-                  </div>
-                </div>
-                {formik.submitCount > 0 &&
-                  Object.values(formik.errors).length > 0 &&
-                  formik.values.terms && (
+                  {formik.submitCount > 0 &&
+                    Object.values(formik.errors).length > 0 &&
+                    formik.values.terms && (
+                      <p className="text-destructive text-sm mt-5">
+                        {t("ERROR.FORM")}
+                      </p>
+                    )}
+                  {formik.touched.terms && formik.errors.terms ? (
                     <p className="text-destructive text-sm mt-5">
-                      {t("ERROR.FORM")}
+                      {formik.errors.terms}
                     </p>
-                  )}
-                {formik.touched.terms && formik.errors.terms ? (
-                  <p className="text-destructive text-sm mt-5">
-                    {formik.errors.terms}
-                  </p>
-                ) : null}
-                <Button
-                  className="mt-6 w-full"
-                  size="lg"
-                  type="submit"
-                  disabled={loading}
-                >
-                  {loading ? t("BUTTON.SENDING") : t("BUTTON.SUBMIT")}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+                  ) : null}
+                  <Button
+                    className="mt-6 w-full"
+                    size="lg"
+                    type="submit"
+                    disabled={loading}
+                  >
+                    {loading ? t("BUTTON.SENDING") : t("BUTTON.SUBMIT")}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+      </Contenu>
     </div>
   );
 };

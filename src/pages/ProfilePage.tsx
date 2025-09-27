@@ -11,6 +11,7 @@ import { List, SquareUserRound } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import Header from "@/components/layout/Header";
 
 const ProfilePage = () => {
   const { user } = useAuth();
@@ -40,15 +41,16 @@ const ProfilePage = () => {
     <div>
       <Navbar />
       <Contenu>
-        <h1 className="text-center text-2xl font-bold mt-2 mb-10">{t("TITLE.PROFILE")}</h1>
+        {/* <h1 className="text-center text-2xl font-bold mt-2">{t("TITLE.PROFILE")}</h1> */}
+        <Header title={t("TITLE.PROFILE")} />
         {/*  */}
-        <div className="flex flex-col gap-5 mt-10">
+        <div className="flex flex-col gap-5 mt-5 max-sm:mt-3">
           {/* USER INFO AUTH */}
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-1">
-              <SquareUserRound className="w-20 h-20" />
+              <SquareUserRound className="w-20 h-20 max-sm:w-16 max-sm:h-16" />
               <div>
-                <p className="text-lg font-semibold">{user?.email}</p>
+                <p className="text-lg max-sm:text-lg font-semibold">{user?.email}</p>
                 <p className="italic text-sm max-sm:text-xs">
                   {t("PROFILE.SINCE")} :{" "}
                   {StringToDate(String(user?.created_at), true)}{" "}
@@ -66,7 +68,7 @@ const ProfilePage = () => {
                 </p>
               </div>
             </div>
-            <Button variant="outline" disabled>
+            <Button variant="outline" className="max-sm:text-xs" disabled>
               {t("BUTTON.PROFILE")}
             </Button>
           </div>
@@ -77,8 +79,6 @@ const ProfilePage = () => {
               value={candidatures.length}
               icon={<List className="h-4 w-4" />}
             />
-            {/* <StatCard title={"Test"} value={tests.length} icon={<List />} /> */}
-            {/* <StatCard title={"Test"} value={tests.length} icon={<List />} /> */}
           </div>
         </div>
         
