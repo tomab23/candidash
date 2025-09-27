@@ -203,7 +203,7 @@ const AuthPage = (props: Props) => {
         </div>
       </form>
       <div>
-        <div className="absolute bottom-20 flex justify-self-center gap-5">
+        <div className="absolute bottom-20 max-sm:bottom-5 flex justify-self-center gap-5">
           <Button
             variant={"outline"}
             onClick={() => (window.location.href = "/contact")}

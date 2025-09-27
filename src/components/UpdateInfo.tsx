@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 const UpdateInfo = () => {
   const { t } = useTranslation();
   return (
-    <div className="flex justify-center items-center gap-10">
+    <div className="flex justify-center items-center gap-10 max-sm:gap-4 max-sm:text-xs">
       <p className="flex items-center gap-1">
         <Plus className="w-5 h-5 dark:stroke-green-400 stroke-green-600" />{" "}
         {t("UPDATE.ADD")}

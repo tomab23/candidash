@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { Version } from "@/models/Version";
 import UpdateInfo from "@/components/UpdateInfo";
 import UpdatesList from "@/components/UpdatesList";
+import Header from "@/components/layout/Header";
 
 const UpdatesPages = () => {
   const { user } = useAuth();
@@ -39,13 +40,15 @@ const UpdatesPages = () => {
           </nav>
         </div>
       )}
-      <h1 className="text-center text-2xl font-bold mt-2">{t("TITLE.UPDATES")}</h1>
-      <p className=" text-center my-5"><i>{t("VERSION")}</i> : <b>{Version}</b></p>
       <Contenu>
+        <Header title={t("TITLE.UPDATES")}  />
+        <p className=" text-center my-5">
+          <i>{t("VERSION")}</i> : <b>{Version}</b>
+        </p>
         <UpdateInfo />
 
-{/* CARD UPDATE */}
-      <UpdatesList />
+        {/* CARD UPDATE */}
+        <UpdatesList />
       </Contenu>
     </div>
   );

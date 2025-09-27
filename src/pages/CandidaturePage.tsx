@@ -124,14 +124,14 @@ const CandidaturePage = (props: Props) => {
       <Navbar />
       <Contenu>
         {/* HEADER */}
-        <div className="flex justify-between items-center px-5 mt-5">
+        <div className="flex justify-between items-center sm:px-5 mt-5 max-sm:mb-5">
           <ButtonBack />
           {/* <p className="text-center">ID : {props.edit ? id : "new"}</p> */}
         </div>
         {/* CARD */}
         <Card className="w-full max-w-sm justify-self-center mt-2">
           <CardHeader>
-            <CardTitle className="text-center text-xl">
+            <CardTitle className="text-center text-xl max-sm:text-lg">
               {t("FORM.TITLE")}
             </CardTitle>
             <CardAction>
