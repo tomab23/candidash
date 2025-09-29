@@ -12,12 +12,21 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/layout/Header";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const ProfilePage = () => {
   const { user } = useAuth();
   const { candidatures, removeUser } = useCandidature();
-  const { t } = useTranslation()
-  const navigate = useNavigate()
+  const { t } = useTranslation();
+  const navigate = useNavigate();
   const [del, setDel] = useState<boolean>(false);
 
   const dateRegister = new Date(String(user?.created_at)).setHours(0, 0, 0, 0);
@@ -34,8 +43,8 @@ const ProfilePage = () => {
 
   const deleteUser = () => {
     removeUser();
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
     <div>
@@ -50,7 +59,9 @@ const ProfilePage = () => {
             <div className="flex items-center gap-1">
               <SquareUserRound className="w-20 h-20 max-sm:w-16 max-sm:h-16" />
               <div>
-                <p className="text-lg max-sm:text-lg font-semibold">{user?.email}</p>
+                <p className="text-lg max-sm:text-lg font-semibold">
+                  {user?.email}
+                </p>
                 <p className="italic text-sm max-sm:text-xs">
                   {t("PROFILE.SINCE")} :{" "}
                   {StringToDate(String(user?.created_at), true)}{" "}
@@ -81,18 +92,28 @@ const ProfilePage = () => {
             />
           </div>
         </div>
-        
-        <div className="flex flex-col justify-center items-center gap-10 mt-20">
-          <Button variant={"destructive"} onClick={() => setDel(true)}>{t("BUTTON.USER.DELETE")}</Button>
-          {del && 
-           <div className="flex flex-col items-center gap-5">
-            <p>{t("BUTTON.USER.DELETE")}</p>
-            <div className="flex gap-10">
-              <Button onClick={() => setDel(false)}>{t("BUTTON.CANCEL")}</Button>
-              <Button variant={"destructive"} onClick={() => deleteUser()}>{t("BUTTON.USER.DELETE")}</Button>
+
+        <div className="flex flex-col justify-center items-center gap-5 mt-20">
+          <Button variant={"destructive"} onClick={() => setDel(true)}>
+            {t("BUTTON.USER.DELETE")}
+          </Button>
+          {del && (
+            <div>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-center">{t("BUTTON.USER.DELETE")} ?</CardTitle>
+                </CardHeader>
+                <CardContent className="flex gap-10">
+                  <Button onClick={() => setDel(false)}>
+                    {t("BUTTON.CANCEL")}
+                  </Button>
+                  <Button variant={"destructive"} onClick={() => deleteUser()}>
+                    {t("BUTTON.USER.DELETE")}
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
-           </div>
-          }
+          )}
         </div>
       </Contenu>
     </div>
