@@ -1,4 +1,3 @@
-
 import { Input } from "../ui/input";
 import type { ReactNode } from "react";
 import { Label } from "../ui/label";
@@ -8,12 +7,21 @@ type Props = {
   value?: string;
   children?: ReactNode;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  classname?: string
-  placeholder? : string
-  label: string
+  classname?: string;
+  placeholder?: string;
+  label: string;
+  autoComplete?: string;
 };
-const InputCandidature = ({ children, name, value, onChange, classname, placeholder, label }: Props) => {
-
+const InputCandidature = ({
+  children,
+  name,
+  value,
+  onChange,
+  classname,
+  placeholder,
+  label,
+  autoComplete,
+}: Props) => {
   return (
     <div className="flex flex-col gap-2">
       <Label htmlFor={name} className="">
@@ -21,6 +29,7 @@ const InputCandidature = ({ children, name, value, onChange, classname, placehol
       </Label>
       {!children ? (
         <Input
+          autoComplete={autoComplete}
           className={classname}
           id={name}
           name={name}

@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import type Candidature from "@/models/Candidature";
 import { useTranslation } from "react-i18next";
 import DateFormat from "@/helpers/DateFormat";
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
 type Props = {
   candidature: Candidature;
@@ -42,7 +42,7 @@ const CandidatureCard = ({ candidature }: Props) => {
     }
   };
 
-    const getStatusTranslate = (status: string) => {
+  const getStatusTranslate = (status: string) => {
     switch (status) {
       case "valid":
         return t("STATUS.VALID");
@@ -105,10 +105,20 @@ const CandidatureCard = ({ candidature }: Props) => {
 
         {/* </div> */}
         <div className="flex justify-end space-x-2 ">
-          <Button variant="ghost" size="sm" disabled>
+          <Button
+            variant="ghost"
+            size="sm"
+            disabled
+            title="archive"
+            aria-label="archive"
+            role="button"
+          >
             <Archive className="h-4 w-4" />
           </Button>
           <Button
+            title="edit"
+            aria-label="edit"
+            role="button"
             variant="outline"
             size="sm"
             onClick={() => navigate(`/candidature/${candidature.id}`)}

@@ -114,7 +114,7 @@ const ContactPage = () => {
                 <form onSubmit={formik.handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
                     <div className="col-span-2">
-                      <Label htmlFor="object">{t("SUBEJECT")}*</Label>
+                      <Label htmlFor="subject">{t("SUBEJECT")}*</Label>
                       <Input
                         placeholder={t("SUBEJECT")}
                         id="subject"
@@ -135,6 +135,7 @@ const ContactPage = () => {
                     <div className="col-span-2">
                       <Label htmlFor="email">Email*</Label>
                       <Input
+                        autoComplete="email"
                         type="email"
                         name="email"
                         placeholder="Email"
@@ -159,6 +160,7 @@ const ContactPage = () => {
                     <div className="col-span-2 flex items-center gap-2">
                       <Checkbox
                         id="terms"
+                        name="terms"
                         checked={formik.values.terms}
                         className="bg-background"
                         // important : convertir en boolean
