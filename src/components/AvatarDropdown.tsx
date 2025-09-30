@@ -35,6 +35,9 @@ const AvatarDropdown = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
+          title="profile"
+          aria-label="profile"
+          role="button"
           variant="outline"
           size="icon"
           onClick={() => navigate("/profile")}
