@@ -135,6 +135,7 @@ const ContactPage = () => {
                     <div className="col-span-2">
                       <Label htmlFor="email">Email*</Label>
                       <Input
+                        autoComplete="email"
                         type="email"
                         name="email"
                         placeholder="Email"
@@ -159,6 +160,7 @@ const ContactPage = () => {
                     <div className="col-span-2 flex items-center gap-2">
                       <Checkbox
                         id="terms"
+                        name="terms"
                         checked={formik.values.terms}
                         className="bg-background"
                         // important : convertir en boolean
