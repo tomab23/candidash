@@ -1,5 +1,5 @@
 import Navbar from "@/components/layout/Navbar";
-import { Search, SquarePlus } from "lucide-react";
+import { RefreshCcw, Search, SquarePlus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
@@ -18,6 +18,10 @@ const HomePage = () => {
   const { t } = useTranslation();
   const [statusFilter, setStatusFilter] = useState<string>("all");
 
+    const handleReload = () => {
+    window.location.reload();
+  };
+
   // console.log(candidatures);
 
   // const testsByDate = tests.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
@@ -30,14 +34,21 @@ const HomePage = () => {
         {/* HEADER */}
         <div className="flex justify-between my-5 items-center">
           <div>
-            <h1 className="text-3xl max-sm:text-xl font-bold">{t("HOME.TITLE")}</h1>
-            <p className="max-sm:text-sm">
-              {candidatures.length} {t("CANDIDATURE")}{candidatures.length > 1 && "s"}{" "}
-              {t("HOME.TOTAL")}
-              {/* 0 candidature / applications au total */}
-            </p>
+            <h1 className="text-3xl max-sm:text-xl font-bold">
+              {t("HOME.TITLE")}
+            </h1>
+            <div className="flex items-center gap-2">
+              <p className="max-sm:text-sm">
+                {candidatures.length} {t("CANDIDATURE")}
+                {candidatures.length > 1 && "s"} {t("HOME.TOTAL")}
+              </p>
+              <RefreshCcw className="w-4 h-4 hover:scale-110 hover:cursor-pointer" onClick={handleReload} />
+            </div>
           </div>
-          <Button onClick={() => navigate("/candidature")} className="max-sm:text-xs">
+          <Button
+            onClick={() => navigate("/candidature")}
+            className="max-sm:text-xs"
+          >
             <SquarePlus />
             {t("BUTTON.ADD")}
           </Button>
