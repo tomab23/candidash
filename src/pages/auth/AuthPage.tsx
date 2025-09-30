@@ -119,7 +119,7 @@ const AuthPage = (props: Props) => {
           <div>
             <p className="font-bold mb-1">{t("AUTH.PASSWORD")}</p>
             <PasswordInput
-              autoComplete="current-password"
+              autoComplete={props.register ? "new-password" : "current-password"}
               id="password"
               name="password"
               onChange={formik.handleChange}

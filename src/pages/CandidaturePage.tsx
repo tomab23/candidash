@@ -151,6 +151,7 @@ const CandidaturePage = (props: Props) => {
               className="flex flex-col justify-center gap-4"
             >
               <InputCandidature
+                autoComplete="organization"
                 name={"company"}
                 value={formik.values.company}
                 onChange={formik.handleChange}
