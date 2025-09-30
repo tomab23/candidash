@@ -114,7 +114,7 @@ const ContactPage = () => {
                 <form onSubmit={formik.handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
                     <div className="col-span-2">
-                      <Label htmlFor="object">{t("SUBEJECT")}*</Label>
+                      <Label htmlFor="subject">{t("SUBEJECT")}*</Label>
                       <Input
                         placeholder={t("SUBEJECT")}
                         id="subject"

@@ -104,6 +104,7 @@ const AuthPage = (props: Props) => {
           <div>
             <p className="font-bold mb-1">Email</p>
             <Input
+             autoComplete="email"
               type="email"
               placeholder="Email"
               required
@@ -118,6 +119,7 @@ const AuthPage = (props: Props) => {
           <div>
             <p className="font-bold mb-1">{t("AUTH.PASSWORD")}</p>
             <PasswordInput
+              autoComplete="current-password"
               id="password"
               name="password"
               onChange={formik.handleChange}
@@ -147,6 +149,7 @@ const AuthPage = (props: Props) => {
               <div>
                 <p className="font-bold mb-1 mt-3">Confirm password</p>
                 <PasswordInput
+                  autoComplete="new-password"
                   id="confirm"
                   name="confirm"
                   onChange={formik.handleChange}
