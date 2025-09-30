@@ -10,9 +10,15 @@ import ArchivesPage from "@/pages/ArchivesPage";
 import UpdatesPages from "@/pages/UpdatesPages";
 import NotFoundPage from "@/pages/NotFoundPage";
 import ContactPage from "@/pages/ContactPage";
+import { Suspense } from "react";
+
+// const Home = lazy(() => import("./pages/Home"));
+// const Dashboard = lazy(() => import("./pages/Dashboard"));
+// const Settings = lazy(() => import("./pages/Settings"));
 
 const RouterApp = () => {
   return (
+    // <Suspense fallback={<div>Chargement...</div>} ></Suspense>
     <Routes>
       {/* PUBLIC */}
       <Route path="/" element={<AuthPage />} />
