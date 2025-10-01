@@ -8,14 +8,16 @@ import {
 } from "@/components/ui/card";
 import StringToDate from "@/helpers/StringToDate";
 import type { UpdateIcon } from "@/enums/UpdateIcon";
+import { Separator } from "../ui/separator";
 
 type Props = {
   update: UpdateIcon;
   children: ReactNode;
   date: string;
+  version: string;
 };
 
-const UpdateCard = ({ update, children, date }: Props) => {
+const UpdateCard = ({ update, children, date, version }: Props) => {
 
   const getUpdateIcon = (status: string) => {
     switch (status) {
@@ -45,7 +47,11 @@ const UpdateCard = ({ update, children, date }: Props) => {
       <CardHeader>
         <CardTitle>
           <div className="flex justify-between items-center">
-            {getUpdateIcon(update)}
+            <div className="flex h-5 items-center space-x-2 text-xs">
+              {getUpdateIcon(update)}
+              <Separator orientation="vertical"  />
+              <p className="text-muted-foreground">{version}</p>
+            </div>
             <p className="text-xs text-muted-foreground">{StringToDate(date, false)}</p>
           </div>
         </CardTitle>
