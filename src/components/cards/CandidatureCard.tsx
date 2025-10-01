@@ -59,7 +59,24 @@ const CandidatureCard = ({ candidature }: Props) => {
       case "abandoned":
         return t("STATUS.ABANDONED");
       default:
-        return "bg-yellow-500 hover:bg-yellow-600 ";
+        return "";
+    }
+  };
+
+    const getContractTranslate = (status: string) => {
+    switch (status) {
+      case "permanent":
+        return t("CONTRACT.PERMANENT");
+      case "fixed":
+        return t("CONTRACT.FIXED");
+      case "freelance":
+        return t("CONTRACT.FREELANCE");
+      case "intern":
+        return t("CONTRACT.INTERN");
+      case "apprentice":
+        return t("CONTRACT.APPRENTICE");
+      default:
+        return "";
     }
   };
 
@@ -83,7 +100,7 @@ const CandidatureCard = ({ candidature }: Props) => {
         <div className="flex h-5 items-center space-x-2">
           <div className="flex items-center text-sm text-muted-foreground">
             <BriefcaseBusiness className="h-4 w-4 mr-2" />
-            CDI
+            {getContractTranslate(candidature.contract)}
           </div>
           <Separator orientation="vertical" />
           <div className="flex items-center text-sm text-muted-foreground">
