@@ -36,6 +36,13 @@
     "TEXT": "Nous serions ravis de vous lire. Veuillez remplir ce formulaire ou nous envoyer un e-mail.",
     "TITLE": "Discutez avec notre équipe!"
   },
+  "CONTRACT": {
+    "APPRENTICE": "Contrat d'apprentissage",
+    "FIXED": "CDD",
+    "FREELANCE": "Freelance",
+    "INTERN": "Stage",
+    "PERMANENT": "CDI"
+  },
   "DELETE": {
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
     "QUESTION": "Supprimer cette candidature ?",

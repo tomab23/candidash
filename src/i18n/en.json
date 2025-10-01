@@ -36,6 +36,13 @@
     "TEXT": "We'd love to hear from you. Please fill out this form or shoot us an email.",
     "TITLE": "Chat with our team!"
   },
+  "CONTRACT": {
+    "APPRENTICE": "Apprenticeship agreement",
+    "FIXED": "Fixed-term contract",
+    "FREELANCE": "Freelance",
+    "INTERN": "Internship",
+    "PERMANENT": "Permanent contract"
+  },
   "DELETE": {
     "MESSAGE": "This action cannot be undone. This will permanently delete your application",
     "QUESTION": "Delete this application ?",
