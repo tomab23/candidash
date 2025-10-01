@@ -3,6 +3,7 @@ export default class Candidature{
     created_at: string;
     company: string;
     job: string;
+    contract: string;
     date: Date;
     status: string;
     place: string;
@@ -15,6 +16,7 @@ export default class Candidature{
         created_at: string,
         company: string,
         job: string,
+        contract: string,
         date: Date,
         status: string,
         place: string,
@@ -26,6 +28,7 @@ export default class Candidature{
         this.created_at = created_at
         this.job = job;
         this.company = company;
+        this.contract = contract
         this.date = date;
         this.status = status;
         this.place = place;

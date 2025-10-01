@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Archive,
+  BriefcaseBusiness,
   Calendar,
   Edit,
   FileText,
@@ -14,6 +15,7 @@ import type Candidature from "@/models/Candidature";
 import { useTranslation } from "react-i18next";
 import DateFormat from "@/helpers/DateFormat";
 import { Button } from "@/components/ui/button";
+import { Separator } from "../ui/separator";
 
 type Props = {
   candidature: Candidature;
@@ -57,7 +59,24 @@ const CandidatureCard = ({ candidature }: Props) => {
       case "abandoned":
         return t("STATUS.ABANDONED");
       default:
-        return "bg-yellow-500 hover:bg-yellow-600 ";
+        return "";
+    }
+  };
+
+    const getContractTranslate = (status: string) => {
+    switch (status) {
+      case "permanent":
+        return t("CONTRACT.PERMANENT");
+      case "fixed":
+        return t("CONTRACT.FIXED");
+      case "freelance":
+        return t("CONTRACT.FREELANCE");
+      case "intern":
+        return t("CONTRACT.INTERN");
+      case "apprentice":
+        return t("CONTRACT.APPRENTICE");
+      default:
+        return "";
     }
   };
 
@@ -77,9 +96,17 @@ const CandidatureCard = ({ candidature }: Props) => {
           <User2 className="h-4 w-4 mr-2" />
           {candidature.job}
         </div>
-        <div className="flex items-center text-sm text-muted-foreground">
-          <MapPin className="h-4 w-4 mr-2" />
-          {candidature.place}
+
+        <div className="flex h-5 items-center space-x-2">
+          <div className="flex items-center text-sm text-muted-foreground">
+            <BriefcaseBusiness className="h-4 w-4 mr-2" />
+            {getContractTranslate(candidature.contract)}
+          </div>
+          <Separator orientation="vertical" />
+          <div className="flex items-center text-sm text-muted-foreground">
+            <MapPin className="h-4 w-4 mr-2" />
+            {candidature.place}
+          </div>
         </div>
         <div className="flex items-center text-sm text-muted-foreground">
           <Calendar className="h-4 w-4 mr-2" />
