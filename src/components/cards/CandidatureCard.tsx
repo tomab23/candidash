@@ -110,7 +110,7 @@ const CandidatureCard = ({ candidature }: Props) => {
           <Separator orientation="vertical" />
           <div className="flex items-center text-sm text-muted-foreground">
             <MapPin className="h-4 w-4 mr-1" />
-            <p className="truncate w-16" title={candidature.place}>
+            <p className="truncate w-16 [&::first-letter]:uppercase" title={candidature.place}>
               {candidature.place}
             </p>
           </div>
