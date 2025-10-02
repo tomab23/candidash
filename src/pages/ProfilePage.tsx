@@ -7,7 +7,7 @@ import StringToDate from "@/helpers/StringToDate";
 import { useCandidature } from "@/hooks/useCandidature";
 import i18n from "@/i18n/i18n";
 import { intervalToDuration } from "date-fns";
-import { List, SquareUserRound } from "lucide-react";
+import { ArchiveIcon, List, SquareUserRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/layout/Header";
@@ -15,7 +15,7 @@ import ContractPart from "@/components/profile/ContractPart";
 
 const ProfilePage = () => {
   const { user } = useAuth();
-  const { candidatures } = useCandidature();
+  const { candidatures, archives } = useCandidature();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -75,6 +75,11 @@ const ProfilePage = () => {
               title={t("CANDIDATURE") + "s"}
               value={candidatures.length}
               icon={<List className="h-4 w-4" />}
+            />
+                        <StatCard
+              title={"Archives"}
+              value={archives.length}
+              icon={<ArchiveIcon className="h-4 w-4" />}
             />
           </div>
         </div>
