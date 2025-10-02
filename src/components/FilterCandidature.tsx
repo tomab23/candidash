@@ -5,7 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ItemStatusList } from "@/models/ItemStatusList";
+import { ItemStatusList } from "@/consts/ItemStatusList";
 import { ListFilter } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

@@ -15,9 +15,10 @@ type Props = {
   children: ReactNode;
   date: string;
   version: string;
+  classname :string;
 };
 
-const UpdateCard = ({ update, children, date, version }: Props) => {
+const UpdateCard = ({ update, children, date, version, classname }: Props) => {
 
   const getUpdateIcon = (status: string) => {
     switch (status) {
@@ -43,7 +44,7 @@ const UpdateCard = ({ update, children, date, version }: Props) => {
   };
 
   return (
-    <Card>
+    <Card className={classname}>
       <CardHeader>
         <CardTitle>
           <div className="flex justify-between items-center">

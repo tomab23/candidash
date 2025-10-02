@@ -9,7 +9,7 @@ import { useState } from "react";
 import { PasswordInput } from "@/components/ui/password-input";
 import { Info, InfoIcon, Loader2Icon, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Version } from "./../../models/Version";
+import { Version } from "../../consts/Version";
 
 type Props = {
   register?: boolean;

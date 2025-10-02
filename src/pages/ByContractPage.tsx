@@ -13,6 +13,8 @@ const ByContractPage = () => {
     const location = useLocation();
     const state = location.state as LocationState;
 
+    // const cdiJobs = jobs.filter((job) => job.type === "CDI");
+
     if (!state) return <NotFoundPage />;
     
     

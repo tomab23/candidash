@@ -13,7 +13,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { ItemStatusList } from "@/models/ItemStatusList";
+import { ItemStatusList } from "@/consts/ItemStatusList";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 

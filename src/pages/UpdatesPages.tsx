@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ImgTitle from "@/components/ImgTitle";
 import { useTranslation } from "react-i18next";
-import { Version } from "@/models/Version";
+import { Version } from "@/consts/Version";
 import UpdateInfo from "@/components/update/UpdateInfo";
 import Header from "@/components/layout/Header";
 import UpdatesList from "@/components/update/UpdatesList";

@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/popover";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ContractList } from "@/models/ContractList";
+import { ContractList } from "@/consts/ContractList";
 
 
 type Props = {
