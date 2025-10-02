@@ -58,7 +58,7 @@ const AvatarDropdown = () => {
         <DropdownMenuItem onClick={() => navigate("/settings")}>
           <Settings className="h-4 w-4" /> {t("TITLE.SETTINGS")}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => navigate("/archives")} disabled>
+        <DropdownMenuItem onClick={() => navigate("/archives")}>
           <Archive className="h-4 w-4" /> Archives
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => navigate("/updates")}>

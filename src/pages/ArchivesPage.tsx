@@ -1,13 +1,20 @@
+import Header from "@/components/layout/Header";
 import Navbar from "@/components/layout/Navbar";
 import Contenu from "@/helpers/Contenu";
+import { useCandidature } from "@/hooks/useCandidature";
 
 const ArchivesPage = () => {
+  const { archives } = useCandidature();
+
+  // console.log(archives);
+  
   return (
     <div>
       <Navbar />
-      <h1 className="text-center text-2xl font-bold mt-2 mb-10">Archives</h1>
       <Contenu>
-        <p>Mettre un tableau</p>
+        <Header title={"Archives"}  />
+
+        <p>Candidatures archivées : {archives.length}</p>
       </Contenu>
     </div>
   );
