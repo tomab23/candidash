@@ -8,24 +8,16 @@ import { useCandidature } from "@/hooks/useCandidature";
 import i18n from "@/i18n/i18n";
 import { intervalToDuration } from "date-fns";
 import { List, SquareUserRound } from "lucide-react";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/layout/Header";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import ContractPart from "@/components/profile/ContractPart";
 
 const ProfilePage = () => {
   const { user } = useAuth();
-  const { candidatures, removeUser } = useCandidature();
+  const { candidatures } = useCandidature();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [del, setDel] = useState<boolean>(false);
 
   const dateRegister = new Date(String(user?.created_at)).setHours(0, 0, 0, 0);
   const today = new Date().setHours(0, 0, 0, 0);
@@ -38,11 +30,6 @@ const ProfilePage = () => {
   const day = interval.days && interval.days > 1 ? " days" : " day";
   const jour = interval.days && interval.days > 1 ? " jours" : " jour";
   const month = interval.months && interval.months > 1 ? " months " : " month ";
-
-  const deleteUser = () => {
-    removeUser();
-    navigate("/");
-  };
 
   return (
     <div>
@@ -90,29 +77,6 @@ const ProfilePage = () => {
               icon={<List className="h-4 w-4" />}
             />
           </div>
-        </div>
-
-        <div className="flex flex-col justify-center items-center gap-5 mt-20">
-          <Button variant={"destructive"} onClick={() => setDel(true)}>
-            {t("BUTTON.USER.DELETE")}
-          </Button>
-          {del && (
-            <div>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-center">{t("BUTTON.USER.DELETE")} ?</CardTitle>
-                </CardHeader>
-                <CardContent className="flex gap-10">
-                  <Button onClick={() => setDel(false)}>
-                    {t("BUTTON.CANCEL")}
-                  </Button>
-                  <Button variant={"destructive"} onClick={() => deleteUser()}>
-                    {t("BUTTON.USER.DELETE")}
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          )}
         </div>
       </Contenu>
     </div>

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import UpdateCard from "./cards/UpdateCard";
+import UpdateCard from "../cards/UpdateCard";
 
 const UpdatesList = () => {
   const { i18n } = useTranslation()
