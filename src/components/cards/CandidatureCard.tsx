@@ -65,15 +65,15 @@ const CandidatureCard = ({ candidature }: Props) => {
 
     const getContractTranslate = (status: string) => {
     switch (status) {
-      case "permanent":
+      case "cdi":
         return t("CONTRACT.PERMANENT");
-      case "fixed":
+      case "cdd":
         return t("CONTRACT.FIXED");
       case "freelance":
         return t("CONTRACT.FREELANCE");
-      case "intern":
+      case "stage":
         return t("CONTRACT.INTERN");
-      case "apprentice":
+      case "alternance":
         return t("CONTRACT.APPRENTICE");
       default:
         return "";
