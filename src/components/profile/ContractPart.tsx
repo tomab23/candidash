@@ -7,11 +7,11 @@ const ContractPart = () => {
     <div className="mb-5">
       <h2 className="mb-3 text-xl">{t("CONTRACT.TITLE")}</h2>
       <div className="grid grid-rows-1 grid-cols-2 sm:grid-cols-4 gap-4">
-        <ContractCard name={t("CONTRACT.PERMANENT")} />
-        <ContractCard name={t("CONTRACT.FIXED")} />
-        <ContractCard name={t("CONTRACT.FREELANCE")} />
-        <ContractCard name={t("CONTRACT.INTERN")} />
-        <ContractCard name={t("CONTRACT.APPRENTICE")} />
+        <ContractCard name={t("CONTRACT.PERMANENT")} value={"cdi"} />
+        <ContractCard name={t("CONTRACT.FIXED")} value={"cdd"} />
+        <ContractCard name={t("CONTRACT.FREELANCE")} value={"freelance"} />
+        <ContractCard name={t("CONTRACT.INTERN")} value={"stage"} />
+        <ContractCard name={t("CONTRACT.APPRENTICE")} value={"alternance"} />
       </div>
     </div>
   );
