@@ -98,7 +98,8 @@ const CandidaturePage = (props: Props) => {
           values.status,
           values.link,
           values.note,
-          values.place
+          values.place,
+          values.contract
         );
       } else {
         addCandidature(
@@ -108,7 +109,8 @@ const CandidaturePage = (props: Props) => {
           values.status,
           values.link,
           values.note,
-          values.place
+          values.place,
+          values.contract
         );
       }
 
