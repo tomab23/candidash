@@ -41,7 +41,8 @@
     "FIXED": "Fixed-term contract",
     "FREELANCE": "Freelance",
     "INTERN": "Internship",
-    "PERMANENT": "Permanent contract"
+    "PERMANENT": "Permanent contract",
+    "TITLE": "Contract"
   },
   "DELETE": {
     "MESSAGE": "This action cannot be undone. This will permanently delete your application",

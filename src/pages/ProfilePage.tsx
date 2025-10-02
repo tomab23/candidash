@@ -18,6 +18,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import ContractPart from "@/components/profile/ContractPart";
 
 const ProfilePage = () => {
   const { user } = useAuth();
@@ -47,7 +48,6 @@ const ProfilePage = () => {
     <div>
       <Navbar />
       <Contenu>
-        {/* <h1 className="text-center text-2xl font-bold mt-2">{t("TITLE.PROFILE")}</h1> */}
         <Header title={t("TITLE.PROFILE")} />
         {/*  */}
         <div className="flex flex-col gap-5 mt-5 max-sm:mt-3">
@@ -80,7 +80,9 @@ const ProfilePage = () => {
               {t("BUTTON.PROFILE")}
             </Button>
           </div>
-          {/* MORE */}
+          {/* CONTRACT */}
+          <ContractPart />
+          {/* STATS */}
           <div className="grid grid-rows-1 grid-cols-4 sm:grid-cols-6 gap-4">
             <StatCard
               title={t("CANDIDATURE") + "s"}

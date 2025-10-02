@@ -41,7 +41,8 @@
     "FIXED": "CDD",
     "FREELANCE": "Freelance",
     "INTERN": "Stage",
-    "PERMANENT": "CDI"
+    "PERMANENT": "CDI",
+    "TITLE": "Contrat"
   },
   "DELETE": {
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
