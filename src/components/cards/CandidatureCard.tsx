@@ -30,7 +30,7 @@ const CandidatureCard = ({ candidature }: Props) => {
       case "valid":
         return "bg-green-500 hover:bg-green-600 ";
       case "refused":
-        return "bg-red-500 hover:bg-red-600 ";
+        return "bg-destructive hover:bg-red-500 ";
       case "wait":
         return "bg-blue-500 hover:bg-blue-600 ";
       case "interview":
