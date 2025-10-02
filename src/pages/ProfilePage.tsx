@@ -9,7 +9,6 @@ import i18n from "@/i18n/i18n";
 import { intervalToDuration } from "date-fns";
 import { ArchiveIcon, List, SquareUserRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import ContractPart from "@/components/profile/ContractPart";
 
@@ -17,7 +16,6 @@ const ProfilePage = () => {
   const { user } = useAuth();
   const { candidatures, archives } = useCandidature();
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   const dateRegister = new Date(String(user?.created_at)).setHours(0, 0, 0, 0);
   const today = new Date().setHours(0, 0, 0, 0);
@@ -76,7 +74,7 @@ const ProfilePage = () => {
               value={candidatures.length}
               icon={<List className="h-4 w-4" />}
             />
-                        <StatCard
+            <StatCard
               title={"Archives"}
               value={archives.length}
               icon={<ArchiveIcon className="h-4 w-4" />}
