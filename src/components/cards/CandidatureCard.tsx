@@ -30,7 +30,7 @@ const CandidatureCard = ({ candidature }: Props) => {
       case "valid":
         return "bg-green-500 hover:bg-green-600 ";
       case "refused":
-        return "bg-red-500 hover:bg-red-600 ";
+        return "bg-destructive hover:bg-red-500 ";
       case "wait":
         return "bg-blue-500 hover:bg-blue-600 ";
       case "interview":
@@ -63,17 +63,17 @@ const CandidatureCard = ({ candidature }: Props) => {
     }
   };
 
-    const getContractTranslate = (status: string) => {
+  const getContractTranslate = (status: string) => {
     switch (status) {
-      case "permanent":
+      case "cdi":
         return t("CONTRACT.PERMANENT");
-      case "fixed":
+      case "cdd":
         return t("CONTRACT.FIXED");
       case "freelance":
         return t("CONTRACT.FREELANCE");
-      case "intern":
+      case "stage":
         return t("CONTRACT.INTERN");
-      case "apprentice":
+      case "alternance":
         return t("CONTRACT.APPRENTICE");
       default:
         return "";
@@ -97,21 +97,28 @@ const CandidatureCard = ({ candidature }: Props) => {
           {candidature.job}
         </div>
 
+        <div className="flex items-center text-sm text-muted-foreground">
+          <BriefcaseBusiness className="h-4 w-4 mr-2" />
+          {getContractTranslate(candidature.contract)}
+        </div>
+
         <div className="flex h-5 items-center space-x-2">
           <div className="flex items-center text-sm text-muted-foreground">
-            <BriefcaseBusiness className="h-4 w-4 mr-2" />
-            {getContractTranslate(candidature.contract)}
+            <Calendar className="h-4 w-4 mr-2" />
+            {DateFormat(candidature.date, false)}
           </div>
           <Separator orientation="vertical" />
           <div className="flex items-center text-sm text-muted-foreground">
-            <MapPin className="h-4 w-4 mr-2" />
-            {candidature.place}
+            <MapPin className="h-4 w-4 mr-1" />
+            <p className="truncate w-16 [&::first-letter]:uppercase" title={candidature.place}>
+              {candidature.place}
+            </p>
           </div>
         </div>
-        <div className="flex items-center text-sm text-muted-foreground">
+        {/* <div className="flex items-center text-sm text-muted-foreground">
           <Calendar className="h-4 w-4 mr-2" />
           {DateFormat(candidature.date, false)}
-        </div>
+        </div> */}
 
         <div className="flex items-start text-sm text-muted-foreground">
           <Link className="h-4 w-4 mr-2 mt-0.5" />

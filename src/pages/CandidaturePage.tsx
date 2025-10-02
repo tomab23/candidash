@@ -1,8 +1,9 @@
-import ButtonBack from "@/components/custom/ButtonBack";
+import ContractBox from "@/components/custom/ContractBox";
 import DeleteTestDIalog from "@/components/custom/DeleteTestDialog";
 import InputCandidature from "@/components/custom/InputCandidature";
 import InputDateCalendar from "@/components/custom/InputDateCalendar";
 import { StatusBox } from "@/components/custom/StatusBox";
+import Header from "@/components/layout/Header";
 import Navbar from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
 import {
@@ -77,6 +78,7 @@ const CandidaturePage = (props: Props) => {
       link: Candidature ? Candidature.link : "",
       note: Candidature ? Candidature.note : "",
       place: Candidature ? Candidature.place : "",
+      contract: Candidature ? Candidature.contract : "",
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,
@@ -96,7 +98,8 @@ const CandidaturePage = (props: Props) => {
           values.status,
           values.link,
           values.note,
-          values.place
+          values.place,
+          values.contract
         );
       } else {
         addCandidature(
@@ -106,7 +109,8 @@ const CandidaturePage = (props: Props) => {
           values.status,
           values.link,
           values.note,
-          values.place
+          values.place,
+          values.contract
         );
       }
 
@@ -118,16 +122,13 @@ const CandidaturePage = (props: Props) => {
 
   //   console.log("Largeur écran : " + screen.width + "px");
   // console.log("Hauteur écran : " + screen.height + "px");
-  
+
   return (
     <div className="pb-10">
       <Navbar />
       <Contenu>
         {/* HEADER */}
-        <div className="flex justify-between items-center sm:px-5 mt-5 max-sm:mb-5">
-          <ButtonBack />
-          {/* <p className="text-center">ID : {props.edit ? id : "new"}</p> */}
-        </div>
+        <Header title={props.edit ? t("HEADER.EDIT") : t("HEADER.ADD")} />
         {/* CARD */}
         <Card className="w-full max-w-sm justify-self-center mt-2">
           <CardHeader>
@@ -199,6 +200,14 @@ const CandidaturePage = (props: Props) => {
                   onChange={(val) => formik.setFieldValue("status", val)}
                 />
               </InputCandidature>
+              {/* CONTRACT */}
+              <InputCandidature name={"contract"} label={"Contract*"}>
+                <ContractBox
+                  name="contract"
+                  value={formik.values.contract}
+                  onChange={(val) => formik.setFieldValue("contract", val)}
+                />
+              </InputCandidature>
 
               <InputCandidature
                 name={"link"}
@@ -224,7 +233,8 @@ const CandidaturePage = (props: Props) => {
               </Button>
 
               {/* ERRORS */}
-              {formik.submitCount > 0 && !formik.errors.link &&
+              {formik.submitCount > 0 &&
+                !formik.errors.link &&
                 Object.values(formik.errors).length > 0 && (
                   <div className="text-destructive">{t("ERROR.FORM")}</div>
                 )}

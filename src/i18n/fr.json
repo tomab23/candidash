@@ -41,7 +41,9 @@
     "FIXED": "CDD",
     "FREELANCE": "Freelance",
     "INTERN": "Stage",
-    "PERMANENT": "CDI"
+    "PERMANENT": "CDI",
+    "SELECT": "Choisir le contrat",
+    "TITLE": "Contrat"
   },
   "DELETE": {
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
@@ -75,6 +77,10 @@
     "PLACE": "Lieu",
     "RESET": "réinitialiser",
     "TITLE": "Ajouter une candidature"
+  },
+  "HEADER": {
+    "ADD": "Ajouter",
+    "EDIT": "Modifier"
   },
   "HELLO": "Application en Français",
   "HOME": {

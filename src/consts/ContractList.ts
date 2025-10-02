@@ -1,10 +1,10 @@
 export const ContractList = [
   {
-    value: "permanent",
+    value: "cdi",
     label: "CONTRACT.PERMANENT",
   },
     {
-    value: "fixed",
+    value: "cdd",
     label: "CONTRACT.FIXED",
   },
     {
@@ -12,11 +12,11 @@ export const ContractList = [
     label: "CONTRACT.FREELANCE",
   },
     {
-    value: "intern",
+    value: "stage",
     label: "CONTRACT.INTERN",
   },
     {
-    value: "apprentice",
+    value: "alternance",
     label: "CONTRACT.APPRENTICE",
   },
 ];

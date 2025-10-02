@@ -1,11 +1,23 @@
 import { supabase } from "@/lib/supabaseClient";
 
-// ⬇️ Récupérer les données de la table "candidature" pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
+// ⬇️ Récupérer les données de la table "candidature" non archivé pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
 export const getCandidatures = async (userId: string) => {
   const { data, error } = await supabase
     .from("candidature")
     .select("*")
-    .eq("user_id", userId);
+    .eq("user_id", userId)
+    .eq("archive", false)
+  if (error) throw new Error(error.message);
+  return data;
+};
+
+// ⬇️ Récupérer les données de la table "candidature" archivé pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
+export const getArchives = async (userId: string) => {
+  const { data, error } = await supabase
+    .from("candidature")
+    .select("*")
+    .eq("user_id", userId)
+    .eq("archive", true)
   if (error) throw new Error(error.message);
   return data;
 };
@@ -30,11 +42,12 @@ export const insertCandidature = async (
   status: string,
   link: string | undefined,
   note: string | undefined,
-  place: string
+  place: string,
+  contract: string
 ) => {
   const { error } = await supabase
     .from("candidature")
-    .insert([{ user_id: userId, company, job, date, status, link, note, place }]);
+    .insert([{ user_id: userId, company, job, date, status, link, note, place, contract }]);
   if (error) throw new Error(error.message);
 };
 
@@ -58,11 +71,12 @@ export const updateCandidature = async (
   status: string,
   link: string | undefined,
   note: string | undefined,
-  place: string
+  place: string,
+  contract: string
 ) => {
   const { error } = await supabase
     .from("candidature")
-    .update({ company, job, date, status, link, note, place })
+    .update({ company, job, date, status, link, note, place, contract })
     .eq("id", id)
     .eq("user_id", userId);
   if (error) throw new Error(error.message);

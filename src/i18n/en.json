@@ -41,7 +41,9 @@
     "FIXED": "Fixed-term contract",
     "FREELANCE": "Freelance",
     "INTERN": "Internship",
-    "PERMANENT": "Permanent contract"
+    "PERMANENT": "Permanent contract",
+    "SELECT": "Select contract",
+    "TITLE": "Contract"
   },
   "DELETE": {
     "MESSAGE": "This action cannot be undone. This will permanently delete your application",
@@ -75,6 +77,10 @@
     "PLACE": "Place",
     "RESET": "reset",
     "TITLE": "Add a job application"
+  },
+  "HEADER": {
+    "ADD": "Add",
+    "EDIT": "Edit"
   },
   "HELLO": "Application en Anglais",
   "HOME": {

@@ -1,4 +1,4 @@
-import { Check, ChevronsUpDown, List, } from "lucide-react";
+import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,9 +13,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { ItemStatusList } from "@/consts/ItemStatusList";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ContractList } from "@/consts/ContractList";
 
 
 type Props = {
@@ -24,34 +24,28 @@ type Props = {
   onChange: (value: string) => void;
 };
 
-export function StatusBox({ name, value, onChange}: Props) {
-  const { t } = useTranslation()
-  const [open, setOpen] = useState(false);
+const ContractBox = ({ name, value, onChange}: Props) => {
+    const { t } = useTranslation();
+    const [open, setOpen] = useState(false);
 
-  // console.log("status : ", status);
-
-     const getStatusTranslate = (status: string) => {
+    const getContractTranslate = (status: string) => {
     switch (status) {
-      case "valid":
-        return t("STATUS.VALID");
-      case "refused":
-        return t("STATUS.REFUSED");
-      case "wait":
-        return t("STATUS.WAITING");
-      case "interview":
-        return t("STATUS.INTERVIEW");
-      case "again":
-        return t("STATUS.AGAIN");
-      case "abandoned":
-        return t("STATUS.ABANDONED");
+      case "cdi":
+        return t("CONTRACT.PERMANENT");
+      case "cdd":
+        return t("CONTRACT.FIXED");
+      case "freelance":
+        return t("CONTRACT.FREELANCE");
+      case "stage":
+        return t("CONTRACT.INTERN");
+      case "alternance":
+        return t("CONTRACT.APPRENTICE");
       default:
-        return t("STATUS.SELECT");
+        return t("CONTRACT.SELECT");
     }
   };
-  
-
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+        <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
         id={name}
@@ -61,7 +55,7 @@ export function StatusBox({ name, value, onChange}: Props) {
           className="justify-between w-full font-normal"
           // w-48
         >
-          {getStatusTranslate(value)}
+          {getContractTranslate(value)}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -71,7 +65,7 @@ export function StatusBox({ name, value, onChange}: Props) {
           <CommandList>
             <CommandEmpty>{t("STATUS.NONE")}</CommandEmpty>
             <CommandGroup>
-              {ItemStatusList.map((item) => (
+              {ContractList.map((item) => (
                 <CommandItem
                   className="hover:cursor-pointer"
                   key={item.value}
@@ -82,7 +76,7 @@ export function StatusBox({ name, value, onChange}: Props) {
                   }}
                   id={name}
                 >
-                    <List className={item.classname}/>
+                    {/* <List className={item.classname}/> */}
                   {t(item.label)}
                   <Check
                     className={cn(
@@ -91,11 +85,13 @@ export function StatusBox({ name, value, onChange}: Props) {
                     )}
                   />
                 </CommandItem>
-              )).slice(1)}
+              ))}
             </CommandGroup>
           </CommandList>
         </Command>
       </PopoverContent>
     </Popover>
-  );
+  )
 }
+
+export default ContractBox
