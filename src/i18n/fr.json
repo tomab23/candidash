@@ -42,6 +42,7 @@
     "FREELANCE": "Freelance",
     "INTERN": "Stage",
     "PERMANENT": "CDI",
+    "SELECT": "Choisir le contrat",
     "TITLE": "Contrat"
   },
   "DELETE": {
@@ -76,6 +77,10 @@
     "PLACE": "Lieu",
     "RESET": "réinitialiser",
     "TITLE": "Ajouter une candidature"
+  },
+  "HEADER": {
+    "ADD": "Ajouter",
+    "EDIT": "Modifier"
   },
   "HELLO": "Application en Français",
   "HOME": {

@@ -42,6 +42,7 @@
     "FREELANCE": "Freelance",
     "INTERN": "Internship",
     "PERMANENT": "Permanent contract",
+    "SELECT": "Select contract",
     "TITLE": "Contract"
   },
   "DELETE": {
@@ -76,6 +77,10 @@
     "PLACE": "Place",
     "RESET": "reset",
     "TITLE": "Add a job application"
+  },
+  "HEADER": {
+    "ADD": "Add",
+    "EDIT": "Edit"
   },
   "HELLO": "Application en Anglais",
   "HOME": {

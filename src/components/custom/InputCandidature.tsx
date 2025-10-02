@@ -34,7 +34,7 @@ const InputCandidature = ({
           id={name}
           name={name}
           onChange={onChange}
-          value={value}
+          value={value ?? ""}
           placeholder={placeholder}
         />
       ) : (
