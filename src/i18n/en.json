@@ -3,6 +3,9 @@
     "TEXT": "Sorry, the page you are looking for either doesn't exist or has been moved.",
     "TITLE": "Page not found"
   },
+  "ARCHIVES": {
+    "TITLE": "Archived applications"
+  },
   "AUTH": {
     "CREATE": "Create account",
     "FORGOT": "Forgot your password?",
@@ -71,6 +74,7 @@
   "FORM": {
     "ADD": "Add new application",
     "COMPANY": "Company",
+    "CONTRACT": "Contract",
     "DATE": "Application date",
     "JOB": "Job",
     "LINK": "Link",
@@ -102,6 +106,7 @@
   "PROFILE": {
     "SINCE": "Registered since"
   },
+  "RESTORE": "Restore",
   "STATUS": {
     "ABANDONED": "Abandoned",
     "AGAIN": "Throw again",

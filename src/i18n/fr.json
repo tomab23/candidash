@@ -3,6 +3,9 @@
     "TEXT": "Désolé, la page que vous cherchez n'existe pas ou a été déplacée.",
     "TITLE": "Page non trouvée"
   },
+  "ARCHIVES": {
+    "TITLE": "Candidatures archivées"
+  },
   "AUTH": {
     "CREATE": "Créer un compte",
     "FORGOT": "Mot de passe oublié?",
@@ -71,6 +74,7 @@
   "FORM": {
     "ADD": "Ajouter la candidature",
     "COMPANY": "Entreprise",
+    "CONTRACT": "Contrat",
     "DATE": "Date de candidature",
     "JOB": "Poste",
     "LINK": "Lien",
@@ -102,6 +106,7 @@
   "PROFILE": {
     "SINCE": "Inscript depuis"
   },
+  "RESTORE": "Restaurer",
   "STATUS": {
     "ABANDONED": "Abandonné",
     "AGAIN": "Relance",

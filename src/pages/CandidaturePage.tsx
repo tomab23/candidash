@@ -201,7 +201,7 @@ const CandidaturePage = (props: Props) => {
                 />
               </InputCandidature>
               {/* CONTRACT */}
-              <InputCandidature name={"contract"} label={"Contract*"}>
+              <InputCandidature name={"contract"} label={t("FORM.CONTRACT") + "*"}>
                 <ContractBox
                   name="contract"
                   value={formik.values.contract}
