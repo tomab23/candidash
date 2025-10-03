@@ -82,7 +82,7 @@ const CandidatureCard = ({ candidature }: Props) => {
   };
 
   return (
-    <Card className="hover:shadow-lg transition-shadow duration-200">
+    <Card className={`hover:shadow-lg transition-shadow duration-200 ${candidature.archive && "bg-accent"}`}>
       <CardHeader className="">
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg">{candidature.company}</CardTitle>
