@@ -55,11 +55,11 @@ const AvatarDropdown = () => {
         <DropdownMenuItem onClick={() => navigate("/profile")}>
           <User className="h-4 w-4" /> {t("TITLE.PROFILE")}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => navigate("/settings")}>
-          <Settings className="h-4 w-4" /> {t("TITLE.SETTINGS")}
-        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => navigate("/archives")}>
           <Archive className="h-4 w-4" /> Archives
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate("/settings")}>
+          <Settings className="h-4 w-4" /> {t("TITLE.SETTINGS")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => navigate("/updates")}>
           <List className="h-4 w-4" /> {t("TITLE.UPDATES")}
