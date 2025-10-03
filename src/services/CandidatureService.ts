@@ -1,12 +1,11 @@
 import { supabase } from "@/lib/supabaseClient";
 
-// ⬇️ Récupérer les données de la table "candidature" non archivé pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
+// ⬇️ Récupérer les données de la table "candidature" pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
 export const getCandidatures = async (userId: string) => {
   const { data, error } = await supabase
     .from("candidature")
     .select("*")
     .eq("user_id", userId)
-    .eq("archive", false)
   if (error) throw new Error(error.message);
   return data;
 };
