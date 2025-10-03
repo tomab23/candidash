@@ -82,10 +82,10 @@ const CandidatureCard = ({ candidature }: Props) => {
   };
 
   return (
-    <Card className={`hover:shadow-lg transition-shadow duration-200 ${candidature.archive && "bg-accent"}`}>
+    <Card className={`hover:shadow-lg transition-shadow duration-200`}>
       <CardHeader className="">
         <div className="flex justify-between items-start">
-          <CardTitle className="text-lg">{candidature.company}</CardTitle>
+          <CardTitle className={`text-lg ${candidature.archive && "text-muted-foreground"}`}>{candidature.company}</CardTitle>
           <Badge className={getStatusColor(candidature.status)}>
             {getStatusTranslate(candidature.status)}
           </Badge>
@@ -144,11 +144,11 @@ const CandidatureCard = ({ candidature }: Props) => {
             variant="ghost"
             size="sm"
             disabled
-            title="archive"
-            aria-label="archive"
+            title={candidature.archive ? t("RESTORE") : "Archive"}
+            aria-label={candidature.archive ? t("RESTORE") : "Archive"}
             role="button"
           >
-            {candidature.archive ? <ArchiveRestore className="w-4 h-4" /> : <Archive className="h-4 w-4" />}    
+            {candidature.archive ? <ArchiveRestore className="w-4 h-4 dark:stroke-blue-300 stroke-blue-700" /> : <Archive className="h-4 w-4" />}    
           </Button>
           <Button
             title="edit"
