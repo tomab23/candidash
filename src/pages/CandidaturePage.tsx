@@ -55,7 +55,7 @@ const CandidaturePage = (props: Props) => {
     job: Yup.string().required(requiredMsg),
     status: Yup.string().required(requiredMsg),
     place: Yup.string().required(requiredMsg),
-    link: Yup.string().url(t("ERROR.URL") + " (ex: https://exemple.com)"),
+    link: Yup.string().url(t("ERROR.URL") + " (ex: https://exemple.com)").notRequired(),
   });
 
   const normalizeDate = (d: Date) => {
