@@ -18,6 +18,8 @@ const HomePage = () => {
   const { t } = useTranslation();
   const [statusFilter, setStatusFilter] = useState<string>("all");
 
+  const candidatureFilter = candidatures.filter((c) => c.archive === false)
+
     const handleReload = () => {
     window.location.reload();
   };
@@ -39,8 +41,8 @@ const HomePage = () => {
             </h1>
             <div className="flex items-center gap-2">
               <p className="max-sm:text-sm">
-                {candidatures.length} {t("CANDIDATURE")}
-                {candidatures.length > 1 && "s"} {t("HOME.TOTAL")}
+                {candidatureFilter.length} {t("CANDIDATURE")}
+                {candidatureFilter.length > 1 && "s"} {t("HOME.TOTAL")}
               </p>
               <RefreshCcw className="w-4 h-4 hover:scale-110 hover:cursor-pointer" onClick={handleReload} />
             </div>
@@ -72,7 +74,7 @@ const HomePage = () => {
         <p className="text-center">Filtre : {statusFilter}</p> */}
         {/* LIST */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {candidatures
+          {candidatureFilter
             .map((c) => <CandidatureCard key={c.id} candidature={c} />)
             .reverse()}
         </div>

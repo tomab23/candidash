@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Archive,
+  ArchiveRestore,
   BriefcaseBusiness,
   Calendar,
   Edit,
@@ -81,7 +82,7 @@ const CandidatureCard = ({ candidature }: Props) => {
   };
 
   return (
-    <Card className="hover:shadow-lg transition-shadow duration-200">
+    <Card className={`hover:shadow-lg transition-shadow duration-200 ${candidature.archive && "bg-accent"}`}>
       <CardHeader className="">
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg">{candidature.company}</CardTitle>
@@ -147,7 +148,7 @@ const CandidatureCard = ({ candidature }: Props) => {
             aria-label="archive"
             role="button"
           >
-            <Archive className="h-4 w-4" />
+            {candidature.archive ? <ArchiveRestore className="w-4 h-4" /> : <Archive className="h-4 w-4" />}    
           </Button>
           <Button
             title="edit"

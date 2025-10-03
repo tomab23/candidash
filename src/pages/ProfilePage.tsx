@@ -17,6 +17,8 @@ const ProfilePage = () => {
   const { candidatures, archives } = useCandidature();
   const { t } = useTranslation();
 
+  const candidatureFilter = candidatures.filter((c) => c.archive === false)
+
   const dateRegister = new Date(String(user?.created_at)).setHours(0, 0, 0, 0);
   const today = new Date().setHours(0, 0, 0, 0);
 
@@ -71,7 +73,7 @@ const ProfilePage = () => {
           <div className="grid grid-rows-1 grid-cols-4 sm:grid-cols-6 gap-4">
             <StatCard
               title={t("CANDIDATURE") + "s"}
-              value={candidatures.length}
+              value={candidatureFilter.length}
               icon={<List className="h-4 w-4" />}
             />
             <StatCard
