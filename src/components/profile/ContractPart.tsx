@@ -5,7 +5,7 @@ const ContractPart = () => {
   const { t } = useTranslation();
   return (
     <div className="mb-5">
-      <h2 className="mb-3 text-xl">{t("CONTRACT.TITLE")}</h2>
+      <h2 className="mb-3 text-xl font-semibold">{t("CONTRACT.TITLE")}</h2>
       <div className="grid grid-rows-1 grid-cols-2 sm:grid-cols-4 gap-4">
         <ContractCard name={t("CONTRACT.PERMANENT")} value={"cdi"} />
         <ContractCard name={t("CONTRACT.FIXED")} value={"cdd"} />
