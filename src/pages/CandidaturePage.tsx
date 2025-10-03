@@ -114,7 +114,7 @@ const CandidaturePage = (props: Props) => {
         );
       }
 
-      navigate("/home");
+      navigate(-1);
     },
   });
 
