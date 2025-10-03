@@ -13,6 +13,7 @@ import {
 import { ArchiveRestore, Edit, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const ArchivesPage = () => {
   const { archives } = useCandidature();
@@ -27,9 +28,12 @@ const ArchivesPage = () => {
       <Contenu>
         <Header title={"Archives"} />
 
-        <p className="text-center font-semibold text-xl mb-5">
+        <div className="flex justify-between my-5">
+                  <p className="font-semibold text-xl">
           {t("ARCHIVES.TITLE")} : {archives.length}
         </p>
+        <Button variant={"destructive"} disabled>Delete all</Button>
+        </div>
 
         <Table>
           {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
