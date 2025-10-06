@@ -16,8 +16,8 @@ export const UpdateInfoList: UpdateInfo[] = [
     update: "update",
     date: "2025-10-01",
     version: "bêta 0.2",
-    fr: "Ajout du choix de contrat pour les candidatures",
-    en: "Added contract selection for applications",
+    fr: "Choix de contrat pour les candidatures",
+    en: "Contract selection for applications",
     classname: "mt-5",
   },
   {
@@ -25,8 +25,8 @@ export const UpdateInfoList: UpdateInfo[] = [
     update: "add",
     date: "2025-10-02",
     version: "bêta 0.3",
-    fr: "Ajouter le tableau de vos archives",
-    en: "Add your archive table",
+    fr: "Un tableau pour vos archives",
+    en: "A chart for your archives",
     classname: "",
   },
   {
@@ -45,6 +45,15 @@ export const UpdateInfoList: UpdateInfo[] = [
     version: "bêta 0.4",
     fr: "Archiver et restorer une candidature",
     en: "Archive and restore an application",
+    classname: "",
+  },
+      {
+    id: 5,
+    update: "add",
+    date: "2025-10-06",
+    version: "bêta 0.4",
+    fr: "Supprimer une archive",
+    en: "Delete an archive",
     classname: "",
   },
 ];

@@ -86,7 +86,7 @@ const HomePage = () => {
             <SkeletonCard />
           </div>
         )} */}
-        {candidatures.length === 0 && !loading && <NoList />}
+        {candidatureFilter.length === 0 && !loading && <NoList />}
       </Contenu>
     </div>
   );

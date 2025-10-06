@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
+  Archive,
   ArchiveIcon,
+  ArchiveRestore,
   BriefcaseBusiness,
   Calendar,
   Edit,
@@ -16,13 +18,14 @@ import { useTranslation } from "react-i18next";
 import DateFormat from "@/helpers/DateFormat";
 import { Button } from "@/components/ui/button";
 import { Separator } from "../ui/separator";
-import DialogArchive from "../dialogs/DialogArchive";
+import { useCandidature } from "@/hooks/useCandidature";
 
 type Props = {
   candidature: Candidature;
 };
 const CandidatureCard = ({ candidature }: Props) => {
   const navigate = useNavigate();
+  const { updateArchive } = useCandidature();
   const { t } = useTranslation();
 
   const getStatusColor = (status: string) => {
@@ -80,13 +83,26 @@ const CandidatureCard = ({ candidature }: Props) => {
     }
   };
 
+      const handleArchive = () => {
+      updateArchive(candidature.id, candidature.archive);
+      window.location.reload();
+    }
+
   return (
     <Card className={`hover:shadow-lg transition-shadow duration-200`}>
       <CardHeader className="">
         <div className="flex justify-between items-start">
           <div className="flex gap-1 items-center">
-            {candidature.archive && <ArchiveIcon className="w-4 h-4 stroke-muted-foreground" />}
-            <CardTitle className={`text-lg ${candidature.archive && "text-muted-foreground"}`}>{candidature.company}</CardTitle>
+            {candidature.archive && (
+              <ArchiveIcon className="w-4 h-4 stroke-muted-foreground" />
+            )}
+            <CardTitle
+              className={`text-lg ${
+                candidature.archive && "text-muted-foreground"
+              }`}
+            >
+              {candidature.company}
+            </CardTitle>
           </div>
           <Badge className={getStatusColor(candidature.status)}>
             {getStatusTranslate(candidature.status)}
@@ -113,7 +129,10 @@ const CandidatureCard = ({ candidature }: Props) => {
           <Separator orientation="vertical" />
           <div className="flex items-center text-sm text-muted-foreground">
             <MapPin className="h-4 w-4 mr-1" />
-            <p className="truncate w-16 [&::first-letter]:uppercase" title={candidature.place}>
+            <p
+              className="truncate w-16 [&::first-letter]:uppercase"
+              title={candidature.place}
+            >
               {candidature.place}
             </p>
           </div>
@@ -142,7 +161,22 @@ const CandidatureCard = ({ candidature }: Props) => {
 
         {/* </div> */}
         <div className="flex justify-end space-x-2 ">
-          <DialogArchive card id={candidature.id} company={candidature.company} job={candidature.job} archive={candidature.archive}  />
+          {/* <DialogArchive card id={candidature.id} company={candidature.company} job={candidature.job} archive={candidature.archive}  /> */}
+          {/* ARCHIVE */}
+          <Button
+          onClick={handleArchive}
+            variant="ghost"
+            size="sm"
+            title={candidature.archive ? t("RESTORE") : "Archive"}
+            aria-label={candidature.archive ? t("RESTORE") : "Archive"}
+          >
+            {candidature.archive ? (
+              <ArchiveRestore className="w-4 h-4 dark:stroke-blue-300 stroke-blue-700" />
+            ) : (
+              <Archive className="h-4 w-4" />
+            )}
+          </Button>
+          {/* EDIT */}
           <Button
             title="edit"
             aria-label="edit"

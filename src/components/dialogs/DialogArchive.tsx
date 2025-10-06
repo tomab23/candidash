@@ -20,15 +20,13 @@ type Props = {
   company: string | undefined;
   job: string | undefined;
   archive: boolean;
-  card?: boolean;
 };
 
 export default function DialogArchive({
   id,
   company,
   job,
-  archive,
-  card,
+  archive
 }: Props) {
   const { updateArchive } = useCandidature();
   const { t } = useTranslation();
@@ -36,17 +34,15 @@ export default function DialogArchive({
 
   const handleArchive = () => {
     updateArchive(id, archive);
-    if (card) {
-      window.location.reload();
-    } else {
-      navigate("/home");
-    }
+    navigate("/home");
   };
+
+  console.log(id, archive);
+  
 
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        {!card ? (
           <div>
             {archive ? (
               <Button variant="secondary" className="dark:text-blue-300 text-blue-700">
@@ -58,20 +54,6 @@ export default function DialogArchive({
               </Button>
             )}
           </div>
-        ) : (
-          <Button
-            variant="ghost"
-            size="sm"
-            title={archive ? t("RESTORE") : "Archive"}
-            aria-label={archive ? t("RESTORE") : "Archive"}
-          >
-            {archive ? (
-              <ArchiveRestore className="w-4 h-4 dark:stroke-blue-300 stroke-blue-700" />
-            ) : (
-              <Archive className="h-4 w-4" />
-            )}
-          </Button>
-        )}
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
