@@ -13,15 +13,18 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/context/AuthContext";
 
 const SettingsPage = () => {
   const { t } = useTranslation();
   const { removeUser } = useCandidature();
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const [del, setDel] = useState<boolean>(false);
 
     const deleteUser = () => {
     removeUser();
+    logout();
     navigate("/");
   };
 

@@ -18,7 +18,7 @@ const UpdatesPages = () => {
   // add - correction - update - delete
 
   return (
-    <div>
+    <div className="pb-10">
       {user ? (
         <Navbar />
       ) : (
