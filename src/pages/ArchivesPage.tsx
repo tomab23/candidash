@@ -10,10 +10,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ArchiveRestore, Edit, Trash2 } from "lucide-react";
+import { ArchiveRestore, Edit } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import DialogDelete from "@/components/dialogs/DialogDelete";
 
 const ArchivesPage = () => {
   const { updateArchive, archives } = useCandidature();
@@ -55,17 +56,18 @@ const ArchivesPage = () => {
                 <TableCell>{a.job}</TableCell>
                 <TableCell>{a.contract}</TableCell>
                 <TableCell className="text-center">{a.place}</TableCell>
-                <TableCell className="w-14">
+                <TableCell className="w-14" title="Edit">
                   <Edit
                     className="w-5 h-5 mx-auto hover:scale-110 hover:cursor-pointer"
                     onClick={() => navigate(`/candidature/${a.id}`)}
                   />
                 </TableCell>
-                <TableCell className="w-14">
+                <TableCell className="w-14" title={t("RESTORE.BUTTON")}>
                   <ArchiveRestore onClick={() => updateArchive(a.id, a.archive)} className="w-5 h-5 mx-auto dark:stroke-blue-300 stroke-blue-700 hover:scale-110 hover:cursor-pointer" />
                 </TableCell>
-                <TableCell className="w-14">
-                  <Trash2 className="w-5 h-5 mx-auto stroke-destructive hover:scale-110 hover:cursor-pointer" />
+                <TableCell className="w-14" title={t("BUTTON.DELETE")}>
+                  {/* <Trash2 className="w-5 h-5 mx-auto stroke-destructive hover:scale-110 hover:cursor-pointer" /> */}
+                  <DialogDelete table id={a.id} company={a.company} job={a.job} />
                 </TableCell>
               </TableRow>
             ))}

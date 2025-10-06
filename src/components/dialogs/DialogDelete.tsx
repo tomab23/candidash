@@ -19,23 +19,32 @@ type Props = {
   id: number;
   company: string | undefined;
   job: string | undefined;
+  table?: boolean;
 };
 
-export default function DialogDelete({ id, company, job }: Props) {
+export default function DialogDelete({ id, company, job, table }: Props) {
   const { removeCandidature } = useCandidature();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const HandleDelete = () => {
     removeCandidature(id);
-    navigate("/home");
+    if (!table) {
+      navigate("/home");
+    } else {
+      window.location.reload();
+    }
   };
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">
-          <Trash2 /> {t("BUTTON.DELETE")}
-        </Button>
+        {table ? (
+          <Trash2 className="w-5 h-5 mx-auto stroke-destructive hover:scale-110 hover:cursor-pointer" />
+        ) : (
+          <Button variant="destructive">
+            <Trash2 /> {t("BUTTON.DELETE")}
+          </Button>
+        )}
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
