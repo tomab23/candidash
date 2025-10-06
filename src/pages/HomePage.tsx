@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 import { useState } from "react";
 import FilterCandidature from "@/components/FilterCandidature";
 import Contenu from "@/helpers/Contenu";

@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  Archive,
-  ArchiveRestore,
+  ArchiveIcon,
   BriefcaseBusiness,
   Calendar,
   Edit,
@@ -17,13 +16,13 @@ import { useTranslation } from "react-i18next";
 import DateFormat from "@/helpers/DateFormat";
 import { Button } from "@/components/ui/button";
 import { Separator } from "../ui/separator";
+import DialogArchive from "../dialogs/DialogArchive";
 
 type Props = {
   candidature: Candidature;
 };
 const CandidatureCard = ({ candidature }: Props) => {
   const navigate = useNavigate();
-
   const { t } = useTranslation();
 
   const getStatusColor = (status: string) => {
@@ -85,7 +84,10 @@ const CandidatureCard = ({ candidature }: Props) => {
     <Card className={`hover:shadow-lg transition-shadow duration-200`}>
       <CardHeader className="">
         <div className="flex justify-between items-start">
-          <CardTitle className={`text-lg ${candidature.archive && "text-muted-foreground"}`}>{candidature.company}</CardTitle>
+          <div className="flex gap-1 items-center">
+            {candidature.archive && <ArchiveIcon className="w-4 h-4 stroke-muted-foreground" />}
+            <CardTitle className={`text-lg ${candidature.archive && "text-muted-foreground"}`}>{candidature.company}</CardTitle>
+          </div>
           <Badge className={getStatusColor(candidature.status)}>
             {getStatusTranslate(candidature.status)}
           </Badge>
@@ -140,16 +142,7 @@ const CandidatureCard = ({ candidature }: Props) => {
 
         {/* </div> */}
         <div className="flex justify-end space-x-2 ">
-          <Button
-            variant="ghost"
-            size="sm"
-            disabled
-            title={candidature.archive ? t("RESTORE") : "Archive"}
-            aria-label={candidature.archive ? t("RESTORE") : "Archive"}
-            role="button"
-          >
-            {candidature.archive ? <ArchiveRestore className="w-4 h-4 dark:stroke-blue-300 stroke-blue-700" /> : <Archive className="h-4 w-4" />}    
-          </Button>
+          <DialogArchive card id={candidature.id} company={candidature.company} job={candidature.job} archive={candidature.archive}  />
           <Button
             title="edit"
             aria-label="edit"

@@ -1,5 +1,4 @@
 import ContractBox from "@/components/custom/ContractBox";
-import DeleteTestDIalog from "@/components/custom/DeleteTestDialog";
 import InputCandidature from "@/components/custom/InputCandidature";
 import InputDateCalendar from "@/components/custom/InputDateCalendar";
 import { StatusBox } from "@/components/custom/StatusBox";
@@ -19,18 +18,19 @@ import { useCandidature } from "@/hooks/useCandidature";
 import Candidature from "@/models/Candidature";
 import { format } from "date-fns";
 import { useFormik } from "formik";
-import { Archive } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
+import DialogDelete from "@/components/dialogs/DialogDelete";
+import DialogArchive from "@/components/dialogs/DialogArchive";
 
 type Props = {
   edit: boolean;
 };
 
 const CandidaturePage = (props: Props) => {
-  const { fetchCandidatureById, editCandidature, addCandidature, updateArchive } =
+  const { fetchCandidatureById, editCandidature, addCandidature } =
     useCandidature();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -119,10 +119,8 @@ const CandidaturePage = (props: Props) => {
     },
   });
 
-  const addArchive = () => {
-    updateArchive(formik.values.id, formik.values.archive);
-    navigate(-1)
-  }
+  console.log(Candidature);
+  
 
   // if (!test) return <p>Chargement...</p>;
 
@@ -252,11 +250,17 @@ const CandidaturePage = (props: Props) => {
         </Card>
         {props.edit && (
           <div className="flex justify-around mt-10">
-            <Button variant={"secondary"} title="Archive" onClick={addArchive}>
+            {/* <Button variant={"secondary"} title="Archive" onClick={addArchive}>
               <Archive /> {t("BUTTON.ARCHIVE")}
-            </Button>
+            </Button> */}
 
-            <DeleteTestDIalog
+            <DialogArchive               id={Number(id)}
+              company={Candidature?.company}
+              job={Candidature?.job}
+              archive={formik.values.archive}
+              />
+
+            <DialogDelete
               id={Number(id)}
               company={Candidature?.company}
               job={Candidature?.job}

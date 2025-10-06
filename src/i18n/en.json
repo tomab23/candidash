@@ -3,6 +3,10 @@
     "TEXT": "Sorry, the page you are looking for either doesn't exist or has been moved.",
     "TITLE": "Page not found"
   },
+  "ARCHIVE": {
+    "MESSAGE": "This action will send this application to your archives. It will not be deleted.",
+    "QUESTION": "Should this application be archived?"
+  },
   "ARCHIVES": {
     "TITLE": "Archived applications"
   },
@@ -106,7 +110,11 @@
   "PROFILE": {
     "SINCE": "Registered since"
   },
-  "RESTORE": "Restore",
+  "RESTORE": {
+    "BUTTON": "Restore",
+    "MESSAGE": "This application will be removed from the archives and will be available again in your list of applications.",
+    "QUESTION": "Restore this application?"
+  },
   "STATUS": {
     "ABANDONED": "Abandoned",
     "AGAIN": "Throw again",

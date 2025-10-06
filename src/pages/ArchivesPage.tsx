@@ -42,7 +42,7 @@ const ArchivesPage = () => {
               <TableHead>{t("FORM.CONTRACT")}</TableHead>
               <TableHead className="text-center">{t("FORM.PLACE")}</TableHead>
               <TableHead className="text-center">{t("HEADER.EDIT")}</TableHead>
-              <TableHead className="text-center">{t("RESTORE")}</TableHead>
+              <TableHead className="text-center">{t("RESTORE.BUTTON")}</TableHead>
               <TableHead className="text-center">
                 {t("BUTTON.DELETE")}
               </TableHead>
