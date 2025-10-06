@@ -48,7 +48,7 @@ export const UpdateInfoList: UpdateInfo[] = [
     classname: "",
   },
       {
-    id: 4,
+    id: 5,
     update: "add",
     date: "2025-10-06",
     version: "bêta 0.4",
