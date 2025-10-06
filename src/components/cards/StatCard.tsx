@@ -9,7 +9,7 @@ type StatCardProps = {
 
 const StatCard = ({ title, value, icon }: StatCardProps) => {
   return (
-    <Card className="rounded-2xl shadow-sm border p-4 flex flex-col gap-2 w-36">
+    <Card className="rounded-2xl shadow-sm border p-4 flex flex-col gap-2 w-40">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 p-0">
         <CardTitle className="text-xs font-medium text-muted-foreground">
           {title}

@@ -19,10 +19,10 @@ const ContractCard = ({ name, value } : Props) => {
     }
 
   return (
-    <Card className="group hover:outline-1 outline-muted-foreground w-56 hover:cursor-pointer" onClick={handleNavigate}>
+    <Card className="group hover:outline-1 outline-muted-foreground w-56 max-sm:w-44 hover:cursor-pointer" onClick={handleNavigate}>
       <CardHeader className="px-2 gap-0">
         <div className="flex justify-between items-center">
-          <CardTitle className="text-sm">{name}</CardTitle>
+          <CardTitle className="text-sm max-sm:text-xs">{name}</CardTitle>
           <CardAction>
             <ChevronRight className="w-5 h-5 transform transition-transform duration-200 group-hover:scale-125" />
           </CardAction>
