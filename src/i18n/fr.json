@@ -3,6 +3,10 @@
     "TEXT": "Désolé, la page que vous cherchez n'existe pas ou a été déplacée.",
     "TITLE": "Page non trouvée"
   },
+  "ARCHIVE": {
+    "MESSAGE": "Cette action va envoyer cette candidature dans vos archives. Elle ne sera pas supprimée.",
+    "QUESTION": "Archiver cette candidature ?"
+  },
   "ARCHIVES": {
     "TITLE": "Candidatures archivées"
   },
@@ -106,7 +110,11 @@
   "PROFILE": {
     "SINCE": "Inscript depuis"
   },
-  "RESTORE": "Restaurer",
+  "RESTORE": {
+    "BUTTON": "Restaurer",
+    "MESSAGE": "Cette candidature sera supprimée des archives et sera de nouveau disponible dans votre liste de candidatures.",
+    "QUESTION": "Restaurer cette candidature ?"
+  },
   "STATUS": {
     "ABANDONED": "Abandonné",
     "AGAIN": "Relance",

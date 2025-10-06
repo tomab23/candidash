@@ -21,7 +21,7 @@ type Props = {
   job: string | undefined;
 };
 
-export default function DeleteTestDIalog({ id, company, job }: Props) {
+export default function DialogDelete({ id, company, job }: Props) {
   const { removeCandidature } = useCandidature();
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -46,7 +46,8 @@ export default function DeleteTestDIalog({ id, company, job }: Props) {
             </p>
           </AlertDialogTitle>
           <AlertDialogDescription>
-            <b className="text-xl">{t("DELETE.QUESTION")}</b>
+            {/* <b className="text-xl">{t("DELETE.QUESTION")}</b> */}
+            <b className="text-xl">Archiver cette candidature ?</b>
             <br />
             {t("DELETE.MESSAGE")}
           </AlertDialogDescription>
