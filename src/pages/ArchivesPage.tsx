@@ -16,11 +16,9 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const ArchivesPage = () => {
-  const { archives } = useCandidature();
+  const { updateArchive, archives } = useCandidature();
   const navigate = useNavigate();
   const { t } = useTranslation();
-
-  // console.log(archives);
 
   return (
     <div>
@@ -64,7 +62,7 @@ const ArchivesPage = () => {
                   />
                 </TableCell>
                 <TableCell className="w-14">
-                  <ArchiveRestore className="w-5 h-5 mx-auto dark:stroke-blue-300 stroke-blue-700 hover:scale-110 hover:cursor-pointer" />
+                  <ArchiveRestore onClick={() => updateArchive(a.id, a.archive)} className="w-5 h-5 mx-auto dark:stroke-blue-300 stroke-blue-700 hover:scale-110 hover:cursor-pointer" />
                 </TableCell>
                 <TableCell className="w-14">
                   <Trash2 className="w-5 h-5 mx-auto stroke-destructive hover:scale-110 hover:cursor-pointer" />

@@ -106,3 +106,17 @@ export const deleteUser = async (userId: string) => {
 
   return true
 }
+
+// Mettre ou Resote archive
+export const toggleArchive = async (
+  id: number,
+  userId: string,
+  currentArchive: boolean
+) => {
+  const { error } = await supabase
+    .from("candidature")
+    .update({ archive: !currentArchive })
+    .eq("id", id)
+    .eq("user_id", userId);
+  if (error) throw new Error(error.message);
+};

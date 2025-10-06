@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
 import { useAuth } from "@/context/AuthContext"
-import { getCandidatures, insertCandidature, updateCandidature, deleteCandidature, getCandidatureById, deleteUser, getArchives  } from "@/services/CandidatureService"
+import { getCandidatures, insertCandidature, updateCandidature, deleteCandidature, getCandidatureById, deleteUser, getArchives, toggleArchive  } from "@/services/CandidatureService"
 import type Candidature from "@/models/Candidature"
 
 export const useCandidature = () => {
@@ -103,6 +103,18 @@ const addCandidature = async (
   return await getCandidatureById(id, user.id);
 }, [user]);
 
+// Toggle archive
+  const updateArchive = useCallback(
+    async (id: number,
+    archive: boolean
+) => {
+      if (!user) return
+      await toggleArchive(id, user.id, archive)
+      await fetchArchives()
+    },
+    [user, fetchArchives]
+  )
+
 // Effect pour charger les données initiales
   useEffect(() => {
     const load = async () => {
@@ -138,7 +150,8 @@ const addCandidature = async (
     editCandidature,
     removeCandidature,
     fetchCandidatureById,
-    removeUser
+    removeUser,
+    updateArchive
     // count,
     // fetchTestCount,
   }

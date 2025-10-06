@@ -30,7 +30,7 @@ type Props = {
 };
 
 const CandidaturePage = (props: Props) => {
-  const { fetchCandidatureById, editCandidature, addCandidature } =
+  const { fetchCandidatureById, editCandidature, addCandidature, updateArchive } =
     useCandidature();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -79,6 +79,7 @@ const CandidaturePage = (props: Props) => {
       note: Candidature ? Candidature.note : "",
       place: Candidature ? Candidature.place : "",
       contract: Candidature ? Candidature.contract : "",
+      archive: Candidature ? Candidature.archive : false,
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,
@@ -117,6 +118,11 @@ const CandidaturePage = (props: Props) => {
       navigate(-1);
     },
   });
+
+  const addArchive = () => {
+    updateArchive(formik.values.id, formik.values.archive);
+    navigate(-1)
+  }
 
   // if (!test) return <p>Chargement...</p>;
 
@@ -246,7 +252,7 @@ const CandidaturePage = (props: Props) => {
         </Card>
         {props.edit && (
           <div className="flex justify-around mt-10">
-            <Button variant={"secondary"} title="Archive" disabled>
+            <Button variant={"secondary"} title="Archive" onClick={addArchive}>
               <Archive /> {t("BUTTON.ARCHIVE")}
             </Button>
 
