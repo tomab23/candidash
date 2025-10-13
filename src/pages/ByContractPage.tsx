@@ -27,7 +27,7 @@ const ByContractPage = () => {
       <Navbar />
       <Contenu>
         <Header title={state?.name} />
-        <p className="text-center text-xl font-semibold">
+        <p className="text-center text-xl font-semibold max-sm:text-lg max-sm:mt-5">
           {i18n.language === "fr"
             ? `Vous avez ${number} candidature${number > 1 ? "s" : ""} pour ${state?.name}`
             : `You have ${number} application${number > 1 ? "s" : ""} for  ${state?.name}`}

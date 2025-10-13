@@ -7,7 +7,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import LanguageDropdown from "@/components/LanguageDropdown";
 import { useState } from "react";
 import { PasswordInput } from "@/components/ui/password-input";
-import { Info, InfoIcon, Loader2Icon, Mail } from "lucide-react";
+import { FolderClosed, Info, InfoIcon, Loader2Icon, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Version } from "../../consts/Version";
 
@@ -95,7 +95,8 @@ const AuthPage = (props: Props) => {
         onSubmit={formik.handleSubmit}
         className="max-w-sm w-full flex flex-col items-center border rounded-lg p-6 shadow-sm text-primary"
       >
-        <img src="/logo2.svg" alt="candidash logo" className="w-20 h-20" />
+        {/* <img src="/logo2.svg" alt="candidash logo" className="w-20 h-20" /> */}
+        <FolderClosed size={40} className="my-2" />
         <p className="mb-4 text-2xl font-bold tracking-tight">
           {props.register ? t("AUTH.REGISTER") : t("AUTH.LOGIN")} Candidash
         </p>

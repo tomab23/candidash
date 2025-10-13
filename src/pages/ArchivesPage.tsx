@@ -31,7 +31,7 @@ const ArchivesPage = () => {
                   <p className="font-semibold text-xl">
           {t("ARCHIVES.TITLE")} : {archives.length}
         </p>
-        <Button variant={"destructive"} disabled>Delete all</Button>
+        <Button variant={"destructive"} className="hidden" disabled>Delete all</Button>
         </div>
 
         <Table>

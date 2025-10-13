@@ -109,7 +109,7 @@ const ContactPage = () => {
           <div className="md:mt-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12"></div>
             {/* Form */}
-            <Card className="bg-accent shadow-none py-0 mt-3">
+            <Card className="bg-accent shadow-none py-0 mt-3 max-sm:mt-10">
               <CardContent className="p-6 md:p-8">
                 <form onSubmit={formik.handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
