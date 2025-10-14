@@ -1,11 +1,11 @@
 import Navbar from "@/components/layout/Navbar";
-import { RefreshCcw, Search, SquarePlus } from "lucide-react";
+import { RefreshCcw, SquarePlus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import FilterCandidature from "@/components/FilterCandidature";
+// import { Input } from "@/components/ui/input";
+// import { useState } from "react";
+// import FilterCandidature from "@/components/FilterCandidature";
 import Contenu from "@/helpers/Contenu";
 import CandidatureCard from "@/components/cards/CandidatureCard";
 import NoList from "@/components/NoList";
@@ -15,7 +15,7 @@ const HomePage = () => {
   const { candidatures, loading } = useCandidature();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [statusFilter, setStatusFilter] = useState<string>("all");
+  // const [statusFilter, setStatusFilter] = useState<string>("all");
 
   const candidatureFilter = candidatures.filter((c) => c.archive === false)
 

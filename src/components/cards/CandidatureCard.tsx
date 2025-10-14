@@ -1,8 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  Archive,
+  // Archive,
   ArchiveIcon,
-  ArchiveRestore,
+  // ArchiveRestore,
   BriefcaseBusiness,
   Calendar,
   Edit,
@@ -18,14 +18,14 @@ import { useTranslation } from "react-i18next";
 import DateFormat from "@/helpers/DateFormat";
 import { Button } from "@/components/ui/button";
 import { Separator } from "../ui/separator";
-import { useCandidature } from "@/hooks/useCandidature";
+// import { useCandidature } from "@/hooks/useCandidature";
 
 type Props = {
   candidature: Candidature;
 };
 const CandidatureCard = ({ candidature }: Props) => {
   const navigate = useNavigate();
-  const { updateArchive } = useCandidature();
+  // const { updateArchive } = useCandidature();
   const { t } = useTranslation();
 
   const getStatusColor = (status: string) => {
@@ -83,10 +83,10 @@ const CandidatureCard = ({ candidature }: Props) => {
     }
   };
 
-      const handleArchive = () => {
-      updateArchive(candidature.id, candidature.archive);
-      window.location.reload();
-    }
+    //   const handleArchive = () => {
+    //   updateArchive(candidature.id, candidature.archive);
+    //   window.location.reload();
+    // }
 
   return (
     <Card className={`hover:shadow-lg transition-shadow duration-200`}>

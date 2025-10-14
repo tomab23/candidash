@@ -10,7 +10,7 @@ import ArchivesPage from "@/pages/ArchivesPage";
 import UpdatesPages from "@/pages/UpdatesPages";
 import NotFoundPage from "@/pages/NotFoundPage";
 import ContactPage from "@/pages/ContactPage";
-import { Suspense } from "react";
+// import { Suspense } from "react";
 import ByContractPage from "@/pages/ByContractPage";
 
 // const Home = lazy(() => import("./pages/Home"));
