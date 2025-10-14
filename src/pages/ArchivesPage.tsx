@@ -54,7 +54,7 @@ const ArchivesPage = () => {
               <TableRow key={a.id}>
                 <TableCell className="font-medium">{a.company}</TableCell>
                 <TableCell>{a.job}</TableCell>
-                <TableCell>{a.contract}</TableCell>
+                <TableCell className={`${a.contract === "cdi" || a.contract === "cdd" ? "uppercase" : "capitalize"}`}>{a.contract}</TableCell>
                 <TableCell className="text-center">{a.place}</TableCell>
                 <TableCell className="w-14" title="Edit">
                   <Edit
