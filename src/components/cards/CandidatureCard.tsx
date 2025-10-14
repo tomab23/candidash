@@ -161,9 +161,8 @@ const CandidatureCard = ({ candidature }: Props) => {
 
         {/* </div> */}
         <div className="flex justify-end space-x-2 ">
-          {/* <DialogArchive card id={candidature.id} company={candidature.company} job={candidature.job} archive={candidature.archive}  /> */}
           {/* ARCHIVE */}
-          <Button
+          {/* <Button
           onClick={handleArchive}
             variant="ghost"
             size="sm"
@@ -175,7 +174,7 @@ const CandidatureCard = ({ candidature }: Props) => {
             ) : (
               <Archive className="h-4 w-4" />
             )}
-          </Button>
+          </Button> */}
           {/* EDIT */}
           <Button
             title="edit"
