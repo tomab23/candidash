@@ -44,7 +44,7 @@
     "TITLE": "Discutez avec notre équipe!"
   },
   "CONTRACT": {
-    "APPRENTICE": "Contrat d'apprentissage",
+    "APPRENTICE": "Alternance",
     "FIXED": "CDD",
     "FREELANCE": "Freelance",
     "INTERN": "Stage",
@@ -53,8 +53,14 @@
     "TITLE": "Contrat"
   },
   "DELETE": {
+    "ALL": {
+      "ARCHIVE": "Supprimer toutes vos archives"
+    },
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
     "QUESTION": "Supprimer cette candidature ?",
+    "TEXT": {
+      "ARCHIVES": "Cette action ne peut pas être annulée. Elle supprimera définitivement toutes vos archives et les effacera de nos serveurs."
+    },
     "TITLE": "chez ",
     "USER": {
       "TEXT": "Voulez-vous vraiment supprimer votre compte ?"
@@ -127,6 +133,7 @@
     "WAITING": "En attente"
   },
   "SUBEJECT": "Objet",
+  "SURE": "En êtes-vous absolument sûr ?",
   "TERMS": {
     "LINK": "conditions générales.",
     "TEXT": "Vous acceptez nos "

@@ -13,14 +13,13 @@ import {
 import { ArchiveRestore, Edit } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import DialogDelete from "@/components/dialogs/DialogDelete";
+import DialogDeleteAllArchives from "@/components/dialogs/DialogDeleteAllArchives";
 
 const ArchivesPage = () => {
   const { updateArchive, archives } = useCandidature();
   const navigate = useNavigate();
   const { t } = useTranslation();
-
   return (
     <div>
       <Navbar />
@@ -31,7 +30,7 @@ const ArchivesPage = () => {
                   <p className="font-semibold text-xl">
           {t("ARCHIVES.TITLE")} : {archives.length}
         </p>
-        <Button variant={"destructive"} className="hidden" disabled>Delete all</Button>
+        <DialogDeleteAllArchives archives={archives.length} />
         </div>
 
         <Table>

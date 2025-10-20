@@ -120,3 +120,13 @@ export const toggleArchive = async (
     .eq("user_id", userId);
   if (error) throw new Error(error.message);
 };
+
+// ❌ Supprimer toutes les archives de l'utilisateur
+export const deleteAllArchives = async (userId: string) => {
+  const { error } = await supabase
+    .from("candidature")
+    .delete()
+    .eq("user_id", userId)
+    .eq("archive", true);
+  if (error) throw new Error(error.message);
+};

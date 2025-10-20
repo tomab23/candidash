@@ -65,7 +65,7 @@ export default function DialogDelete({ id, company, job, table }: Props) {
           <AlertDialogCancel>{t("BUTTON.CANCEL")}</AlertDialogCancel>
           <AlertDialogAction
             onClick={HandleDelete}
-            className="bg-destructive text-white hover:bg-destructive/90"
+            className="bg-destructive/70 text-white hover:bg-destructive/60"
           >
             {t("BUTTON.DELETE")}
           </AlertDialogAction>

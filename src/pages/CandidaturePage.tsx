@@ -117,10 +117,7 @@ const CandidaturePage = (props: Props) => {
 
       navigate(-1);
     },
-  });
-
-  console.log(Candidature);
-  
+  });  
 
   // if (!test) return <p>Chargement...</p>;
 
