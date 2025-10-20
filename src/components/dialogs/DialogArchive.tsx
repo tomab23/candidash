@@ -36,8 +36,6 @@ export default function DialogArchive({
     updateArchive(id, archive);
     navigate("/home");
   };
-
-  console.log(id, archive);
   
 
   return (
