@@ -18,14 +18,9 @@ import DialogDelete from "@/components/dialogs/DialogDelete";
 import DialogDeleteAllArchives from "@/components/dialogs/DialogDeleteAllArchives";
 
 const ArchivesPage = () => {
-  const { updateArchive, archives, removeAllArchives } = useCandidature();
+  const { updateArchive, archives } = useCandidature();
   const navigate = useNavigate();
   const { t } = useTranslation();
-
-  const handleAllDelete = () => {
-    removeAllArchives();
-  }
-
   return (
     <div>
       <Navbar />

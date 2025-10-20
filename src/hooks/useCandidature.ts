@@ -118,9 +118,9 @@ const addCandidature = async (
 ) => {
       if (!user) return
       await toggleArchive(id, user.id, archive)
-      await fetchCandidatures()
+      await fetchArchives()
     },
-    [user, fetchCandidatures]
+    [user, fetchArchives]
   )
 
 // Effect pour charger les données initiales
