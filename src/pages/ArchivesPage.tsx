@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import DialogDelete from "@/components/dialogs/DialogDelete";
+import DialogDeleteAllArchives from "@/components/dialogs/DialogDeleteAllArchives";
 
 const ArchivesPage = () => {
   const { updateArchive, archives, removeAllArchives } = useCandidature();
@@ -35,7 +36,7 @@ const ArchivesPage = () => {
                   <p className="font-semibold text-xl">
           {t("ARCHIVES.TITLE")} : {archives.length}
         </p>
-        <Button variant={"destructive"} onClick={handleAllDelete}>Supprimer toutes vos archives</Button>
+        <DialogDeleteAllArchives />
         </div>
 
         <Table>
