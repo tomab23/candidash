@@ -55,8 +55,7 @@ export default function DialogDelete({ id, company, job, table }: Props) {
             </p>
           </AlertDialogTitle>
           <AlertDialogDescription>
-            {/* <b className="text-xl">{t("DELETE.QUESTION")}</b> */}
-            <b className="text-xl">Archiver cette candidature ?</b>
+            <b className="text-xl">{t("DELETE.QUESTION")}</b>
             <br />
             {t("DELETE.MESSAGE")}
           </AlertDialogDescription>
