@@ -23,7 +23,6 @@ const ArchivesPage = () => {
 
   const handleAllDelete = () => {
     removeAllArchives();
-    window.location.reload();
   }
 
   return (
