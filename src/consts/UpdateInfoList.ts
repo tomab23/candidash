@@ -56,4 +56,13 @@ export const UpdateInfoList: UpdateInfo[] = [
     en: "Delete an archive",
     classname: "",
   },
+        {
+    id: 6,
+    update: "add",
+    date: "2025-10-20",
+    version: "bêta 0.4",
+    fr: "Bouton pour supprimer toutes vos archives",
+    en: "Button deletes all your archives",
+    classname: "",
+  },
 ];

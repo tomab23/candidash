@@ -50,10 +50,11 @@ const UpdateCard = ({ update, children, date, version, classname }: Props) => {
           <div className="flex justify-between items-center">
             <div className="flex h-5 items-center space-x-2 text-xs">
               {getUpdateIcon(update)}
-              <Separator orientation="vertical"  />
-              <p className="text-muted-foreground">{version}</p>
+              {/* <Separator orientation="vertical"  />
+              <p className="text-muted-foreground">{version}</p> */}
             </div>
-            <p className="text-xs text-muted-foreground">{StringToDate(date, false)}</p>
+            {/* <p className="text-xs text-muted-foreground">{StringToDate(date, false)}</p> */}
+            <p className="text-xs text-muted-foreground">{version}</p>
           </div>
         </CardTitle>
         {/* <CardDescription>{children}</CardDescription> */}
