@@ -1,25 +1,20 @@
 import { CircleArrowUp, Info, Plus, Trash2, Wrench } from "lucide-react";
 import type { ReactNode } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import StringToDate from "@/helpers/StringToDate";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+// import StringToDate from "@/helpers/StringToDate";
 import type { UpdateIcon } from "@/enums/UpdateIcon";
-import { Separator } from "../ui/separator";
+// import { Separator } from "../ui/separator";
 
 type Props = {
   update: UpdateIcon;
   children: ReactNode;
   date: string;
   version: string;
-  classname :string;
+  classname: string;
 };
 
-const UpdateCard = ({ update, children, date, version, classname }: Props) => {
-
+// const UpdateCard = ({ update, children, date, version, classname }: Props) => {
+const UpdateCard = ({ update, children, version, classname }: Props) => {
   const getUpdateIcon = (status: string) => {
     switch (status) {
       case "add":
