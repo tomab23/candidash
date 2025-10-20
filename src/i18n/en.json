@@ -53,8 +53,14 @@
     "TITLE": "Contract"
   },
   "DELETE": {
+    "ALL": {
+      "ARCHIVE": "Delete all your archives"
+    },
     "MESSAGE": "This action cannot be undone. This will permanently delete your application",
     "QUESTION": "Delete this application ?",
+    "TEXT": {
+      "ARCHIVES": "This action cannot be undone. It will permanently delete all your archives and remove them from our servers."
+    },
     "TITLE": "at",
     "USER": {
       "TEXT": "Are you sure you want to delete your account?"
@@ -127,6 +133,7 @@
     "WAITING": "Waiting"
   },
   "SUBEJECT": "Subject",
+  "SURE": "Are you absolutely sure ?",
   "TERMS": {
     "LINK": "terms and conditions",
     "TEXT": "You agree to our"

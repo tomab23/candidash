@@ -13,7 +13,6 @@ import {
 import { ArchiveRestore, Edit } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import DialogDelete from "@/components/dialogs/DialogDelete";
 import DialogDeleteAllArchives from "@/components/dialogs/DialogDeleteAllArchives";
 
@@ -31,7 +30,7 @@ const ArchivesPage = () => {
                   <p className="font-semibold text-xl">
           {t("ARCHIVES.TITLE")} : {archives.length}
         </p>
-        <DialogDeleteAllArchives />
+        <DialogDeleteAllArchives archives={archives.length} />
         </div>
 
         <Table>

@@ -13,7 +13,10 @@ import { Button } from "../ui/button"
 import { useCandidature } from "@/hooks/useCandidature";
 import { useTranslation } from "react-i18next";
 
-const DialogDeleteAllArchives = () => {
+type Props = {
+    archives : number
+}
+const DialogDeleteAllArchives = ({ archives } : Props) => {
     const { removeAllArchives } = useCandidature();
   const { t } = useTranslation();
 
@@ -22,17 +25,19 @@ const DialogDeleteAllArchives = () => {
     window.location.reload()
   };
 
+  console.log(archives);
+  
+
   return (
     <AlertDialog>
   <AlertDialogTrigger asChild>
-    <Button variant={"destructive"}>Supprimer toutes vos archives</Button>
+    <Button variant={"destructive"} disabled={archives < 1}>{t("DELETE.ALL.ARCHIVE")}</Button>
   </AlertDialogTrigger>
   <AlertDialogContent>
     <AlertDialogHeader>
-      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+      <AlertDialogTitle>{t("SURE")}</AlertDialogTitle>
       <AlertDialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
+        {t("DELETE.TEXT.ARCHIVES")}
       </AlertDialogDescription>
     </AlertDialogHeader>
         <AlertDialogFooter>
