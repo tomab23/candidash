@@ -50,7 +50,7 @@ const ProfilePage = () => {
             <div className="flex items-center gap-1">
               <SquareUserRound className="w-20 h-20 max-sm:w-16 max-sm:h-16" />
               <div>
-                <div className="flex gap-2 items-center">
+                <div className="flex items-center sm:gap-2 flex-wrap-reverse">
                   <p className="text-lg max-sm:text-lg font-semibold">
                     {user?.email}
                   </p>

@@ -50,12 +50,12 @@ const SettingsPage = () => {
         </div>
 
         {/* PUBLIC & DELETE */}
-        <div className="mt-10 flex flex-col gap-44">
+        <div className="mt-10 flex flex-col gap-60 max-sm:gap-20">
           <div>
             <Card>
               <CardHeader className="flex items-center justify-between">
                 <CardTitle className="flex gap-2 items-center">
-                  <p className="">Gestion de votre profil public</p>
+                  <p className="max-sm:text-xs">Gestion de votre profil public</p>
                   <Status status={open ? "public" : "private"}>
                     <StatusIndicator />
                     <StatusLabel />
@@ -63,7 +63,7 @@ const SettingsPage = () => {
                 </CardTitle>
                 <CardAction>
                   <div className="flex items-center gap-1.5">
-                    <Label htmlFor="terms">Public</Label>
+                    <Label htmlFor="terms" className="max-sm:text-xs">Public</Label>
                     <Checkbox id="terms" onClick={() => setOpen(!open)} />
                   </div>
                 </CardAction>
@@ -74,7 +74,7 @@ const SettingsPage = () => {
             </Card>
           </div>
 
-          <div className="flex flex-col justify-center items-center gap-5 mt-20 ">
+          <div className="flex flex-col justify-center items-center gap-5 ">
             <Button variant={"destructive"} onClick={() => setDel(true)}>
               {t("BUTTON.USER.DELETE")}
             </Button>
