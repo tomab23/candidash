@@ -8,12 +8,21 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import {
   Card,
+  CardAction,
   CardContent,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
+import PublicForm from "@/components/profile/PublicForm";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import {
+  Status,
+  StatusIndicator,
+  StatusLabel,
+} from "@/components/ui/shadcn-io/status";
 
 const SettingsPage = () => {
   const { t } = useTranslation();
@@ -22,7 +31,9 @@ const SettingsPage = () => {
   const navigate = useNavigate();
   const [del, setDel] = useState<boolean>(false);
 
-    const deleteUser = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const deleteUser = () => {
     removeUser();
     logout();
     navigate("/");
@@ -37,30 +48,59 @@ const SettingsPage = () => {
           <h2 className="text-xl">{t("LANGUAGE")}</h2>
           <LanguageDropdown />
         </div>
-        {/* <p>profil public : Oui / Non | radio ?</p> */}
 
+        {/* PUBLIC & DELETE */}
+        <div className="mt-10 flex flex-col gap-44">
+          <div>
+            <Card>
+              <CardHeader className="flex items-center justify-between">
+                <CardTitle className="flex gap-2 items-center">
+                  <p className="">Gestion de votre profil public</p>
+                  <Status status={open ? "public" : "private"}>
+                    <StatusIndicator />
+                    <StatusLabel />
+                  </Status>
+                </CardTitle>
+                <CardAction>
+                  <div className="flex items-center gap-1.5">
+                    <Label htmlFor="terms">Public</Label>
+                    <Checkbox id="terms" onClick={() => setOpen(!open)} />
+                  </div>
+                </CardAction>
+              </CardHeader>
+              <CardContent className="">
+                <PublicForm open={open} />
+              </CardContent>
+            </Card>
+          </div>
 
-                <div className="flex flex-col justify-center items-center gap-5 mt-20">
-          <Button variant={"destructive"} onClick={() => setDel(true)}>
-            {t("BUTTON.USER.DELETE")}
-          </Button>
-          {del && (
-            <div>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-center">{t("BUTTON.USER.DELETE")} ?</CardTitle>
-                </CardHeader>
-                <CardContent className="flex gap-10">
-                  <Button onClick={() => setDel(false)}>
-                    {t("BUTTON.CANCEL")}
-                  </Button>
-                  <Button variant={"destructive"} onClick={() => deleteUser()}>
-                    {t("BUTTON.USER.DELETE")}
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          )}
+          <div className="flex flex-col justify-center items-center gap-5 mt-20 ">
+            <Button variant={"destructive"} onClick={() => setDel(true)}>
+              {t("BUTTON.USER.DELETE")}
+            </Button>
+            {del && (
+              <div>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-center">
+                      {t("BUTTON.USER.DELETE")} ?
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex gap-10">
+                    <Button onClick={() => setDel(false)}>
+                      {t("BUTTON.CANCEL")}
+                    </Button>
+                    <Button
+                      variant={"destructive"}
+                      onClick={() => deleteUser()}
+                    >
+                      {t("BUTTON.USER.DELETE")}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+          </div>
         </div>
       </Contenu>
     </div>
