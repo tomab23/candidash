@@ -21,7 +21,13 @@ const PublicForm = ({ open } : Props) => {
         />
       </div>
 
-      <Button className="self-end mt-10">Valider</Button>
+      <div className="mt-5 text-sm flex gap-2">
+        <p>Votre lien de partage : </p>
+        <p className="italic">Candidash/name</p>
+      </div>
+
+{/* TODO apres validation sonner / alert de reussite ou raté */}
+      <Button className="self-end mt-5">Valider</Button>
     </div>
   );
 };
