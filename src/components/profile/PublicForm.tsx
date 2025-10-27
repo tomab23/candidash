@@ -31,7 +31,7 @@ const PublicForm = ({ open }: Props) => {
       </div> */}
 
       {/* TODO apres validation sonner / alert de reussite ou raté */}
-      <Button className="self-end mt-5">Valider</Button>
+      <Button className="self-end mt-5" disabled>Valider</Button>
 
       <div className="mt-5 text-sm flex gap-2 items-center">
         <p>Votre lien de partage : </p>
