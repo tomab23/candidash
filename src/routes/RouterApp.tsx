@@ -12,6 +12,7 @@ import NotFoundPage from "@/pages/NotFoundPage";
 import ContactPage from "@/pages/ContactPage";
 // import { Suspense } from "react";
 import ByContractPage from "@/pages/ByContractPage";
+import PublicPage from "@/pages/PublicPage";
 
 // const Home = lazy(() => import("./pages/Home"));
 // const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -27,6 +28,7 @@ const RouterApp = () => {
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/updates" element={<UpdatesPages />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/user/:name" element={<PublicPage />} />
       <Route path="/*" element={<NotFoundPage />} />
       {/* PRIVATE */}
       <Route path="/home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
