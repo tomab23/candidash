@@ -68,6 +68,7 @@ const SettingsPage = () => {
                   </div>
                 </CardAction>
               </CardHeader>
+              {/* PUBLIC FORM */}
               <CardContent className="">
                 <PublicForm open={open} />
               </CardContent>
