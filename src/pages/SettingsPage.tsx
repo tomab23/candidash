@@ -18,6 +18,11 @@ import { useAuth } from "@/context/AuthContext";
 import PublicForm from "@/components/profile/PublicForm";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import {
+  Status,
+  StatusIndicator,
+  StatusLabel,
+} from "@/components/ui/shadcn-io/status";
 
 const SettingsPage = () => {
   const { t } = useTranslation();
@@ -43,14 +48,19 @@ const SettingsPage = () => {
           <h2 className="text-xl">{t("LANGUAGE")}</h2>
           <LanguageDropdown />
         </div>
-        {/* <p>profil public : Oui / Non | radio ?</p> */}
 
         {/* PUBLIC & DELETE */}
-        <div className="mt-10 flex flex-col gap-72">
+        <div className="mt-10 flex flex-col gap-44">
           <div>
             <Card>
               <CardHeader className="flex items-center justify-between">
-                <CardTitle>Gestion de votre profil public</CardTitle>
+                <CardTitle className="flex gap-2 items-center">
+                  <p className="">Gestion de votre profil public</p>
+                  <Status status={open ? "public" : "private"}>
+                    <StatusIndicator />
+                    <StatusLabel />
+                  </Status>
+                </CardTitle>
                 <CardAction>
                   <div className="flex items-center gap-1.5">
                     <Label htmlFor="terms">Public</Label>

@@ -8,7 +8,7 @@ const PublicForm = ({ open } : Props) => {
   return (
     <div className="flex flex-col">
       <div>
-        <p className="font-bold mb-1">Pseudo</p>
+        <p className={`font-bold mb-1 ${!open && "text-muted-foreground"}`}>Pseudo</p>
         <Input
           autoComplete="additional-name"
           type="text"
