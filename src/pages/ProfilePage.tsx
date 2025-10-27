@@ -11,13 +11,20 @@ import { ArchiveIcon, List, SquareUserRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Header from "@/components/layout/Header";
 import ContractPart from "@/components/profile/ContractPart";
+import {
+  Status,
+  StatusIndicator,
+  StatusLabel,
+} from "@/components/ui/shadcn-io/status";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
   const { user } = useAuth();
   const { candidatures, archives } = useCandidature();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
-  const candidatureFilter = candidatures.filter((c) => c.archive === false)
+  const candidatureFilter = candidatures.filter((c) => c.archive === false);
 
   const dateRegister = new Date(String(user?.created_at)).setHours(0, 0, 0, 0);
   const today = new Date().setHours(0, 0, 0, 0);
@@ -43,9 +50,15 @@ const ProfilePage = () => {
             <div className="flex items-center gap-1">
               <SquareUserRound className="w-20 h-20 max-sm:w-16 max-sm:h-16" />
               <div>
-                <p className="text-lg max-sm:text-lg font-semibold">
-                  {user?.email}
-                </p>
+                <div className="flex items-center sm:gap-2 flex-wrap-reverse">
+                  <p className="text-lg max-sm:text-lg font-semibold">
+                    {user?.email}
+                  </p>
+                  <Status status={"private"} className="hover:cursor-pointer" onClick={() => navigate("/settings")}>
+                    <StatusIndicator />
+                    <StatusLabel />
+                  </Status>
+                </div>
                 <p className="italic text-sm max-sm:text-xs">
                   {t("PROFILE.SINCE")} :{" "}
                   {StringToDate(String(user?.created_at), true)}{" "}
