@@ -137,6 +137,7 @@ const PublicCard = () => {
                 size="sm"
                 className="ml-1"
                 disabled={!open}
+                type="button"
               />
             </div>
           </div>
