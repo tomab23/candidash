@@ -20,6 +20,8 @@ const AuthPage = (props: Props) => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
+  // TODO Auth error message with supabase utils error folder
+
   const ValidSchema = Yup.object().shape({
     email: Yup.string()
       .email(t("ERROR.EMAIL.INVALID"))

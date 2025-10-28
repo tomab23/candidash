@@ -53,6 +53,7 @@ const PublicCard = () => {
     validationSchema: ValidSchema,
     onSubmit: (values) => {
       setLoading(true);
+      setMess("")
       if (profile) {
         setTimeout(() => {
           handleSubmit(values.id, values.username, values.open);
@@ -117,7 +118,7 @@ const PublicCard = () => {
               {mess !== "" && <p>{mess}</p>}
             </div>
 
-            <Button type="submit" className="self-end mt-5">
+            <Button type="submit" className="self-end mt-5" disabled={loading}>
               {loading ? <Loader2Icon className="animate-spin" /> : "Valider"}
             </Button>
 
