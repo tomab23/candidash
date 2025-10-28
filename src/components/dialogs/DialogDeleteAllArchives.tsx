@@ -24,8 +24,6 @@ const DialogDeleteAllArchives = ({ archives } : Props) => {
     removeAllArchives();
     window.location.reload()
   };
-
-  console.log(archives);
   
 
   return (

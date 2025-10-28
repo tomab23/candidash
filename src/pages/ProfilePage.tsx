@@ -17,12 +17,15 @@ import {
   StatusLabel,
 } from "@/components/ui/shadcn-io/status";
 import { useNavigate } from "react-router-dom";
+import { useProfile } from "@/hooks/useProfile";
 
 const ProfilePage = () => {
   const { user } = useAuth();
   const { candidatures, archives } = useCandidature();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { status } = useProfile();
+  
 
   const candidatureFilter = candidatures.filter((c) => c.archive === false);
 
@@ -54,7 +57,7 @@ const ProfilePage = () => {
                   <p className="text-lg max-sm:text-lg font-semibold">
                     {user?.email}
                   </p>
-                  <Status status={"private"} className="hover:cursor-pointer" onClick={() => navigate("/settings")}>
+                  <Status status={status ? "public" : "private"} className="hover:cursor-pointer" onClick={() => navigate("/settings")}>
                     <StatusIndicator />
                     <StatusLabel />
                   </Status>

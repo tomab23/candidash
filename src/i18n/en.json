@@ -79,7 +79,20 @@
     },
     "REQUIRED": "This field is required.",
     "TERMS": "You must accept the terms and conditions.",
-    "URL": "The link must be a valid URL."
+    "URL": "The link must be a valid URL.",
+    "REQUEST": {
+      "unknown": "An unknown error occurred.",
+      "badRequest": "Invalid request. Please check your input.",
+      "unauthorized": "Incorrect credentials.",
+      "forbidden": "Access denied.",
+      "notFound": "Resource not found.",
+      "conflict": "This account already exists.",
+      "invalidData": "Invalid data submitted.",
+      "uniqueConstraint": "This value already exists.",
+      "foreignKey": "Invalid reference.",
+      "checkConstraint": "Invalid field value.",
+      "default": "{{message}}"
+    }
   },
   "FORM": {
     "ADD": "Add new application",
