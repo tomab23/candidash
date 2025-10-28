@@ -63,6 +63,15 @@ export const UpdateInfoList: UpdateInfo[] = [
     version: "bêta 0.4",
     fr: "Bouton pour supprimer toutes vos archives",
     en: "Button deletes all your archives",
+    classname: "mt-5",
+  },
+          {
+    id: 7,
+    update: "add",
+    date: "2025-10-28",
+    version: "bêta 0.5",
+    fr: "Mettre votre profil en public et création ou modification de votre pseudo",
+    en: "Make your profile public and create or change your username",
     classname: "",
   },
 ];
