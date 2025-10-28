@@ -77,6 +77,19 @@
       "MIN": "Your password is too short",
       "NEED": "A password is required"
     },
+    "REQUEST": {
+      "badRequest": "Invalid request. Please check your input.",
+      "checkConstraint": "Invalid field value.",
+      "conflict": "This account already exists.",
+      "default": "{{message}}",
+      "forbidden": "Access denied.",
+      "foreignKey": "Invalid reference.",
+      "invalidData": "Invalid data submitted.",
+      "notFound": "Resource not found.",
+      "unauthorized": "Incorrect credentials.",
+      "uniqueConstraint": "This value already exists.",
+      "unknown": "An unknown error occurred."
+    },
     "REQUIRED": "This field is required.",
     "TERMS": "You must accept the terms and conditions.",
     "URL": "The link must be a valid URL."
@@ -114,7 +127,8 @@
     "NOTE": "Type your note here."
   },
   "PROFILE": {
-    "SINCE": "Registered since"
+    "SINCE": "Registered since",
+    "UPDATE": "Profile updated !"
   },
   "RESTORE": {
     "BUTTON": "Restore",

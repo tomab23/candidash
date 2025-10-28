@@ -77,6 +77,19 @@
       "MIN": "Votre mot de passe est trop court",
       "NEED": "Le mot de passe est obligatoire"
     },
+    "REQUEST": {
+      "badRequest": "Requête invalide. Vérifie les informations saisies.",
+      "checkConstraint": "Valeur invalide pour ce champ.",
+      "conflict": "Ce compte existe déjà.",
+      "default": "{{message}}",
+      "forbidden": "Accès refusé.",
+      "foreignKey": "Référence invalide.",
+      "invalidData": "Les données envoyées ne sont pas valides.",
+      "notFound": "Ressource introuvable.",
+      "unauthorized": "Identifiants incorrects.",
+      "uniqueConstraint": "Cette valeur existe déjà.",
+      "unknown": "Une erreur inconnue est survenue."
+    },
     "REQUIRED": "Ce champ est obligatoire.",
     "TERMS": "Vous devez accepter les conditions",
     "URL": "Le lien doit être une URL valide."
@@ -114,7 +127,8 @@
     "NOTE": "Tapez votre note ici."
   },
   "PROFILE": {
-    "SINCE": "Inscript depuis"
+    "SINCE": "Inscript depuis",
+    "UPDATE": "Profil mis à jour !"
   },
   "RESTORE": {
     "BUTTON": "Restaurer",
