@@ -20,9 +20,11 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { CopyButton } from "../ui/shadcn-io/copy-button";
 import { Loader2Icon } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const PublicCard = () => {
   const { profile, editProfile } = useProfile();
+  const { t } = useTranslation();
   const [loading, setLoading] = useState<boolean>(false);
   const [mess, setMess] = useState<string>("")
 
@@ -35,7 +37,7 @@ const PublicCard = () => {
   const handleSubmit = async (id: number, username: string, open: boolean) => {
   try {
     await editProfile(id, username, open);
-    setMess("Profil mis à jour !");
+    setMess(t("PROFILE.UPDATE"));
   } catch (error) {
     setMess((error as Error).message);
   }
