@@ -126,17 +126,17 @@ const PublicCard = () => {
               <p>Votre lien de partage : </p>
               {formik.values.open && (
                 <a
-                  href={`https://candidash.netlify.app/${profile?.username}`}
+                  href={`https://candidash.netlify.app/user/${profile?.username}`}
                   className="italic hover:underline" 
                 >
-                  https://candidash.netlify.app/{profile?.username}
+                  https://candidash.netlify.app/user/{profile?.username}
                 </a>
               )}
               <CopyButton
-                content={`https://candidash.netlify.app/${profile?.username}`}
+                content={formik.values.open ? `https://candidash.netlify.app/user/${profile?.username}` : ""}
                 size="sm"
                 className="ml-1"
-                disabled={!open}
+                disabled={!formik.values.open}
                 type="button"
               />
             </div>
