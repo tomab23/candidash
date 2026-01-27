@@ -104,7 +104,7 @@ const CandidatureCard = ({ candidature }: Props) => {
               {candidature.company}
             </CardTitle>
           </div>
-          <Badge className={getStatusColor(candidature.status)}>
+          <Badge className={getStatusColor(candidature.status) + "cursor-default"}>
             {getStatusTranslate(candidature.status)}
           </Badge>
         </div>
@@ -113,7 +113,7 @@ const CandidatureCard = ({ candidature }: Props) => {
         {/* <div className="space-y-3 bg-green-900"> */}
         <div className="flex items-center text-sm text-muted-foreground">
           <User2 className="h-4 w-4 mr-2" />
-          {candidature.job}
+          <p className="truncate" title={candidature.job}>{candidature.job}</p>
         </div>
 
         <div className="flex items-center text-sm text-muted-foreground">
@@ -137,15 +137,10 @@ const CandidatureCard = ({ candidature }: Props) => {
             </p>
           </div>
         </div>
-        {/* <div className="flex items-center text-sm text-muted-foreground">
-          <Calendar className="h-4 w-4 mr-2" />
-          {DateFormat(candidature.date, false)}
-        </div> */}
-
         <div className="flex items-start text-sm text-muted-foreground">
           <Link className="h-4 w-4 mr-2 mt-0.5" />
           <span
-            className="line-clamp-2 hover:underline hover: cursor-pointer"
+            className="line-clamp-2 hover:underline hover: cursor-pointer truncate"
             onClick={() => window.open(candidature.link)}
           >
             {candidature.link}
@@ -154,7 +149,7 @@ const CandidatureCard = ({ candidature }: Props) => {
 
         <div className="flex items-start text-sm text-muted-foreground">
           <FileText className="h-4 w-4 mr-2 mt-0.5" />
-          <span className="line-clamp-2" title={candidature.note}>
+          <span className="line-clamp-2 truncate" title={candidature.note}>
             {candidature.note}
           </span>
         </div>

@@ -14,21 +14,21 @@ const LanguageDropdown = () => {
     const { i18n } = useTranslation();
 
   const langueEn = () => {
-    i18n.changeLanguage("en");
+    i18n.changeLanguage("en-GB");
     (document.activeElement as HTMLElement)?.blur();
   }
 
   const langueFr = () => {
-    i18n.changeLanguage("fr");
+    i18n.changeLanguage("fr-FR");
     (document.activeElement as HTMLElement)?.blur();
   }
-  const [position, setPosition] = useState<string>(i18n.language == 'fr' ? "français" : "english");
+  const [position, setPosition] = useState<string>(i18n.language == 'fr-FR' ? "français" : "english");
 
   
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="blur-none"><Globe />{i18n.language == 'fr' ? "Français" : "English"}</Button>
+        <Button variant="outline" className="blur-none"><Globe />{i18n.language == 'fr-FR' ? "Français" : "English"}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40" align="start">
         <DropdownMenuRadioGroup value={position} onValueChange={setPosition} className="hover:cursor-pointer">
