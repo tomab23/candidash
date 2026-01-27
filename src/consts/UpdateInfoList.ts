@@ -83,4 +83,13 @@ export const UpdateInfoList: UpdateInfo[] = [
     en: "Fixed an issue with the copy button for your profile link",
     classname: "",
   },
+              {
+    id: 9,
+    update: "correction",
+    date: "2026-01-27",
+    version: "v0.5",
+    fr: "Correction du problème lié aux textes trop long qui créaient des décalages sur les cartes de candidature",
+    en: "Fixed an issue where overly long text caused misalignment on application cards",
+    classname: "",
+  },
 ];
