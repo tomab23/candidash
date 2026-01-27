@@ -6,7 +6,7 @@ const DateFormat = (date: Date, day: boolean) => {
   const nDate = new Date(date);
 
   const formatted = format(nDate, day ? "EEEE d MMMM yyyy" : "d MMMM yyyy", {
-    locale: i18n.language === "fr" ? fr : enGB,
+    locale: i18n.language === "fr-FR" ? fr : enGB,
   });
   return formatted;
 };

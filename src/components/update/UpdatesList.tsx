@@ -8,7 +8,7 @@ const UpdatesList = () => {
     <div className="mt-10 max-sm:mt-5 flex flex-col gap-3">
       {UpdateInfoList.map((update) => (
         <UpdateCard key={update.id} update={update.update} date={update.date} version={update.version} classname={update.classname}>
-          {i18n.language === "fr" ? (
+          {i18n.language === "fr-FR" ? (
             <p>{update.fr}.</p>
           ) : (
             <p>{update.en}.</p>
