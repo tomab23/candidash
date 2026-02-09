@@ -6,6 +6,7 @@ import NotFoundPage from "./NotFoundPage";
 import { useCandidature } from "@/hooks/useCandidature";
 import CandidatureCard from "@/components/cards/CandidatureCard";
 import { useTranslation } from "react-i18next";
+import { LangueFr } from "@/consts/Langue";
 
 type LocationState = {
   value: string;
@@ -28,7 +29,7 @@ const ByContractPage = () => {
       <Contenu>
         <Header title={state?.name} />
         <p className="text-center text-xl font-semibold max-sm:text-lg max-sm:mt-5">
-          {i18n.language === "fr"
+          {i18n.language === LangueFr
             ? `Vous avez ${number} candidature${number > 1 ? "s" : ""} pour ${state?.name}`
             : `You have ${number} application${number > 1 ? "s" : ""} for  ${state?.name}`}
         </p>
