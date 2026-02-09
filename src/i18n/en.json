@@ -36,7 +36,8 @@
     "SUBMIT": "Submit",
     "USER": {
       "DELETE": "Delete my account"
-    }
+    },
+    "VALIDATE": "Validate"
   },
   "CANDIDATURE": "application",
   "CONTACT": {
@@ -129,6 +130,10 @@
   "PROFILE": {
     "SINCE": "Registered since",
     "UPDATE": "Profile updated !"
+  },
+  "PUBLIC": {
+    "LINK": "Your sharing link",
+    "TITLE": "Manage your public profile"
   },
   "RESTORE": {
     "BUTTON": "Restore",

@@ -64,14 +64,14 @@ const PublicCard = () => {
   });
 
 //   TODO add alert valid change / sonner
-//   TODO Translate
+//   TODO translate error message/valid message
 
   return (
     <form onSubmit={formik.handleSubmit}>
       <Card>
         <CardHeader className="flex items-center justify-between">
           <CardTitle className="flex gap-2 items-center">
-            <p className="max-sm:text-xs">Gestion de votre profil public</p>
+            <p className="max-sm:text-xs">{t("PUBLIC.TITLE")}</p>
             <Status status={formik.values.open ? "public" : "private"}>
               <StatusIndicator />
               <StatusLabel />
@@ -119,11 +119,11 @@ const PublicCard = () => {
             </div>
 
             <Button type="submit" className="self-end mt-5" disabled={loading}>
-              {loading ? <Loader2Icon className="animate-spin" /> : "Valider"}
+              {loading ? <Loader2Icon className="animate-spin" /> : t("BUTTON.VALIDATE")}
             </Button>
 
-            <div className="mt-5 text-sm flex gap-2 items-center">
-              <p>Votre lien de partage : </p>
+            <div className="mt-5 text-sm flex gap-2 items-center max-sm:flex-wrap">
+              <p>{t("PUBLIC.LINK")} : </p>
               {formik.values.open && (
                 <a
                   href={`https://candidash.netlify.app/user/${profile?.username}`}

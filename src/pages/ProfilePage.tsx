@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/shadcn-io/status";
 import { useNavigate } from "react-router-dom";
 import { useProfile } from "@/hooks/useProfile";
+import { LangueFr } from "@/consts/Langue";
 
 const ProfilePage = () => {
   const { user } = useAuth();
@@ -67,7 +68,7 @@ const ProfilePage = () => {
                   {StringToDate(String(user?.created_at), true)}{" "}
                   {interval.months && interval.months && (
                     <span>
-                      {i18n.language === "fr"
+                      {i18n.language === LangueFr
                         ? `| Il y a ${interval.months} mois ${
                             interval.days && " et"
                           } ${interval.days + jour}`
