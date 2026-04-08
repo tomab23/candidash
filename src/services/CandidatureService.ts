@@ -10,13 +10,24 @@ export const getCandidatures = async (userId: string) => {
   return data;
 };
 
-// ⬇️ Récupérer les données de la table "candidature" archivé pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
+// ⬇️📁 Récupérer les données de la table "candidature" archivé pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
 export const getArchives = async (userId: string) => {
   const { data, error } = await supabase
     .from("candidature")
     .select("*")
     .eq("user_id", userId)
     .eq("archive", true)
+  if (error) throw new Error(error.message);
+  return data;
+};
+
+// ⬇️👍 Récupérer les données de la table "candidature" interest pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
+export const getInterest = async (userId: string) => {
+  const { data, error } = await supabase
+    .from("candidature")
+    .select("*")
+    .eq("user_id", userId)
+    .eq("interest", true)
   if (error) throw new Error(error.message);
   return data;
 };

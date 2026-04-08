@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useState } from "react"
 import { useAuth } from "@/context/AuthContext"
-import { getCandidatures, insertCandidature, updateCandidature, deleteCandidature, getCandidatureById, deleteUser, getArchives, toggleArchive, deleteAllArchives  } from "@/services/CandidatureService"
+import { getCandidatures, insertCandidature, updateCandidature, deleteCandidature, getCandidatureById, deleteUser, getArchives, toggleArchive, deleteAllArchives, getInterest  } from "@/services/CandidatureService"
 import type Candidature from "@/models/Candidature"
 
 export const useCandidature = () => {
   const { user } = useAuth()
   const [candidatures, setCandidatures] = useState<Candidature[]>([])
   const [archives, setArchvies] = useState<Candidature[]>([])
+  const [interests, setInterests] = useState<Candidature[]>([])
   const [loading, setLoading] = useState(false)
   // const [count, setCount] = useState<number | null>(null)
 
@@ -31,6 +32,20 @@ const fetchArchives = useCallback(async () => {
   try {
     const data = await getArchives(user.id)
     setArchvies(data)
+  } catch (err) {
+    console.error(err)
+  } finally {
+    setLoading(false)
+  }
+}, [user])
+
+//  récupere toutes les archives de l'utilisateur
+const fetchInterest = useCallback(async () => {
+  if (!user) return
+  setLoading(true)
+  try {
+    const data = await getInterest(user.id)
+    setInterests(data)
   } catch (err) {
     console.error(err)
   } finally {
@@ -152,9 +167,11 @@ const addCandidature = async (
   return {
     candidatures,
     archives,
+    interests,
     loading,
     fetchCandidatures,
     fetchArchives,
+    fetchInterest,
     addCandidature,
     editCandidature,
     removeCandidature,

@@ -55,7 +55,9 @@ const CandidaturePage = (props: Props) => {
     job: Yup.string().required(requiredMsg),
     status: Yup.string().required(requiredMsg),
     place: Yup.string().required(requiredMsg),
-    link: Yup.string().url(t("ERROR.URL") + " (ex: https://exemple.com)").notRequired(),
+    link: Yup.string()
+      .url(t("ERROR.URL") + " (ex: https://exemple.com)")
+      .notRequired(),
   });
 
   const normalizeDate = (d: Date) => {
@@ -100,7 +102,7 @@ const CandidaturePage = (props: Props) => {
           values.link,
           values.note,
           values.place,
-          values.contract
+          values.contract,
         );
       } else {
         addCandidature(
@@ -111,13 +113,13 @@ const CandidaturePage = (props: Props) => {
           values.link,
           values.note,
           values.place,
-          values.contract
+          values.contract,
         );
       }
 
       navigate(-1);
     },
-  });  
+  });
 
   // if (!test) return <p>Chargement...</p>;
 
@@ -202,7 +204,10 @@ const CandidaturePage = (props: Props) => {
                 />
               </InputCandidature>
               {/* CONTRACT */}
-              <InputCandidature name={"contract"} label={t("FORM.CONTRACT") + "*"}>
+              <InputCandidature
+                name={"contract"}
+                label={t("FORM.CONTRACT") + "*"}
+              >
                 <ContractBox
                   name="contract"
                   value={formik.values.contract}
@@ -229,6 +234,9 @@ const CandidaturePage = (props: Props) => {
                 />
               </InputCandidature>
 
+              {/* TODO LIKE Ajouter la possibilité de mettre la candidature en Interet */}
+              <p>LIKE</p>
+
               <Button className="mt-5" type="submit">
                 {props.edit ? t("BUTTON.EDIT") : t("FORM.ADD")}
               </Button>
@@ -251,11 +259,12 @@ const CandidaturePage = (props: Props) => {
               <Archive /> {t("BUTTON.ARCHIVE")}
             </Button> */}
 
-            <DialogArchive               id={Number(id)}
+            <DialogArchive
+              id={Number(id)}
               company={Candidature?.company}
               job={Candidature?.job}
               archive={formik.values.archive}
-              />
+            />
 
             <DialogDelete
               id={Number(id)}
