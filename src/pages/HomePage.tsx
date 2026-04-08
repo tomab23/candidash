@@ -18,6 +18,9 @@ const HomePage = () => {
   const { t } = useTranslation();
   // const [statusFilter, setStatusFilter] = useState<string>("all");
 
+  console.log(candidatures);
+  
+
   const candidatureFilter = candidatures.filter((c) => c.archive === false)
 
     const handleReload = () => {

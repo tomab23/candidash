@@ -39,7 +39,7 @@ const fetchArchives = useCallback(async () => {
   }
 }, [user])
 
-//  récupere toutes les archives de l'utilisateur
+//  récupere toutes les likes de l'utilisateur
 const fetchInterest = useCallback(async () => {
   if (!user) return
   setLoading(true)
@@ -163,6 +163,18 @@ const addCandidature = async (
     }
     load()
   }, [user, fetchArchives])
+
+      useEffect(() => {
+    const load = async () => {
+      if (user) {
+        await fetchInterest()
+      } else {
+        setInterests([])
+        // setError(null)
+      }
+    }
+    load()
+  }, [user, fetchInterest])
 
   return {
     candidatures,

@@ -6,6 +6,7 @@ export const getCandidatures = async (userId: string) => {
     .from("candidature")
     .select("*")
     .eq("user_id", userId)
+    .eq("interest", false)
   if (error) throw new Error(error.message);
   return data;
 };
