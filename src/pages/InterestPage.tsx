@@ -1,20 +1,28 @@
 import InterestCard from "@/components/cards/InterestCard";
-import Navbar from "@/components/layout/Navbar"
-import Contenu from "@/helpers/Contenu"
+import Header from "@/components/layout/Header";
+import Navbar from "@/components/layout/Navbar";
+import Contenu from "@/helpers/Contenu";
 import { useCandidature } from "@/hooks/useCandidature";
+import { useTranslation } from "react-i18next";
 
 export const InterestPage = () => {
-    const { interests } = useCandidature();
+  const { interests } = useCandidature();
+  const { t } = useTranslation();
 
-    console.log(interests);
-    
+  console.log(interests);
+
   return (
     <div>
-        <Navbar />
-        <Contenu>
-            <p>Interest Page</p>
-            <InterestCard />
-        </Contenu>
+      <Navbar />
+      <Contenu>
+        <Header title={t("INTEREST.TITLE")} />
+
+        <div className="mt-5">
+          {interests.map((i) => (
+            <InterestCard key={i.id} candidature={i} />
+          ))}
+        </div>
+      </Contenu>
     </div>
-  )
-}
+  );
+};

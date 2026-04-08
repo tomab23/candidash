@@ -49,6 +49,7 @@
     "FIXED": "CDD",
     "FREELANCE": "Freelance",
     "INTERN": "Stage",
+    "OTHER": "Autre",
     "PERMANENT": "CDI",
     "SELECT": "Choisir le contrat",
     "TITLE": "Contrat"

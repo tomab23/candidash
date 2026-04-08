@@ -19,4 +19,8 @@ export const ContractList = [
     value: "alternance",
     label: "CONTRACT.APPRENTICE",
   },
+    {
+    value: "autre",
+    label: "CONTRACT.OTHER",
+  },
 ];

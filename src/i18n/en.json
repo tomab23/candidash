@@ -49,6 +49,7 @@
     "FIXED": "Fixed-term contract",
     "FREELANCE": "Freelance",
     "INTERN": "Internship",
+    "OTHER": "Other",
     "PERMANENT": "Permanent contract",
     "SELECT": "Select contract",
     "TITLE": "Contract"

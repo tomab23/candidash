@@ -12,6 +12,7 @@ const ContractPart = () => {
         <ContractCard name={t("CONTRACT.FREELANCE")} value={"freelance"} />
         <ContractCard name={t("CONTRACT.INTERN")} value={"stage"} />
         <ContractCard name={t("CONTRACT.APPRENTICE")} value={"alternance"} />
+        <ContractCard name={t("CONTRACT.OTHER")} value={"autre"} />
       </div>
     </div>
   );

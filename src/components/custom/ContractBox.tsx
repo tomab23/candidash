@@ -17,18 +17,17 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ContractList } from "@/consts/ContractList";
 
-
 type Props = {
   name: string;
   value: string;
   onChange: (value: string) => void;
 };
 
-const ContractBox = ({ name, value, onChange}: Props) => {
-    const { t } = useTranslation();
-    const [open, setOpen] = useState(false);
+const ContractBox = ({ name, value, onChange }: Props) => {
+  const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
 
-    const getContractTranslate = (status: string) => {
+  const getContractTranslate = (status: string) => {
     switch (status) {
       case "cdi":
         return t("CONTRACT.PERMANENT");
@@ -40,15 +39,17 @@ const ContractBox = ({ name, value, onChange}: Props) => {
         return t("CONTRACT.INTERN");
       case "alternance":
         return t("CONTRACT.APPRENTICE");
+      case "autre":
+        return t("CONTRACT.OTHER");
       default:
         return t("CONTRACT.SELECT");
     }
   };
   return (
-        <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-        id={name}
+          id={name}
           variant="outline"
           role="combobox"
           aria-expanded={open}
@@ -76,12 +77,12 @@ const ContractBox = ({ name, value, onChange}: Props) => {
                   }}
                   id={name}
                 >
-                    {/* <List className={item.classname}/> */}
+                  {/* <List className={item.classname}/> */}
                   {t(item.label)}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === item.value ? "opacity-100" : "opacity-0"
+                      value === item.value ? "opacity-100" : "opacity-0",
                     )}
                   />
                 </CommandItem>
@@ -91,7 +92,7 @@ const ContractBox = ({ name, value, onChange}: Props) => {
         </Command>
       </PopoverContent>
     </Popover>
-  )
-}
+  );
+};
 
-export default ContractBox
+export default ContractBox;
