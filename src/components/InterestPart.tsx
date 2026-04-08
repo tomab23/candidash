@@ -12,7 +12,7 @@ const InterestPart = () => {
     const total = interests.length
 
   return (
-    <div className="flex justify-between items-center py-4 px-2 bg-accent rounded-2xl max-sm:mt-1">
+    <div className="flex justify-between items-center py-3 px-2 bg-accent rounded-2xl max-sm:mt-1 mt-2">
       <h1 className="text-lg max-sm:text-sm font-bold">
         {total} {total > 1 ? t("INTEREST.OFFERS") : t("INTEREST.OFFER")}
       </h1>
