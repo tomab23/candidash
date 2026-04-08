@@ -9,8 +9,6 @@ export const InterestPage = () => {
   const { interests } = useCandidature();
   const { t } = useTranslation();
 
-  console.log(interests);
-
   return (
     <div>
       <Navbar />

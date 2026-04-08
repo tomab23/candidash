@@ -12,8 +12,8 @@ const InterestPart = () => {
     const total = interests.length
 
   return (
-    <div className="flex justify-between py-4">
-      <h1 className="text-lg max-sm:text-xl font-bold">
+    <div className="flex justify-between items-center py-4 px-2 bg-accent rounded-2xl max-sm:mt-1">
+      <h1 className="text-lg max-sm:text-sm font-bold">
         {total} {total > 1 ? t("INTEREST.OFFERS") : t("INTEREST.OFFER")}
       </h1>
                 <Button size={"sm"}

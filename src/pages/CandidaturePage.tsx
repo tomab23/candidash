@@ -235,7 +235,7 @@ const CandidaturePage = (props: Props) => {
               </InputCandidature>
 
               {/* TODO LIKE Ajouter la possibilité de mettre la candidature en Interet */}
-              <p>LIKE</p>
+              <p>LIKE - Mettre dans les offres qui m'intéressent</p>
 
               <Button className="mt-5" type="submit">
                 {props.edit ? t("BUTTON.EDIT") : t("FORM.ADD")}
