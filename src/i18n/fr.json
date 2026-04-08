@@ -118,6 +118,12 @@
   "INPUT": {
     "SEARCH": "Rechercher par entreprise, poste ou lieu..."
   },
+  "INTEREST": {
+    "BUTTON": "Voir les offres qui m'intéressent",
+    "OFFER": "offre qui m'intéresse",
+    "OFFERS": "offres qui m'intéressent",
+    "TITLE": "intérêt"
+  },
   "LANGUAGE": "Langue",
   "LOADING": "Chargement",
   "NONE": {

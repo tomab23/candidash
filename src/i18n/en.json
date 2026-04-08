@@ -118,6 +118,12 @@
   "INPUT": {
     "SEARCH": "Search by company, job or location..."
   },
+  "INTEREST": {
+    "BUTTON": "View the job listings that I am interested in",
+    "OFFER": "offer that interests me",
+    "OFFERS": "offers that interest me",
+    "TITLE": "interest"
+  },
   "LANGUAGE": "Language",
   "LOADING": "Loading",
   "NONE": {

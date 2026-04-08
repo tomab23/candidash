@@ -97,12 +97,12 @@ const ProfilePage = () => {
               icon={<List className="h-4 w-4" />}
             />
             <StatCard
-              title={"Archives"}
+              title={"archives"}
               value={archives.length}
               icon={<ArchiveIcon className="h-4 w-4" />}
             />
             <StatCard
-              title={"Interest"}
+              title={t("INTEREST.TITLE")}
               value={interests.length}
               icon={<HeartIcon className="h-4 w-4" />}
             />
