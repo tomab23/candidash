@@ -117,6 +117,15 @@ export const UpdateInfoList: UpdateInfo[] = [
     version: "v0.5",
     fr: "Traduction de la carte profil dans les paramètres",
     en: "Translation of the profile card in the settings",
+    classname: "mt-5",
+  },
+  {
+    id: 13,
+    update: "add",
+    date: "2026-04-08",
+    version: "v0.6",
+    fr: "Vous pouvez maintenant ajouter une candidature qui vous intéresse sans encore y candidater. Elle apparaîtra dans votre liste d'intérêt",
+    en: "You can now save a job listing that interests you without applying for it just yet. It will appear in your interest list",
     classname: "",
   },
 ];
