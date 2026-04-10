@@ -122,10 +122,19 @@ export const UpdateInfoList: UpdateInfo[] = [
   {
     id: 13,
     update: "add",
-    date: "2026-04-08",
+    date: "2026-04-10",
     version: "v0.6",
     fr: "Vous pouvez maintenant ajouter une candidature qui vous intéresse sans encore y candidater. Elle apparaîtra dans votre liste d'intérêt",
     en: "You can now save a job listing that interests you without applying for it just yet. It will appear in your interest list",
+    classname: "",
+  },
+  {
+    id: 14,
+    update: "correction",
+    date: "2026-04-10",
+    version: "v0.6",
+    fr: "Correction d'un problème visuel dans le formulaire d'ajout de candidature sur mobile",
+    en: "Fixed a visual issue with the application submission form on mobile devices",
     classname: "",
   },
 ];
