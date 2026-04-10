@@ -11,6 +11,7 @@ export default class Candidature{
     note?: string;
     id_user: string;
     archive: boolean;
+    interest: boolean;
 
     constructor(
         id: number,
@@ -25,6 +26,7 @@ export default class Candidature{
         link: string,
         note: string,
         archive: boolean,
+        interest: boolean,
     ){
         this.id = id;
         this.created_at = created_at
@@ -38,6 +40,7 @@ export default class Candidature{
         this.note = note;
         this.id_user = id_user;
         this.archive = archive;
+        this.interest = interest;
 
     }
 

@@ -7,7 +7,7 @@ import StringToDate from "@/helpers/StringToDate";
 import { useCandidature } from "@/hooks/useCandidature";
 import i18n from "@/i18n/i18n";
 import { intervalToDuration } from "date-fns";
-import { ArchiveIcon, List, SquareUserRound } from "lucide-react";
+import { ArchiveIcon, HeartIcon, List, SquareUserRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Header from "@/components/layout/Header";
 import ContractPart from "@/components/profile/ContractPart";
@@ -22,11 +22,10 @@ import { LangueFr } from "@/consts/Langue";
 
 const ProfilePage = () => {
   const { user } = useAuth();
-  const { candidatures, archives } = useCandidature();
+  const { candidatures, archives, interests } = useCandidature();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { status } = useProfile();
-  
 
   const candidatureFilter = candidatures.filter((c) => c.archive === false);
 
@@ -58,7 +57,11 @@ const ProfilePage = () => {
                   <p className="text-lg max-sm:text-lg font-semibold">
                     {user?.email}
                   </p>
-                  <Status status={status ? "public" : "private"} className="hover:cursor-pointer" onClick={() => navigate("/settings")}>
+                  <Status
+                    status={status ? "public" : "private"}
+                    className="hover:cursor-pointer"
+                    onClick={() => navigate("/settings")}
+                  >
                     <StatusIndicator />
                     <StatusLabel />
                   </Status>
@@ -94,9 +97,14 @@ const ProfilePage = () => {
               icon={<List className="h-4 w-4" />}
             />
             <StatCard
-              title={"Archives"}
+              title={"archives"}
               value={archives.length}
               icon={<ArchiveIcon className="h-4 w-4" />}
+            />
+            <StatCard
+              title={t("INTEREST.TITLE")}
+              value={interests.length}
+              icon={<HeartIcon className="h-4 w-4" />}
             />
           </div>
         </div>

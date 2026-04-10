@@ -6,17 +6,29 @@ export const getCandidatures = async (userId: string) => {
     .from("candidature")
     .select("*")
     .eq("user_id", userId)
+    .eq("interest", false)
   if (error) throw new Error(error.message);
   return data;
 };
 
-// ⬇️ Récupérer les données de la table "candidature" archivé pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
+// ⬇️📁 Récupérer les données de la table "candidature" archivé pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
 export const getArchives = async (userId: string) => {
   const { data, error } = await supabase
     .from("candidature")
     .select("*")
     .eq("user_id", userId)
     .eq("archive", true)
+  if (error) throw new Error(error.message);
+  return data;
+};
+
+// ⬇️👍 Récupérer les données de la table "candidature" interest pour l'utilisateur connecté dans l'ordre des candidatures mis a jour
+export const getInterest = async (userId: string) => {
+  const { data, error } = await supabase
+    .from("candidature")
+    .select("*")
+    .eq("user_id", userId)
+    .eq("interest", true)
   if (error) throw new Error(error.message);
   return data;
 };
@@ -42,11 +54,12 @@ export const insertCandidature = async (
   link: string | undefined,
   note: string | undefined,
   place: string,
-  contract: string
+  contract: string,
+  interest: boolean,
 ) => {
   const { error } = await supabase
     .from("candidature")
-    .insert([{ user_id: userId, company, job, date, status, link, note, place, contract }]);
+    .insert([{ user_id: userId, company, job, date, status, link, note, place, contract, interest }]);
   if (error) throw new Error(error.message);
 };
 
@@ -71,11 +84,12 @@ export const updateCandidature = async (
   link: string | undefined,
   note: string | undefined,
   place: string,
-  contract: string
+  contract: string,
+  interest: boolean,
 ) => {
   const { error } = await supabase
     .from("candidature")
-    .update({ company, job, date, status, link, note, place, contract })
+    .update({ company, job, date, status, link, note, place, contract, interest })
     .eq("id", id)
     .eq("user_id", userId);
   if (error) throw new Error(error.message);

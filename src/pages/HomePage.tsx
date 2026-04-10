@@ -10,12 +10,14 @@ import Contenu from "@/helpers/Contenu";
 import CandidatureCard from "@/components/cards/CandidatureCard";
 import NoList from "@/components/NoList";
 import { useCandidature } from "@/hooks/useCandidature";
+import InterestPart from "@/components/InterestPart";
 
 const HomePage = () => {
   const { candidatures, loading } = useCandidature();
   const navigate = useNavigate();
   const { t } = useTranslation();
   // const [statusFilter, setStatusFilter] = useState<string>("all");
+  
 
   const candidatureFilter = candidatures.filter((c) => c.archive === false)
 
@@ -32,6 +34,7 @@ const HomePage = () => {
     <div className="">
       <Navbar />
       <Contenu>
+        <InterestPart />
         {/* HEADER */}
         <div className="flex justify-between my-5 items-center">
           <div>

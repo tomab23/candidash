@@ -49,6 +49,7 @@
     "FIXED": "Fixed-term contract",
     "FREELANCE": "Freelance",
     "INTERN": "Internship",
+    "OTHER": "Other",
     "PERMANENT": "Permanent contract",
     "SELECT": "Select contract",
     "TITLE": "Contract"
@@ -117,6 +118,13 @@
   },
   "INPUT": {
     "SEARCH": "Search by company, job or location..."
+  },
+  "INTEREST": {
+    "ADD": "Add to my interest list",
+    "BUTTON": "View your interest jobs",
+    "OFFER": "offer that interests me",
+    "OFFERS": "offers that interest me",
+    "TITLE": "interest"
   },
   "LANGUAGE": "Language",
   "LOADING": "Loading",

@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useState } from "react"
 import { useAuth } from "@/context/AuthContext"
-import { getCandidatures, insertCandidature, updateCandidature, deleteCandidature, getCandidatureById, deleteUser, getArchives, toggleArchive, deleteAllArchives  } from "@/services/CandidatureService"
+import { getCandidatures, insertCandidature, updateCandidature, deleteCandidature, getCandidatureById, deleteUser, getArchives, toggleArchive, deleteAllArchives, getInterest  } from "@/services/CandidatureService"
 import type Candidature from "@/models/Candidature"
 
 export const useCandidature = () => {
   const { user } = useAuth()
   const [candidatures, setCandidatures] = useState<Candidature[]>([])
   const [archives, setArchvies] = useState<Candidature[]>([])
+  const [interests, setInterests] = useState<Candidature[]>([])
   const [loading, setLoading] = useState(false)
   // const [count, setCount] = useState<number | null>(null)
 
@@ -38,6 +39,20 @@ const fetchArchives = useCallback(async () => {
   }
 }, [user])
 
+//  récupere toutes les likes de l'utilisateur
+const fetchInterest = useCallback(async () => {
+  if (!user) return
+  setLoading(true)
+  try {
+    const data = await getInterest(user.id)
+    setInterests(data)
+  } catch (err) {
+    console.error(err)
+  } finally {
+    setLoading(false)
+  }
+}, [user])
+
 // ajouter une candidature
 const addCandidature = async (
   company: string,
@@ -47,10 +62,11 @@ const addCandidature = async (
   link: string | undefined,
   note: string | undefined,
   place: string,
-  contract: string
+  contract: string,
+  interest: boolean,
   ) => {
     if (!user) return
-    await insertCandidature(user.id, company, job, date, status, link, note, place, contract)
+    await insertCandidature(user.id, company, job, date, status, link, note, place, contract, interest)
     await fetchCandidatures()
   }
 
@@ -63,10 +79,11 @@ const addCandidature = async (
   link: string | undefined,
   note: string | undefined,
   place: string,
-  contract: string
+  contract: string,
+  interest: boolean,
 ) => {
       if (!user) return
-      await updateCandidature(id, user.id, company, job, date, status, link, note, place, contract)
+      await updateCandidature(id, user.id, company, job, date, status, link, note, place, contract, interest)
       await fetchCandidatures()
     },
     [user, fetchCandidatures]
@@ -149,12 +166,26 @@ const addCandidature = async (
     load()
   }, [user, fetchArchives])
 
+      useEffect(() => {
+    const load = async () => {
+      if (user) {
+        await fetchInterest()
+      } else {
+        setInterests([])
+        // setError(null)
+      }
+    }
+    load()
+  }, [user, fetchInterest])
+
   return {
     candidatures,
     archives,
+    interests,
     loading,
     fetchCandidatures,
     fetchArchives,
+    fetchInterest,
     addCandidature,
     editCandidature,
     removeCandidature,

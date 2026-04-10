@@ -24,6 +24,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import DialogDelete from "@/components/dialogs/DialogDelete";
 import DialogArchive from "@/components/dialogs/DialogArchive";
+import WaitingPage from "./WaitingPage";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 type Props = {
   edit: boolean;
@@ -55,7 +58,9 @@ const CandidaturePage = (props: Props) => {
     job: Yup.string().required(requiredMsg),
     status: Yup.string().required(requiredMsg),
     place: Yup.string().required(requiredMsg),
-    link: Yup.string().url(t("ERROR.URL") + " (ex: https://exemple.com)").notRequired(),
+    link: Yup.string()
+      .url(t("ERROR.URL") + " (ex: https://exemple.com)")
+      .notRequired(),
   });
 
   const normalizeDate = (d: Date) => {
@@ -80,6 +85,7 @@ const CandidaturePage = (props: Props) => {
       place: Candidature ? Candidature.place : "",
       contract: Candidature ? Candidature.contract : "",
       archive: Candidature ? Candidature.archive : false,
+      interest: Candidature ? Candidature.interest : false,
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,
@@ -100,7 +106,8 @@ const CandidaturePage = (props: Props) => {
           values.link,
           values.note,
           values.place,
-          values.contract
+          values.contract,
+          values.interest,
         );
       } else {
         addCandidature(
@@ -111,15 +118,16 @@ const CandidaturePage = (props: Props) => {
           values.link,
           values.note,
           values.place,
-          values.contract
+          values.contract,
+          values.interest,
         );
       }
 
       navigate(-1);
     },
-  });  
+  });
 
-  // if (!test) return <p>Chargement...</p>;
+  if (!Candidature && props.edit) return <WaitingPage />;
 
   //   console.log("Largeur écran : " + screen.width + "px");
   // console.log("Hauteur écran : " + screen.height + "px");
@@ -168,7 +176,7 @@ const CandidaturePage = (props: Props) => {
                 placeholder={t("FORM.JOB")}
                 label={t("FORM.JOB") + "*"}
               />
-              <div className="flex justify-between gap-2">
+              <div className="flex justify-between items-center gap-2">
                 <InputCandidature
                   name={"date"}
                   classname={""}
@@ -202,7 +210,10 @@ const CandidaturePage = (props: Props) => {
                 />
               </InputCandidature>
               {/* CONTRACT */}
-              <InputCandidature name={"contract"} label={t("FORM.CONTRACT") + "*"}>
+              <InputCandidature
+                name={"contract"}
+                label={t("FORM.CONTRACT") + "*"}
+              >
                 <ContractBox
                   name="contract"
                   value={formik.values.contract}
@@ -217,6 +228,18 @@ const CandidaturePage = (props: Props) => {
                 placeholder={t("FORM.LINK")}
                 label={t("FORM.LINK")}
               />
+
+              <div className="flex gap-2 items-center my-2">
+                <Checkbox
+                  id="interest"
+                  name="interest"
+                  checked={formik.values.interest}
+                  onCheckedChange={(checked) =>
+                    formik.setFieldValue("interest", checked === true)
+                  }
+                />
+                <Label htmlFor="interest">{t("INTEREST.ADD")}</Label>
+              </div>
 
               <InputCandidature name={"note"} label={"Note"}>
                 <Textarea
@@ -251,11 +274,12 @@ const CandidaturePage = (props: Props) => {
               <Archive /> {t("BUTTON.ARCHIVE")}
             </Button> */}
 
-            <DialogArchive               id={Number(id)}
+            <DialogArchive
+              id={Number(id)}
               company={Candidature?.company}
               job={Candidature?.job}
               archive={formik.values.archive}
-              />
+            />
 
             <DialogDelete
               id={Number(id)}

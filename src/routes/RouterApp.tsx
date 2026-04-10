@@ -13,6 +13,7 @@ import ContactPage from "@/pages/ContactPage";
 // import { Suspense } from "react";
 import ByContractPage from "@/pages/ByContractPage";
 import PublicPage from "@/pages/PublicPage";
+import { InterestPage } from "@/pages/InterestPage";
 
 // const Home = lazy(() => import("./pages/Home"));
 // const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -35,6 +36,7 @@ const RouterApp = () => {
       <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
       <Route path="/settings" element={<PrivateRoute><SettingsPage /></PrivateRoute>} />
       <Route path="/archives" element={<PrivateRoute><ArchivesPage /></PrivateRoute>} />
+      <Route path="/interest" element={<PrivateRoute><InterestPage /></PrivateRoute>} />
       <Route path="/candidature" element={<PrivateRoute><CandidaturePage edit={false} /></PrivateRoute>} />
       <Route path="/candidature/:id" element={<PrivateRoute><CandidaturePage edit={true} /></PrivateRoute>} />
       <Route path="/contract" element={<PrivateRoute><ByContractPage /></PrivateRoute>} />
