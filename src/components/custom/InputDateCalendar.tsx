@@ -27,7 +27,7 @@ const InputDateCalendar = ({ name, value, onChange } : Props) => {
             variant="outline"
             id={name}
             name={name}
-            className="w-auto justify-between font-normal"
+            className="min-w-36 justify-between font-normal"
           >
             {DateFormat(value, false)}
             <ChevronDownIcon />

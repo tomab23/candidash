@@ -171,7 +171,7 @@ const CandidaturePage = (props: Props) => {
                 placeholder={t("FORM.JOB")}
                 label={t("FORM.JOB") + "*"}
               />
-              <div className="flex justify-between gap-2">
+              <div className="flex justify-between items-center gap-2">
                 <InputCandidature
                   name={"date"}
                   classname={""}
