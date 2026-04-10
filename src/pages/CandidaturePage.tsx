@@ -24,6 +24,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import DialogDelete from "@/components/dialogs/DialogDelete";
 import DialogArchive from "@/components/dialogs/DialogArchive";
+import WaitingPage from "./WaitingPage";
 
 type Props = {
   edit: boolean;
@@ -121,7 +122,7 @@ const CandidaturePage = (props: Props) => {
     },
   });
 
-  // if (!test) return <p>Chargement...</p>;
+  if (!Candidature && props.edit) return <WaitingPage />;
 
   //   console.log("Largeur écran : " + screen.width + "px");
   // console.log("Hauteur écran : " + screen.height + "px");
