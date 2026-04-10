@@ -62,10 +62,11 @@ const addCandidature = async (
   link: string | undefined,
   note: string | undefined,
   place: string,
-  contract: string
+  contract: string,
+  interest: boolean,
   ) => {
     if (!user) return
-    await insertCandidature(user.id, company, job, date, status, link, note, place, contract)
+    await insertCandidature(user.id, company, job, date, status, link, note, place, contract, interest)
     await fetchCandidatures()
   }
 
@@ -78,10 +79,11 @@ const addCandidature = async (
   link: string | undefined,
   note: string | undefined,
   place: string,
-  contract: string
+  contract: string,
+  interest: boolean,
 ) => {
       if (!user) return
-      await updateCandidature(id, user.id, company, job, date, status, link, note, place, contract)
+      await updateCandidature(id, user.id, company, job, date, status, link, note, place, contract, interest)
       await fetchCandidatures()
     },
     [user, fetchCandidatures]

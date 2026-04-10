@@ -54,11 +54,12 @@ export const insertCandidature = async (
   link: string | undefined,
   note: string | undefined,
   place: string,
-  contract: string
+  contract: string,
+  interest: boolean,
 ) => {
   const { error } = await supabase
     .from("candidature")
-    .insert([{ user_id: userId, company, job, date, status, link, note, place, contract }]);
+    .insert([{ user_id: userId, company, job, date, status, link, note, place, contract, interest }]);
   if (error) throw new Error(error.message);
 };
 
@@ -83,11 +84,12 @@ export const updateCandidature = async (
   link: string | undefined,
   note: string | undefined,
   place: string,
-  contract: string
+  contract: string,
+  interest: boolean,
 ) => {
   const { error } = await supabase
     .from("candidature")
-    .update({ company, job, date, status, link, note, place, contract })
+    .update({ company, job, date, status, link, note, place, contract, interest })
     .eq("id", id)
     .eq("user_id", userId);
   if (error) throw new Error(error.message);

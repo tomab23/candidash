@@ -25,6 +25,8 @@ import * as Yup from "yup";
 import DialogDelete from "@/components/dialogs/DialogDelete";
 import DialogArchive from "@/components/dialogs/DialogArchive";
 import WaitingPage from "./WaitingPage";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 type Props = {
   edit: boolean;
@@ -83,6 +85,7 @@ const CandidaturePage = (props: Props) => {
       place: Candidature ? Candidature.place : "",
       contract: Candidature ? Candidature.contract : "",
       archive: Candidature ? Candidature.archive : false,
+      interest: Candidature ? Candidature.interest : false,
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,
@@ -104,6 +107,7 @@ const CandidaturePage = (props: Props) => {
           values.note,
           values.place,
           values.contract,
+          values.interest,
         );
       } else {
         addCandidature(
@@ -115,6 +119,7 @@ const CandidaturePage = (props: Props) => {
           values.note,
           values.place,
           values.contract,
+          values.interest,
         );
       }
 
@@ -224,6 +229,18 @@ const CandidaturePage = (props: Props) => {
                 label={t("FORM.LINK")}
               />
 
+              <div className="flex gap-2 items-center my-2">
+                <Checkbox
+                  id="interest"
+                  name="interest"
+                  checked={formik.values.interest}
+                  onCheckedChange={(checked) =>
+                    formik.setFieldValue("interest", checked === true)
+                  }
+                />
+                <Label htmlFor="interest">{t("INTEREST.ADD")}</Label>
+              </div>
+
               <InputCandidature name={"note"} label={"Note"}>
                 <Textarea
                   className=""
@@ -234,9 +251,6 @@ const CandidaturePage = (props: Props) => {
                   placeholder={t("PLACEHOLDER.NOTE")}
                 />
               </InputCandidature>
-
-              {/* TODO LIKE Ajouter la possibilité de mettre la candidature en Interet */}
-              <p>LIKE - Mettre dans les offres qui m'intéressent</p>
 
               <Button className="mt-5" type="submit">
                 {props.edit ? t("BUTTON.EDIT") : t("FORM.ADD")}
