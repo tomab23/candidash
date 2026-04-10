@@ -21,22 +21,22 @@ const InterestCard = ({ candidature }: Props) => {
 
   return (
     <Card className="">
-      <CardHeader>
-        <CardTitle className="flex gap-2">
+      <CardHeader className="truncate">
+        <CardTitle className="flex gap-2 max-sm:text-xs" title={candidature.job}>
           {candidature.job}{" "}
           {candidature.note && <NotebookTextIcon className="h-4 w-4" />}
         </CardTitle>
-        <CardDescription className="flex flex-col gap-2">
+        <CardDescription className="flex flex-col gap-2 max-sm:text-xs">
           <p>{candidature.company}</p>
           <span
-            className="line-clamp-2 hover:underline hover: cursor-pointer truncate"
+            className="line-clamp-2 hover:underline hover: cursor-pointer truncate max-sm:w-80"
             onClick={() => window.open(candidature.link)}
           >
             {candidature.link}
           </span>
         </CardDescription>
       </CardHeader>
-      <CardFooter className="flex justify-end gap-3 -mt-5">
+      <CardFooter className="flex justify-end gap-3 -mt-5 max-sm:-mt-2">
         <Button
           variant="outline"
           size="icon"
