@@ -15,6 +15,7 @@ import ByContractPage from "@/pages/ByContractPage";
 import PublicPage from "@/pages/PublicPage";
 import { InterestPage } from "@/pages/InterestPage";
 import WaitingPage from "@/pages/WaitingPage";
+import ConfirmEmailPage from "@/pages/auth/ConfirmEmailPage";
 
 // const Home = lazy(() => import("./pages/Home"));
 // const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -31,6 +32,7 @@ const RouterApp = () => {
       <Route path="/updates" element={<UpdatesPages />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/user/:name" element={<PublicPage />} />
+      <Route path="/confirm" element={<ConfirmEmailPage />} />
       <Route path="/*" element={<NotFoundPage />} />
       {/* PRIVATE */}
       <Route path="/home" element={<PrivateRoute><HomePage /></PrivateRoute>} />

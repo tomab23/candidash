@@ -138,3 +138,5 @@ export const UpdateInfoList: UpdateInfo[] = [
     classname: "",
   },
 ];
+
+// Waiting page add

@@ -86,7 +86,7 @@ const HomePage = () => {
 
         <div className="flex gap-2">
           <Button onClick={() => navigate("/waiting")}>TEST WAINING PAGE</Button>
-          <Button onClick={() => navigate("")}>TEST CONFIRM EMAIL PAGE</Button>
+          <Button onClick={() => navigate("/confirm")}>TEST CONFIRM EMAIL PAGE</Button>
         </div>
         {/* {loading && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
