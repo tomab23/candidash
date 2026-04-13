@@ -90,7 +90,8 @@ const ProfilePage = () => {
           {/* CONTRACT */}
           <ContractPart />
           {/* STATS */}
-          <div className="grid grid-rows-1 grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 max-lg:gap-9 xl:gap-20 max-sm:mx-auto">
+          <div className="grid grid-rows-1 grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 max-lg:gap-9 xl:gap-20 
+          max-sm:mx-auto mb-20 max-sm:gap-4">
             <StatCard
               title={t("CANDIDATURE") + "s"}
               value={candidatureFilter.length}
