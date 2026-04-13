@@ -14,6 +14,7 @@ import ContactPage from "@/pages/ContactPage";
 import ByContractPage from "@/pages/ByContractPage";
 import PublicPage from "@/pages/PublicPage";
 import { InterestPage } from "@/pages/InterestPage";
+import WaitingPage from "@/pages/WaitingPage";
 
 // const Home = lazy(() => import("./pages/Home"));
 // const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -41,6 +42,7 @@ const RouterApp = () => {
       <Route path="/candidature/:id" element={<PrivateRoute><CandidaturePage edit={true} /></PrivateRoute>} />
       <Route path="/contract" element={<PrivateRoute><ByContractPage /></PrivateRoute>} />
       {/* TEST */}
+      <Route path="/waiting" element={<WaitingPage />} />
     </Routes>
   );
 };
