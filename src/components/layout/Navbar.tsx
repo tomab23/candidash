@@ -1,8 +1,12 @@
 import { ModeToggle } from "../mode-toggle";
 import AvatarDropdown from "../AvatarDropdown";
 import ImgTitle from "../ImgTitle";
+import { Button } from "../ui/button";
+import { SearchIcon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
 
   return (
     <div className="bg-muted">
@@ -14,6 +18,7 @@ const Navbar = () => {
             {/* <NavMenu className="hidden md:block" /> */}
           </div>
           <div className="flex items-center gap-3">
+            <Button variant="outline" size="icon" onClick={() => navigate("/search")}><SearchIcon /></Button>
             <ModeToggle />
             <AvatarDropdown />
             {/* Mobile Menu */}
