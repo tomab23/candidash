@@ -23,6 +23,7 @@ const HomePage = () => {
 
     const handleReload = () => {
     window.location.reload();
+    // fetchCandidatures();
   };
 
   // console.log(candidatures);
