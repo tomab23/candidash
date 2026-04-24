@@ -89,7 +89,7 @@ const CandidaturePage = (props: Props) => {
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       // alert(JSON.stringify(values));
 
       // console.log('Valeur brute de values.date:', values.date);
@@ -97,7 +97,7 @@ const CandidaturePage = (props: Props) => {
       // console.log('Date normalisée:', normalizedDate);
 
       if (props.edit) {
-        editCandidature(
+        await editCandidature(
           values.id,
           values.company,
           values.job,
@@ -110,7 +110,7 @@ const CandidaturePage = (props: Props) => {
           values.interest,
         );
       } else {
-        addCandidature(
+        await addCandidature(
           values.company,
           values.job,
           normalizedDate,

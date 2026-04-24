@@ -135,6 +135,17 @@ export const UpdateInfoList: UpdateInfo[] = [
     version: "v0.6",
     fr: "Correction d'un problème visuel dans le formulaire d'ajout de candidature sur mobile",
     en: "Fixed a visual issue with the application submission form on mobile devices",
+    classname: "mt-5",
+  },
+  {
+    id: 15,
+    update: "correction",
+    date: "2026-04-24",
+    version: "v0.6.1",
+    fr: "Correction d'un problème de chargement des candidatures après création ou modification",
+    en: "Fixed an issue with loading applications after creation or modification",
     classname: "",
   },
 ];
+
+// Waiting page add

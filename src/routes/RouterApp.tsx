@@ -14,6 +14,9 @@ import ContactPage from "@/pages/ContactPage";
 import ByContractPage from "@/pages/ByContractPage";
 import PublicPage from "@/pages/PublicPage";
 import { InterestPage } from "@/pages/InterestPage";
+import WaitingPage from "@/pages/WaitingPage";
+import ConfirmEmailPage from "@/pages/auth/ConfirmEmailPage";
+import SearchPage from "@/pages/SearchPage";
 
 // const Home = lazy(() => import("./pages/Home"));
 // const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -30,6 +33,7 @@ const RouterApp = () => {
       <Route path="/updates" element={<UpdatesPages />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/user/:name" element={<PublicPage />} />
+      <Route path="/confirm" element={<ConfirmEmailPage />} />
       <Route path="/*" element={<NotFoundPage />} />
       {/* PRIVATE */}
       <Route path="/home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
@@ -40,7 +44,9 @@ const RouterApp = () => {
       <Route path="/candidature" element={<PrivateRoute><CandidaturePage edit={false} /></PrivateRoute>} />
       <Route path="/candidature/:id" element={<PrivateRoute><CandidaturePage edit={true} /></PrivateRoute>} />
       <Route path="/contract" element={<PrivateRoute><ByContractPage /></PrivateRoute>} />
+      <Route path="/search" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
       {/* TEST */}
+      <Route path="/waiting" element={<WaitingPage />} />
     </Routes>
   );
 };
