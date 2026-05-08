@@ -135,7 +135,7 @@ export const UpdateInfoList: UpdateInfo[] = [
     version: "v0.6",
     fr: "Correction d'un problème visuel dans le formulaire d'ajout de candidature sur mobile",
     en: "Fixed a visual issue with the application submission form on mobile devices",
-    classname: "mt-5",
+    classname: "",
   },
   {
     id: 15,
@@ -144,6 +144,15 @@ export const UpdateInfoList: UpdateInfo[] = [
     version: "v0.6.1",
     fr: "Correction d'un problème de chargement des candidatures après création ou modification",
     en: "Fixed an issue with loading applications after creation or modification",
+    classname: "",
+  },
+  {
+    id: 16,
+    update: "update",
+    date: "2026-05-08",
+    version: "v0.6.2",
+    fr: "Mise à jour de l'icône de l'application qui se vois maintenant sur fond blanc",
+    en: "The app icon has been updated and is now displayed on a white background",
     classname: "",
   },
 ];
