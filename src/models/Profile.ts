@@ -1,7 +1,7 @@
 export default class Profile{
     id: number;
     created_at: string;
-    username: string | null;
+    username: string;
     open: boolean;
 
 
