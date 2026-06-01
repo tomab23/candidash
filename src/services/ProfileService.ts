@@ -27,7 +27,7 @@ export const getStatus = async (userId: string) => {
 // 🆕 Ajouter dans la table "profile"
 export const insertProfile = async (
   userId: string,
-  username: string,
+  username: string | null,
   open: boolean
 ) => {
   const { error } = await supabase

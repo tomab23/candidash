@@ -56,7 +56,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
     const user = data.user;
     if (user) {
-      await insertProfile(user.id, "", false);
+      await insertProfile(user.id, null , false);
     }
     return { error: null };
   };

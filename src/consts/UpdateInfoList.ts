@@ -155,6 +155,15 @@ export const UpdateInfoList: UpdateInfo[] = [
     en: "The app icon has been updated and is now displayed on a white background",
     classname: "",
   },
+  {
+    id: 17,
+    update: "correction",
+    date: "2026-06-01",
+    version: "v0.6.3",
+    fr: "Correction d'un problème de création du profil lors de l'inscription",
+    en: "Fixed an issue with profile creation during registration",
+    classname: "",
+  },
 ];
 
 // Waiting page add
