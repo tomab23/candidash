@@ -140,7 +140,7 @@ const CandidatureCard = ({ candidature }: Props) => {
         <div className="flex items-start text-sm text-muted-foreground">
           <Link className="h-4 w-4 mr-2 mt-0.5" />
           <span
-            className="line-clamp-2 hover:underline hover: cursor-pointer truncate"
+            className="line-clamp-2 hover:underline hover: cursor-pointer truncate w-56"
             onClick={() => window.open(candidature.link)}
           >
             {candidature.link}
