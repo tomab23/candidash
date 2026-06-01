@@ -164,6 +164,15 @@ export const UpdateInfoList: UpdateInfo[] = [
     en: "Fixed an issue with profile creation during registration",
     classname: "",
   },
+  {
+    id: 18,
+    update: "update",
+    date: "2026-06-01",
+    version: "v0.6.3",
+    fr: "Mise à jour de l'affichage du lien dans les cartes candidature pour éviter tout problème avec l'icône de lien",
+    en: "Updated the link display in application cards to prevent any issues with the link icon",
+    classname: "",
+  },
 ];
 
 // Waiting page add
