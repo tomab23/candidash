@@ -149,7 +149,7 @@ const CandidatureCard = ({ candidature }: Props) => {
 
         <div className="flex items-start text-sm text-muted-foreground">
           <FileText className="h-4 w-4 mr-2 mt-0.5" />
-          <span className="line-clamp-2 truncate" title={candidature.note}>
+          <span className="line-clamp-2 truncate w-56" title={candidature.note}>
             {candidature.note}
           </span>
         </div>
