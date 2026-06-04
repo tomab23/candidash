@@ -7,6 +7,7 @@ export const getCandidatures = async (userId: string) => {
     .select("*")
     .eq("user_id", userId)
     .eq("interest", false)
+    .order("date", { ascending: true })
   if (error) throw new Error(error.message);
   return data;
 };
@@ -29,6 +30,7 @@ export const getInterest = async (userId: string) => {
     .select("*")
     .eq("user_id", userId)
     .eq("interest", true)
+    .order("created_at", { ascending: true })
   if (error) throw new Error(error.message);
   return data;
 };
