@@ -19,6 +19,23 @@ const InterestCard = ({ candidature }: Props) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+    const getContractTranslate = (status: string) => {
+    switch (status) {
+      case "cdi":
+        return t("CONTRACT.PERMANENT");
+      case "cdd":
+        return t("CONTRACT.FIXED");
+      case "freelance":
+        return t("CONTRACT.FREELANCE");
+      case "stage":
+        return t("CONTRACT.INTERN");
+      case "alternance":
+        return t("CONTRACT.APPRENTICE");
+      default:
+        return "";
+    }
+  };
+
   return (
     <Card className="">
       <CardHeader className="truncate">
@@ -27,7 +44,7 @@ const InterestCard = ({ candidature }: Props) => {
           {candidature.note && <NotebookTextIcon className="h-4 w-4" />}
         </CardTitle>
         <CardDescription className="flex flex-col gap-2 max-sm:text-xs">
-          <p>{candidature.company}</p>
+          <p>{candidature.company} - {getContractTranslate(candidature.contract)}</p>
           <span
             className="line-clamp-2 hover:underline hover: cursor-pointer truncate max-sm:w-80"
             onClick={() => window.open(candidature.link)}

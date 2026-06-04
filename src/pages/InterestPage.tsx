@@ -15,7 +15,7 @@ export const InterestPage = () => {
       <Contenu>
         <Header title={t("INTEREST.TITLE")} />
 
-        <div className="mt-5 flex flex-col gap-4">
+        <div className="mt-5 flex flex-col gap-4 pb-10">
           {interests.map((i) => (
             <InterestCard key={i.id} candidature={i} />
           )).reverse()}
