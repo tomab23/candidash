@@ -32,7 +32,7 @@ const InterestCard = ({ candidature }: Props) => {
       case "alternance":
         return t("CONTRACT.APPRENTICE");
       default:
-        return "";
+        return t("CONTRACT.OTHER");
     }
   };
 
@@ -41,10 +41,10 @@ const InterestCard = ({ candidature }: Props) => {
       <CardHeader className="truncate">
         <CardTitle className="flex gap-2 max-sm:text-xs" title={candidature.job}>
           {candidature.job}{" "}
-          {candidature.note && <NotebookTextIcon className="h-4 w-4" />}
+          {candidature.note && <p title={candidature.note}><NotebookTextIcon className="h-4 w-4"/></p>}
         </CardTitle>
         <CardDescription className="flex flex-col gap-2 max-sm:text-xs">
-          <p>{candidature.company} - {getContractTranslate(candidature.contract)}</p>
+          <p>{candidature.company} - <span title={t("FORM.CONTRACT")}>{getContractTranslate(candidature.contract)}</span></p>
           <span
             className="line-clamp-2 hover:underline hover: cursor-pointer truncate max-sm:w-80"
             onClick={() => window.open(candidature.link)}
