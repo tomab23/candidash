@@ -27,6 +27,7 @@ import DialogArchive from "@/components/dialogs/DialogArchive";
 import WaitingPage from "./WaitingPage";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { Heart } from "lucide-react";
 
 type Props = {
   edit: boolean;
@@ -86,6 +87,7 @@ const CandidaturePage = (props: Props) => {
       contract: Candidature ? Candidature.contract : "",
       archive: Candidature ? Candidature.archive : false,
       interest: Candidature ? Candidature.interest : false,
+      favorite: Candidature ? Candidature.favorite : false,
     },
     enableReinitialize: true,
     validationSchema: ValidSchema,
@@ -108,6 +110,7 @@ const CandidaturePage = (props: Props) => {
           values.place,
           values.contract,
           values.interest,
+          values.favorite
         );
       } else {
         await addCandidature(
@@ -120,6 +123,7 @@ const CandidaturePage = (props: Props) => {
           values.place,
           values.contract,
           values.interest,
+          values.favorite
         );
       }
 
@@ -160,14 +164,33 @@ const CandidaturePage = (props: Props) => {
               onSubmit={formik.handleSubmit}
               className="flex flex-col justify-center gap-4"
             >
-              <InputCandidature
-                autoComplete="organization"
-                name={"company"}
-                value={formik.values.company}
-                onChange={formik.handleChange}
-                placeholder={t("FORM.COMPANY")}
-                label={t("FORM.COMPANY") + "*"}
-              />
+              <div className="flex justify-between">
+                <InputCandidature
+                  autoComplete="organization"
+                  name={"company"}
+                  value={formik.values.company}
+                  onChange={formik.handleChange}
+                  placeholder={t("FORM.COMPANY")}
+                  label={t("FORM.COMPANY") + "*"}
+                  classname="w-72 max-sm:w-[17.5rem]"
+                />
+                <Button
+                  type="button"
+                  name="favorite"
+                  variant={"outline"}
+                  size={"icon"}
+                  className="self-end"
+                  onClick={() =>
+                    formik.setFieldValue("favorite", !formik.values.favorite)
+                  }
+                >
+                  <Heart
+                    className={
+                      formik.values.favorite ? "dark:fill-white fill-black" : ""
+                    }
+                  />
+                </Button>
+              </div>
 
               <InputCandidature
                 name={"job"}
