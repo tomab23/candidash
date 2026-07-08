@@ -13,8 +13,8 @@ const NotesPage = () => {
       <Contenu>
         <Header title={"Notes"} />
 
-        <div className="flex justify-between items-center mt-2">
-          <p className="text-xl">Vous avez 0 note</p>
+        <div className="flex justify-between items-center mt-5">
+          <p className="text-xl">{t("LIST.HAVE")} 0 note</p>
 
           <Button>{t("BUTTON.NOTE")}</Button>
         </div>

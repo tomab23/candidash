@@ -132,6 +132,7 @@
   "LANGUAGE": "Langue",
   "LIST": {
     "FAVORITE": "Aucun favori",
+    "HAVE": "Vous avez",
     "NOTE": "Aucun note"
   },
   "LOADING": "Chargement",
@@ -179,6 +180,7 @@
     "PROFILE": "Profil",
     "SEARCH": "Recherche",
     "SETTINGS": "Paramètres",
+    "STATISTICS": "Statistiques",
     "UPDATES": "Mises à jour"
   },
   "UPDATE": {

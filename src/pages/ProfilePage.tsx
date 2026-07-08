@@ -7,7 +7,7 @@ import StringToDate from "@/helpers/StringToDate";
 import { useCandidature } from "@/hooks/useCandidature";
 import i18n from "@/i18n/i18n";
 import { intervalToDuration } from "date-fns";
-import { ArchiveIcon, HeartIcon, List, SquareUserRound } from "lucide-react";
+import { ArchiveIcon, HatGlasses, HeartIcon, List, SquareUserRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Header from "@/components/layout/Header";
 import ContractPart from "@/components/profile/ContractPart";
@@ -28,6 +28,11 @@ const ProfilePage = () => {
   const { status } = useProfile();
 
   const candidatureFilter = candidatures.filter((c) => c.archive === false);
+  const favoriteApplicatiob = candidatures.filter((c) => c.favorite === false);
+  const favoriteInterest = interests.filter((c) => c.favorite === false);
+  const totalFavorite = favoriteApplicatiob.length + favoriteInterest.length;
+
+
 
   const dateRegister = new Date(String(user?.created_at)).setHours(0, 0, 0, 0);
   const today = new Date().setHours(0, 0, 0, 0);
@@ -94,12 +99,16 @@ const ProfilePage = () => {
             <Button variant="outline" className="max-sm:text-xs" onClick={() => navigate("/favorites")}>{t("BUTTON.FAVORITES")}</Button>
           </div>
                       <Button variant="outline" className="max-sm:text-xs" disabled>
-              {t("BUTTON.PROFILE")}
+              {t("BUTTON.PROFILE")} (soon)
             </Button>
             </div>
           {/* CONTRACT */}
           <ContractPart />
           {/* STATS */}
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-semibold">{t("TITLE.STATISTICS")}</h2>
+            <Button size={"sm"} variant={"outline"} className="max-sm:text-xs" disabled>Voir plus (soon)</Button>
+          </div>
           <div className="grid grid-rows-1 grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 max-lg:gap-9 xl:gap-20 
           max-sm:mx-auto mb-20 max-sm:gap-4">
             <StatCard
@@ -115,6 +124,11 @@ const ProfilePage = () => {
             <StatCard
               title={t("INTEREST.TITLE")}
               value={interests.length}
+              icon={<HatGlasses className="h-4 w-4" />}
+            />
+              <StatCard
+              title={t("TITLE.FAVORITES")}
+              value={totalFavorite}
               icon={<HeartIcon className="h-4 w-4" />}
             />
           </div>

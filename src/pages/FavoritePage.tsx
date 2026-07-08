@@ -35,6 +35,10 @@ export const FavoritesPage = () => {
 
   const data = filter === "application" ? favoriteApplication : favoriteInterest;
 
+  const totalFavorite = favoriteApplication.length + favoriteInterest.length
+
+  const fav = totalFavorite > 1 ? t("TITLE.FAVORITES") : t("TITLE.FAVORITES").slice(0, -1)
+
   const items = [
     { label: t("CANDIDATURE"), value: "application" },
     { label: t("INTEREST.TITLE"), value: "interest" },
@@ -46,7 +50,8 @@ export const FavoritesPage = () => {
       <Contenu>
         <Header title={t("TITLE.FAVORITES")} />
 
-        <div className="flex justify-end mt-2">
+        <div className="flex justify-between mt-5">
+          <p className="text-xl">{t("LIST.HAVE")} {totalFavorite}{" "}{fav}</p>
           <Select
             value={filter}
             onValueChange={(value) =>
