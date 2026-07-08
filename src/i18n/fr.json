@@ -31,6 +31,7 @@
     "EDIT": "Modifier la candidature",
     "FAVORITES": "Vos favoris",
     "LOGIN": "Connexion",
+    "NOTE": "Ajouter une note",
     "NOTES": "Vos notes",
     "PROFILE": "Modifier mon profil",
     "REGISTER": "Inscription",
@@ -129,6 +130,10 @@
     "TITLE": "intérêt"
   },
   "LANGUAGE": "Langue",
+  "LIST": {
+    "FAVORITE": "Aucun favori",
+    "NOTE": "Aucun note"
+  },
   "LOADING": "Chargement",
   "NONE": {
     "FIRST": "Commencez par ajouter votre première candidature !",

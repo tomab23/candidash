@@ -31,6 +31,7 @@
     "EDIT": "Edit application",
     "FAVORITES": "Your favorites",
     "LOGIN": "Login",
+    "NOTE": "Add a note",
     "NOTES": "Your notes",
     "PROFILE": "Edit my profile",
     "REGISTER": "Register",
@@ -129,6 +130,10 @@
     "TITLE": "interest"
   },
   "LANGUAGE": "Language",
+  "LIST": {
+    "FAVORITE": "No favorites",
+    "NOTE": "No notes"
+  },
   "LOADING": "Loading",
   "NONE": {
     "FIRST": "Start by adding your first application!",
