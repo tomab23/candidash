@@ -29,7 +29,9 @@
     "CANCEL": "Cancel",
     "DELETE": "Delete",
     "EDIT": "Edit application",
+    "FAVORITES": "Your favorites",
     "LOGIN": "Login",
+    "NOTES": "Your notes",
     "PROFILE": "Edit my profile",
     "REGISTER": "Register",
     "SENDING": "Sending...",
@@ -166,6 +168,7 @@
     "TEXT": "You agree to our"
   },
   "TITLE": {
+    "FAVORITES": "Favorites",
     "HOME": "Home",
     "LOGOUT": "Logout",
     "PROFILE": "Profile",

@@ -29,7 +29,9 @@
     "CANCEL": "Annuler",
     "DELETE": "Supprimer",
     "EDIT": "Modifier la candidature",
+    "FAVORITES": "Vos favoris",
     "LOGIN": "Connexion",
+    "NOTES": "Vos notes",
     "PROFILE": "Modifier mon profil",
     "REGISTER": "Inscription",
     "SENDING": "Envoi...",
@@ -166,6 +168,7 @@
     "TEXT": "Vous acceptez nos "
   },
   "TITLE": {
+    "FAVORITES": "Favoris",
     "HOME": "Accueil",
     "LOGOUT": "Déconnexion",
     "PROFILE": "Profil",

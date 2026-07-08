@@ -53,7 +53,7 @@ const ProfilePage = () => {
             <div className="flex items-center gap-1">
               <SquareUserRound className="w-20 h-20 max-sm:w-16 max-sm:h-16" />
               <div>
-                <div className="flex items-center sm:gap-2 flex-wrap-reverse">
+                <div className="flex items-center gap-2 flex-wrap-reverse">
                   <p className="text-lg max-sm:text-lg font-semibold">
                     {user?.email}
                   </p>
@@ -83,10 +83,20 @@ const ProfilePage = () => {
                 </p>
               </div>
             </div>
-            <Button variant="outline" className="max-sm:text-xs" disabled>
+            {/* <Button variant="outline" className="max-sm:text-xs" disabled>
+              {t("BUTTON.PROFILE")}
+            </Button> */}
+          </div>
+          {/* NOTES & FAVORITES */}
+            <div className="flex justify-between">
+                        <div className="flex gap-2 items-center">
+            <Button variant="outline" className="max-sm:text-xs" onClick={() => navigate("/notes")}>{t("BUTTON.NOTES")}</Button>
+            <Button variant="outline" className="max-sm:text-xs" onClick={() => navigate("/favorites")}>{t("BUTTON.FAVORITES")}</Button>
+          </div>
+                      <Button variant="outline" className="max-sm:text-xs" disabled>
               {t("BUTTON.PROFILE")}
             </Button>
-          </div>
+            </div>
           {/* CONTRACT */}
           <ContractPart />
           {/* STATS */}
