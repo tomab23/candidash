@@ -28,8 +28,8 @@ const ProfilePage = () => {
   const { status } = useProfile();
 
   const candidatureFilter = candidatures.filter((c) => c.archive === false);
-  const favoriteApplicatiob = candidatures.filter((c) => c.favorite === false);
-  const favoriteInterest = interests.filter((c) => c.favorite === false);
+  const favoriteApplicatiob = candidatures.filter((c) => c.favorite === true);
+  const favoriteInterest = interests.filter((c) => c.favorite === true);
   const totalFavorite = favoriteApplicatiob.length + favoriteInterest.length;
 
 

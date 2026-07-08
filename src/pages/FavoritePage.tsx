@@ -50,7 +50,7 @@ export const FavoritesPage = () => {
       <Contenu>
         <Header title={t("TITLE.FAVORITES")} />
 
-        <div className="flex justify-between mt-5">
+        <div className="flex justify-between items-center mt-5">
           <p className="text-xl">{t("LIST.HAVE")} {totalFavorite}{" "}{fav}</p>
           <Select
             value={filter}
