@@ -19,7 +19,7 @@ const HomePage = () => {
   // const [statusFilter, setStatusFilter] = useState<string>("all");
   
 
-  const candidatureFilter = candidatures.filter((c) => c.archive === false)
+  // const candidatureFilter = candidatures.filter((c) => c.archive === false)
 
     const handleReload = () => {
     window.location.reload();
@@ -44,8 +44,8 @@ const HomePage = () => {
             </h1>
             <div className="flex items-center gap-2">
               <p className="max-sm:text-sm">
-                {candidatureFilter.length} {t("CANDIDATURE")}
-                {candidatureFilter.length > 1 && "s"} {t("HOME.TOTAL")}
+                {candidatures.length} {t("CANDIDATURE")}
+                {candidatures.length > 1 && "s"} {t("HOME.TOTAL")}
               </p>
               <RefreshCcw className="w-4 h-4 hover:scale-110 hover:cursor-pointer" onClick={handleReload} />
             </div>
@@ -77,7 +77,7 @@ const HomePage = () => {
         <p className="text-center">Filtre : {statusFilter}</p> */}
         {/* LIST */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {candidatureFilter
+          {candidatures
             .map((c) => <CandidatureCard key={c.id} candidature={c} />)}
         </div>
 
@@ -89,7 +89,7 @@ const HomePage = () => {
             <SkeletonCard />
           </div>
         )} */}
-        {candidatureFilter.length === 0 && !loading && <NoList />}
+        {candidatures.length === 0 && !loading && <NoList />}
       </Contenu>
     </div>
   );
