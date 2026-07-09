@@ -37,7 +37,7 @@ export const insertNote = async (
 };
 
 // ❌ Supprimer dans la table "note" par id
-export const deleteNote = async (id: number, userId: string) => {
+export const deleteNote = async (id: string, userId: string) => {
   const { error } = await supabase
     .from("note")
     .delete()
@@ -48,7 +48,7 @@ export const deleteNote = async (id: number, userId: string) => {
 
 // 🔄 Modifier des informations dans la table "note" par id
 export const updateNote = async (
-  id: number,
+  id: string,
   userId: string,
   title: string,
   note: string,
@@ -62,7 +62,7 @@ export const updateNote = async (
 };
 
 // 1️⃣ Récupérer une note par son id
-export const getNoteById = async (id: number, userId: string) => {
+export const getNoteById = async (id: string, userId: string) => {
   const { data, error } = await supabase
     .from("note")
     .select("*")

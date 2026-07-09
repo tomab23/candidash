@@ -61,7 +61,13 @@
     "ALL": {
       "ARCHIVE": "Delete all your archives"
     },
-    "MESSAGE": "This action cannot be undone. This will permanently delete your application",
+    "MESSAGE": "This action cannot be undone. This will permanently delete your application.",
+    "NOTE": {
+      "ALL": "This action cannot be undone. It will permanently delete all your notes and remove them from our servers.",
+      "BUTTON": "Delete all your notes",
+      "MESSAGE": "This action cannot be undone. This will permanently delete your note.",
+      "QUESTION": "Delete this note ?"
+    },
     "QUESTION": "Delete this application ?",
     "TEXT": {
       "ARCHIVES": "This action cannot be undone. It will permanently delete all your archives and remove them from our servers."
@@ -140,6 +146,13 @@
   "NONE": {
     "FIRST": "Start by adding your first application!",
     "NONE": "No applications"
+  },
+  "NOTE": {
+    "ADD": "Add a note",
+    "BUTTON": "Add this note",
+    "EDIT": "Edit a note",
+    "ERROR": "All fields are required and must be completed.",
+    "TITLE": "Title"
   },
   "PLACEHOLDER": {
     "NOTE": "Type your note here."

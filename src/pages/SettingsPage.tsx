@@ -10,6 +10,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
 import PublicCard from "@/components/profile/PublicCard";
+import { Separator } from "@/components/ui/separator";
+import DialogDeleteAllNotes from "@/components/dialogs/DialogDeleteAllNotes";
 
 const SettingsPage = () => {
   const { t } = useTranslation();
@@ -34,10 +36,19 @@ const SettingsPage = () => {
           <LanguageDropdown />
         </div>
 
-        {/* PUBLIC & DELETE */}
-        <div className="mt-10 flex flex-col gap-60 max-sm:gap-20">
+        <div className="mt-10 max-sm:mt-5">
           <PublicCard />
+        </div>
 
+        {/* DANGER ZONE */}
+
+        <div className="flex items-center gap-5 max-sm:gap-2.5 mt-20 max-sm:mt-10">
+          <p className="">Zone à risque</p>
+          <Separator className="flex-1" color="red" />
+        </div>
+
+        <div className="mt-5 flex items-center justify-between max-sm:flex-col max-sm:gap-20 max-sm:mb-20">
+          <DialogDeleteAllNotes />
           <div className="flex flex-col justify-center items-center gap-5 ">
             <Button variant={"destructive"} onClick={() => setDel(true)}>
               {t("BUTTON.USER.DELETE")}

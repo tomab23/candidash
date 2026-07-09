@@ -3,10 +3,14 @@ import Header from "@/components/layout/Header";
 import Navbar from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
 import Contenu from "@/helpers/Contenu";
+import { Plus } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const NotesPage = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
   return (
     <div>
       <Navbar />
@@ -16,7 +20,7 @@ const NotesPage = () => {
         <div className="flex justify-between items-center mt-5">
           <p className="text-xl">{t("LIST.HAVE")} 0 note</p>
 
-          <Button>{t("BUTTON.NOTE")}</Button>
+          <Button onClick={() => navigate("/note")} className="max-sm:text-xs"><Plus/> {t("BUTTON.NOTE")}</Button>
         </div>
 
         <div className="mt-10">

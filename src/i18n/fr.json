@@ -62,6 +62,12 @@
       "ARCHIVE": "Supprimer toutes vos archives"
     },
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
+    "NOTE": {
+      "ALL": "Cette action ne peut pas être annulée. Elle supprimera définitivement toutes vos notes et les effacera de nos serveurs.",
+      "BUTTON": "Supprimer toutes vos notes",
+      "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre note.",
+      "QUESTION": "Supprimer cette note ?"
+    },
     "QUESTION": "Supprimer cette candidature ?",
     "TEXT": {
       "ARCHIVES": "Cette action ne peut pas être annulée. Elle supprimera définitivement toutes vos archives et les effacera de nos serveurs."
@@ -140,6 +146,13 @@
   "NONE": {
     "FIRST": "Commencez par ajouter votre première candidature !",
     "NONE": "Aucune candidature"
+  },
+  "NOTE": {
+    "ADD": "Ajouter une note",
+    "BUTTON": "Ajouter la note",
+    "EDIT": "Modifer la note",
+    "ERROR": "Tous les champs sont obligatoires et doivent être remplis.",
+    "TITLE": "Titre"
   },
   "PLACEHOLDER": {
     "NOTE": "Tapez votre note ici."

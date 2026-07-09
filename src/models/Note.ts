@@ -1,11 +1,11 @@
 export default class Note{
-    id: number;
+    id: string;
     created_at: string;
     title: string;
     note: string;
 
     constructor(
-        id: number,
+        id: string,
         created_at: string,
         title: string,
         note: string,

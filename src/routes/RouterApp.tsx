@@ -50,6 +50,7 @@ const RouterApp = () => {
       <Route path="/search" element={<PrivateRoute><SearchPage /></PrivateRoute>} />
       <Route path="/notes" element={<PrivateRoute><NotesPage /></PrivateRoute>} />
       <Route path="/note" element={<PrivateRoute><FormNotePage /></PrivateRoute>} />
+      <Route path="/note/:id" element={<PrivateRoute><FormNotePage /></PrivateRoute>} />
       <Route path="/favorites" element={<PrivateRoute><FavoritesPage /></PrivateRoute>} />
       {/* TEST */}
       <Route path="/waiting" element={<WaitingPage />} />

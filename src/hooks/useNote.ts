@@ -3,7 +3,7 @@ import { useAuth } from "@/context/AuthContext"
 import { deleteNote, getNoteById, getNotes, insertNote, updateNote } from "@/services/NoteService"
 import type Note from "@/models/Note"
 
-export const useTest = () => {
+export const useNote = () => {
   const { user } = useAuth()
   const [notes, setNotes] = useState<Note[]>([])
   const [loading, setLoading] = useState(false)
@@ -31,7 +31,7 @@ const fetchNotes = useCallback(async () => {
 
 
   const editNote = useCallback(
-    async (id: number, title: string, note : string) => {
+    async (id: string, title: string, note : string) => {
       if (!user) return
       await updateNote(id, user.id, title, note)
       await fetchNotes()
@@ -40,15 +40,15 @@ const fetchNotes = useCallback(async () => {
   )
 
 //   supprimer une note
-  const removeNote = async (id: number) => {
+  const removeNote = async (id: string) => {
     if (!user) return
     await deleteNote(id, user.id)
-    setNotes((prev) => prev.filter((t) => t.id !== id))
+    setNotes((prev) => prev.filter((n) => n.id !== id))
   }
 
 
 //  récuperer une note par son id
-  const fetchNoteById = async (id: number) => {
+  const fetchNoteById = async (id: string) => {
     if (!user) return null
     return await getNoteById(id, user.id)
   }
