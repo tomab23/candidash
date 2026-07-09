@@ -170,6 +170,7 @@
     "MESSAGE": "This application will be removed from the archives and will be available again in your list of applications.",
     "QUESTION": "Restore this application?"
   },
+  "RISK": "Risk zone",
   "STATUS": {
     "ABANDONED": "Abandoned",
     "AGAIN": "Throw again",

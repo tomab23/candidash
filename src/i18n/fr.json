@@ -170,6 +170,7 @@
     "MESSAGE": "Cette candidature sera supprimée des archives et sera de nouveau disponible dans votre liste de candidatures.",
     "QUESTION": "Restaurer cette candidature ?"
   },
+  "RISK": "Zone à risque",
   "STATUS": {
     "ABANDONED": "Abandonné",
     "AGAIN": "Relance",

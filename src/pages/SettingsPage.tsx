@@ -43,7 +43,7 @@ const SettingsPage = () => {
         {/* DANGER ZONE */}
 
         <div className="flex items-center gap-5 max-sm:gap-2.5 mt-20 max-sm:mt-10">
-          <p className="">Zone à risque</p>
+          <p className="text-xl">{t("RISK")}</p>
           <Separator className="flex-1" color="red" />
         </div>
 
