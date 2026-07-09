@@ -145,8 +145,8 @@ const CandidaturePage = (props: Props) => {
         {/* CARD */}
         <Card className="w-full max-w-sm justify-self-center mt-2">
           <CardHeader>
-            <CardTitle className="text-center text-xl max-sm:text-lg">
-              {t("FORM.TITLE")}
+            <CardTitle className="text-xl max-sm:text-lg">
+              {props.edit ? t("FORM.EDIT") : t("FORM.TITLE")}
             </CardTitle>
             <CardAction>
               <Button

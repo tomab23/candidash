@@ -219,6 +219,24 @@ export const UpdateInfoList: UpdateInfo[] = [
     en: "Add notes from your profile",
     classname: "",
   },
+  {
+    id: 24,
+    update: "correction",
+    date: "2026-07-09",
+    version: "v0.7.1",
+    fr: "Correction d'un problème lié à la longueur du titre d'une candidature créant un décalage visuel sur les cartes de candidatures",
+    en: "Fixed an issue related to the length of an application's title that caused a visual misalignment on the application cards",
+    classname: "",
+  },
+  {
+    id: 25,
+    update: "correction",
+    date: "2026-07-09",
+    version: "v0.7.1",
+    fr: "Correction d'une erreur d'affichage quand lors de la modification d'une candidature",
+    en: "Fixed a display error that occurred when editing an application",
+    classname: "",
+  },
 ];
 
 // Waiting page add
