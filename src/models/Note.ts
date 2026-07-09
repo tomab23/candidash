@@ -2,13 +2,13 @@ export default class Note{
     id: number;
     created_at: string;
     title: string;
-    note: number;
+    note: string;
 
     constructor(
         id: number,
         created_at: string,
         title: string,
-        note: number,
+        note: string,
     ){
         this.id = id;
         this.created_at = created_at
