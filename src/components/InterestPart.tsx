@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Heart } from "lucide-react";
+import { HatGlasses } from "lucide-react";
 import { useCandidature } from "@/hooks/useCandidature";
 import { useTranslation } from "react-i18next";
 
@@ -20,7 +20,7 @@ const InterestPart = () => {
             onClick={() => navigate("/interest")}
             className="max-sm:text-xs"
           >
-            <Heart />
+            <HatGlasses />
             {t("INTEREST.BUTTON")}
           </Button>
     </div>

@@ -29,7 +29,10 @@
     "CANCEL": "Annuler",
     "DELETE": "Supprimer",
     "EDIT": "Modifier la candidature",
+    "FAVORITES": "Vos favoris",
     "LOGIN": "Connexion",
+    "NOTE": "Ajouter une note",
+    "NOTES": "Vos notes",
     "PROFILE": "Modifier mon profil",
     "REGISTER": "Inscription",
     "SENDING": "Envoi...",
@@ -59,6 +62,12 @@
       "ARCHIVE": "Supprimer toutes vos archives"
     },
     "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre candidature.",
+    "NOTE": {
+      "ALL": "Cette action ne peut pas être annulée. Elle supprimera définitivement toutes vos notes et les effacera de nos serveurs.",
+      "BUTTON": "Supprimer toutes vos notes",
+      "MESSAGE": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre note.",
+      "QUESTION": "Supprimer cette note ?"
+    },
     "QUESTION": "Supprimer cette candidature ?",
     "TEXT": {
       "ARCHIVES": "Cette action ne peut pas être annulée. Elle supprimera définitivement toutes vos archives et les effacera de nos serveurs."
@@ -101,6 +110,7 @@
     "COMPANY": "Entreprise",
     "CONTRACT": "Contrat",
     "DATE": "Date de candidature",
+    "EDIT": "Modifier une candidature",
     "JOB": "Poste",
     "LINK": "Lien",
     "PLACE": "Lieu",
@@ -127,10 +137,22 @@
     "TITLE": "intérêt"
   },
   "LANGUAGE": "Langue",
+  "LIST": {
+    "FAVORITE": "Aucun favori",
+    "HAVE": "Vous avez",
+    "NOTE": "Aucun note"
+  },
   "LOADING": "Chargement",
   "NONE": {
     "FIRST": "Commencez par ajouter votre première candidature !",
     "NONE": "Aucune candidature"
+  },
+  "NOTE": {
+    "ADD": "Ajouter une note",
+    "BUTTON": "Ajouter la note",
+    "EDIT": "Modifer la note",
+    "ERROR": "Tous les champs sont obligatoires et doivent être remplis.",
+    "TITLE": "Titre"
   },
   "PLACEHOLDER": {
     "NOTE": "Tapez votre note ici."
@@ -148,6 +170,7 @@
     "MESSAGE": "Cette candidature sera supprimée des archives et sera de nouveau disponible dans votre liste de candidatures.",
     "QUESTION": "Restaurer cette candidature ?"
   },
+  "RISK": "Zone à risque",
   "STATUS": {
     "ABANDONED": "Abandonné",
     "AGAIN": "Relance",
@@ -166,11 +189,13 @@
     "TEXT": "Vous acceptez nos "
   },
   "TITLE": {
+    "FAVORITES": "Favoris",
     "HOME": "Accueil",
     "LOGOUT": "Déconnexion",
     "PROFILE": "Profil",
     "SEARCH": "Recherche",
     "SETTINGS": "Paramètres",
+    "STATISTICS": "Statistiques",
     "UPDATES": "Mises à jour"
   },
   "UPDATE": {

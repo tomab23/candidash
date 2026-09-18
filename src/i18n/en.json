@@ -29,7 +29,10 @@
     "CANCEL": "Cancel",
     "DELETE": "Delete",
     "EDIT": "Edit application",
+    "FAVORITES": "Your favorites",
     "LOGIN": "Login",
+    "NOTE": "Add a note",
+    "NOTES": "Your notes",
     "PROFILE": "Edit my profile",
     "REGISTER": "Register",
     "SENDING": "Sending...",
@@ -58,7 +61,13 @@
     "ALL": {
       "ARCHIVE": "Delete all your archives"
     },
-    "MESSAGE": "This action cannot be undone. This will permanently delete your application",
+    "MESSAGE": "This action cannot be undone. This will permanently delete your application.",
+    "NOTE": {
+      "ALL": "This action cannot be undone. It will permanently delete all your notes and remove them from our servers.",
+      "BUTTON": "Delete all your notes",
+      "MESSAGE": "This action cannot be undone. This will permanently delete your note.",
+      "QUESTION": "Delete this note ?"
+    },
     "QUESTION": "Delete this application ?",
     "TEXT": {
       "ARCHIVES": "This action cannot be undone. It will permanently delete all your archives and remove them from our servers."
@@ -101,6 +110,7 @@
     "COMPANY": "Company",
     "CONTRACT": "Contract",
     "DATE": "Application date",
+    "EDIT": "Edit an application",
     "JOB": "Job",
     "LINK": "Link",
     "PLACE": "Place",
@@ -127,10 +137,22 @@
     "TITLE": "interest"
   },
   "LANGUAGE": "Language",
+  "LIST": {
+    "FAVORITE": "No favorites",
+    "HAVE": "You have",
+    "NOTE": "No notes"
+  },
   "LOADING": "Loading",
   "NONE": {
     "FIRST": "Start by adding your first application!",
     "NONE": "No applications"
+  },
+  "NOTE": {
+    "ADD": "Add a note",
+    "BUTTON": "Add this note",
+    "EDIT": "Edit a note",
+    "ERROR": "All fields are required and must be completed.",
+    "TITLE": "Title"
   },
   "PLACEHOLDER": {
     "NOTE": "Type your note here."
@@ -148,6 +170,7 @@
     "MESSAGE": "This application will be removed from the archives and will be available again in your list of applications.",
     "QUESTION": "Restore this application?"
   },
+  "RISK": "Risk zone",
   "STATUS": {
     "ABANDONED": "Abandoned",
     "AGAIN": "Throw again",
@@ -166,11 +189,13 @@
     "TEXT": "You agree to our"
   },
   "TITLE": {
+    "FAVORITES": "Favorites",
     "HOME": "Home",
     "LOGOUT": "Logout",
     "PROFILE": "Profile",
     "SEARCH": "Search",
     "SETTINGS": "Settings",
+    "STATISTICS": "Statistics",
     "UPDATES": "Updates"
   },
   "UPDATE": {

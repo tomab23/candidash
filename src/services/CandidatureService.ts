@@ -8,6 +8,7 @@ export const getCandidatures = async (userId: string) => {
     .select("*")
     .eq("user_id", userId)
     .eq("interest", false)
+    .eq("archive",false)
     .order("date", { ascending: false })
   if (error) throw new Error(error.message);
   return data;
@@ -59,10 +60,11 @@ export const insertCandidature = async (
   place: string,
   contract: string,
   interest: boolean,
+  favorite: boolean
 ) => {
   const { error } = await supabase
     .from("candidature")
-    .insert([{ user_id: userId, company, job, date, status, link, note, place, contract, interest }]);
+    .insert([{ user_id: userId, company, job, date, status, link, note, place, contract, interest, favorite }]);
   if (error) throw new Error(error.message);
 };
 
@@ -89,10 +91,11 @@ export const updateCandidature = async (
   place: string,
   contract: string,
   interest: boolean,
+  favorite: boolean
 ) => {
   const { error } = await supabase
     .from("candidature")
-    .update({ company, job, date, status, link, note, place, contract, interest })
+    .update({ company, job, date, status, link, note, place, contract, interest, favorite })
     .eq("id", id)
     .eq("user_id", userId);
   if (error) throw new Error(error.message);

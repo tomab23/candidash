@@ -79,7 +79,7 @@ const CandidatureCard = ({ candidature }: Props) => {
       case "alternance":
         return t("CONTRACT.APPRENTICE");
       default:
-        return "";
+        return t("CONTRACT.OTHER");
     }
   };
 
@@ -97,9 +97,10 @@ const CandidatureCard = ({ candidature }: Props) => {
               <ArchiveIcon className="w-4 h-4 stroke-muted-foreground" />
             )}
             <CardTitle
-              className={`text-lg ${
+              className={`text-lg truncate max-w-44 max-sm:max-w-64 ${
                 candidature.archive && "text-muted-foreground"
               }`}
+              title={candidature.company}
             >
               {candidature.company}
             </CardTitle>
