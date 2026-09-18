@@ -4,7 +4,7 @@ import Contenu from "@/helpers/Contenu";
 import { useNote } from "@/hooks/useNote";
 import type Note from "@/models/Note";
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
@@ -19,24 +19,36 @@ import { Button } from "@/components/ui/button";
 import InputCandidature from "@/components/custom/InputCandidature";
 import { Textarea } from "@/components/ui/textarea";
 import { DialogDeleteNote } from "@/components/dialogs/DialogDeleteNote";
+import StringToDate from "@/helpers/StringToDate";
+import WaitingPage from "./WaitingPage";
 
 const FormNotePage = () => {
   const { id } = useParams();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { editNote, addNote } = useNote();
+  const { editNote, addNote, fetchNoteById } = useNote();
   const [note, setNote] = useState<Note>();
+
+    useEffect(() => {
+      const loadNote = async () => {
+        if (id) {
+          const data = await fetchNoteById(id);
+          setNote(data);
+        }
+      };
+      loadNote();
+    }, [id, fetchNoteById]);
 
   const requiredMsg = t("ERROR.REQUIRED");
 
   const ValidSchema = Yup.object().shape({
-    title: Yup.date().required(requiredMsg),
+    title: Yup.string().required(requiredMsg),
     note: Yup.string().required(requiredMsg),
   });
 
   const formik = useFormik({
     initialValues: {
-      title: note?.note ?? "",
+      title: note?.title ?? "",
       note: note?.note ?? "",
     },
     enableReinitialize: true,
@@ -54,6 +66,8 @@ const FormNotePage = () => {
     },
   });
 
+  if (!note && id) return <WaitingPage />
+
   return (
     <div>
       <Navbar />
@@ -66,7 +80,7 @@ const FormNotePage = () => {
               {id ? t("NOTE.EDIT") : t("NOTE.ADD")}
             </CardTitle>
             {id && (
-              <p className="text-xs text-muted-foreground">Note crée le : </p>
+              <p className="text-xs text-muted-foreground">Note crée le : {note?.created_at ? StringToDate(note.created_at, true) : "..."} </p>
             )}
             <CardAction>
               <Button
