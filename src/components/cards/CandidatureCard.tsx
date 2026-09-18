@@ -79,7 +79,7 @@ const CandidatureCard = ({ candidature }: Props) => {
       case "alternance":
         return t("CONTRACT.APPRENTICE");
       default:
-        return "";
+        return t("CONTRACT.OTHER");
     }
   };
 
