@@ -58,6 +58,10 @@
     "TITLE": "Contract"
   },
   "DELETE": {
+    "ACCOUNT": {
+      "BUTTON": "Delete Your Account",
+      "MESSAGE": "This action cannot be undone. It will permanently delete your account and remove them from our servers."
+    },
     "ALL": {
       "ARCHIVE": "Delete all your archives"
     },

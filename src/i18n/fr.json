@@ -58,6 +58,10 @@
     "TITLE": "Contrat"
   },
   "DELETE": {
+    "ACCOUNT": {
+      "BUTTON": "Supprimer votre compte",
+      "MESSAGE": "Cette action est irréversible. Elle entraînera la suppression définitive de votre compte et de ses données de nos serveurs."
+    },
     "ALL": {
       "ARCHIVE": "Supprimer toutes vos archives"
     },
