@@ -20,6 +20,7 @@ import SearchPage from "@/pages/SearchPage";
 import NotesPage from "@/pages/NotesPage";
 import { FavoritesPage } from "@/pages/FavoritePage";
 import FormNotePage from "@/pages/FormNotePage";
+import AppointmentPage from "@/pages/AppointmentPage";
 
 // const Home = lazy(() => import("./pages/Home"));
 // const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -52,6 +53,7 @@ const RouterApp = () => {
       <Route path="/note" element={<PrivateRoute><FormNotePage /></PrivateRoute>} />
       <Route path="/note/:id" element={<PrivateRoute><FormNotePage /></PrivateRoute>} />
       <Route path="/favorites" element={<PrivateRoute><FavoritesPage /></PrivateRoute>} />
+       <Route path="/appointment" element={<PrivateRoute><AppointmentPage /></PrivateRoute>} />
       {/* TEST */}
       <Route path="/waiting" element={<WaitingPage />} />
     </Routes>
