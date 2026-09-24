@@ -7,7 +7,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
     plugins: [react(), tailwindcss()],
       //         server: {
-      //   host: ''
+      //   host: '192.168.1.72'
       // },
   resolve: {
     alias: {

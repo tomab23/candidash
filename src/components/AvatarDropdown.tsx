@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   Archive,
+  Calendar,
   Home,
   List,
   LogOut,
@@ -54,6 +55,9 @@ const AvatarDropdown = () => {
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => navigate("/profile")}>
           <User className="h-4 w-4" /> {t("TITLE.PROFILE")}
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate("/appointment")} disabled >
+          <Calendar className="h-4 w-4" /> {t("TITLE.APPOINTMENT")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => navigate("/archives")}>
           <Archive className="h-4 w-4" /> Archives

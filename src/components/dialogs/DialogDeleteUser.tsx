@@ -11,38 +11,44 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "../ui/button";
 import { useTranslation } from "react-i18next";
-import { NotebookPen, Trash2 } from "lucide-react";
-import { useNote } from "@/hooks/useNote";
+import { Trash2, UserRound } from "lucide-react";
+import { useCandidature } from "@/hooks/useCandidature";
+import { useAuth } from "@/context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
-const DialogDeleteAllNotes = () => {
-  const { removeAllNotes } = useNote();
+const DialogDeleteUser = () => {
   const { t } = useTranslation();
-  const handleDelete = () => {
-    removeAllNotes()
-    // window.location.reload();
+  const { removeUser } = useCandidature();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const deleteUser = () => {
+    removeUser();
+    logout();
+    navigate("/");
   };
 
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button variant={"destructive"}>
-          <Trash2 /> {t("DELETE.NOTE.BUTTON")} <NotebookPen />
+          <Trash2 /> {t("BUTTON.USER.DELETE")} <UserRound />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>{t("SURE")}</AlertDialogTitle>
           <AlertDialogDescription>
-            {t("DELETE.NOTE.ALL")}
+            {t("DELETE.ACCOUNT.MESSAGE")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>{t("BUTTON.CANCEL")}</AlertDialogCancel>
           <AlertDialogAction
-            onClick={handleDelete}
+            onClick={deleteUser}
             className="bg-destructive/70 text-white hover:bg-destructive/60"
           >
-            {t("BUTTON.DELETE")}
+            {t("DELETE.ACCOUNT.BUTTON")}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
@@ -50,4 +56,4 @@ const DialogDeleteAllNotes = () => {
   );
 };
 
-export default DialogDeleteAllNotes;
+export default DialogDeleteUser;

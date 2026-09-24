@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
 import { useAuth } from "@/context/AuthContext"
-import { deleteNote, getNoteById, getNotes, insertNote, updateNote } from "@/services/NoteService"
+import { deleteAllNotes, deleteNote, getNoteById, getNotes, insertNote, updateNote } from "@/services/NoteService"
 import type Note from "@/models/Note"
 
 export const useNote = () => {
@@ -46,6 +46,14 @@ const fetchNotes = useCallback(async () => {
     setNotes((prev) => prev.filter((n) => n.id !== id))
   }
 
+//   supprimer toutes les archives
+  const removeAllNotes = async () => {
+    if (!user) return
+    await deleteAllNotes(user.id)
+    await fetchNotes()
+    // setCandidatures((prev) => prev.filter((c) => c.id !== id))
+  }
+
 
 //  récuperer une note par son id
   const fetchNoteById = async (id: string) => {
@@ -75,6 +83,7 @@ const fetchNotes = useCallback(async () => {
     addNote,
     editNote,
     removeNote,
+    removeAllNotes,
     fetchNoteById,
   }
 }

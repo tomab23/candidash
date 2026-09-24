@@ -2,29 +2,14 @@ import LanguageDropdown from "@/components/LanguageDropdown";
 import Header from "@/components/layout/Header";
 import Navbar from "@/components/layout/Navbar";
 import Contenu from "@/helpers/Contenu";
-import { useCandidature } from "@/hooks/useCandidature";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { useAuth } from "@/context/AuthContext";
 import PublicCard from "@/components/profile/PublicCard";
 import { Separator } from "@/components/ui/separator";
 import DialogDeleteAllNotes from "@/components/dialogs/DialogDeleteAllNotes";
+import DialogDeleteUser from "@/components/dialogs/DialogDeleteUser";
 
 const SettingsPage = () => {
   const { t } = useTranslation();
-  const { removeUser } = useCandidature();
-  const { logout } = useAuth();
-  const navigate = useNavigate();
-  const [del, setDel] = useState<boolean>(false);
-
-  const deleteUser = () => {
-    removeUser();
-    logout();
-    navigate("/");
-  };
 
   return (
     <div>
@@ -49,33 +34,7 @@ const SettingsPage = () => {
 
         <div className="mt-5 flex items-center justify-between max-sm:flex-col max-sm:gap-20 max-sm:mb-20">
           <DialogDeleteAllNotes />
-          <div className="flex flex-col justify-center items-center gap-5 ">
-            <Button variant={"destructive"} onClick={() => setDel(true)}>
-              {t("BUTTON.USER.DELETE")}
-            </Button>
-            {del && (
-              <div>
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-center">
-                      {t("BUTTON.USER.DELETE")} ?
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex gap-10">
-                    <Button onClick={() => setDel(false)}>
-                      {t("BUTTON.CANCEL")}
-                    </Button>
-                    <Button
-                      variant={"destructive"}
-                      onClick={() => deleteUser()}
-                    >
-                      {t("BUTTON.USER.DELETE")}
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
-            )}
-          </div>
+          <DialogDeleteUser />
         </div>
       </Contenu>
     </div>
