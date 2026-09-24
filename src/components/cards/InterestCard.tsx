@@ -46,7 +46,7 @@ const InterestCard = ({ candidature }: Props) => {
         <CardDescription className="flex flex-col gap-2 max-sm:text-xs">
           <p>{candidature.company} - <span title={t("FORM.CONTRACT")}>{getContractTranslate(candidature.contract)}</span></p>
           <span
-            className="line-clamp-2 hover:underline hover: cursor-pointer truncate max-sm:w-80"
+            className="line-clamp-2 hover:underline hover: cursor-pointer truncate max-sm:w-80 max-w-[45rem]"
             onClick={() => window.open(candidature.link)}
           >
             {candidature.link}

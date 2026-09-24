@@ -246,6 +246,24 @@ export const UpdateInfoList: UpdateInfo[] = [
     en: "Add notes from your profile",
     classname: "",
   },
+   {
+    id: 27,
+    update: "correction",
+    date: "2026-09-24",
+    version: "v0.7.4",
+    fr: "Correction de problèmes d'affichage",
+    en: "Fix display issues",
+    classname: "",
+  },
+   {
+    id: 28,
+    update: "update",
+    date: "2026-09-24",
+    version: "v0.7.4",
+    fr: "Supprimer toutes vos notes dans les paramètres",
+    en: "Delete all your notes in the settings",
+    classname: "",
+  },
 ];
 
 // Waiting page add

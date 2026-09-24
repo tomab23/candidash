@@ -47,7 +47,7 @@ const HomePage = () => {
                 {candidatures.length} {t("CANDIDATURE")}
                 {candidatures.length > 1 && "s"} {t("HOME.TOTAL")}
               </p>
-              <RefreshCcw className="w-4 h-4 hover:scale-110 hover:cursor-pointer" onClick={handleReload} />
+              <RefreshCcw className="w-4 h-4 hover:scale-110 hover:cursor-pointer sm:mt-0.5" onClick={handleReload} />
             </div>
           </div>
           <Button
