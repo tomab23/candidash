@@ -40,7 +40,7 @@ const DialogDeleteAllNotes = () => {
           <AlertDialogCancel>{t("BUTTON.CANCEL")}</AlertDialogCancel>
           <AlertDialogAction
             onClick={handleDelete}
-            className="bg-destructive/70 text-white hover:bg-destructive/60"
+            className="bg-destructive/95 dark:bg-destructive/60 text-white hover:bg-destructive/85 hover:dark:bg-destructive/50"
           >
             {t("BUTTON.DELETE")}
           </AlertDialogAction>

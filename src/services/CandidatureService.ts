@@ -9,7 +9,7 @@ export const getCandidatures = async (userId: string) => {
     .eq("user_id", userId)
     .eq("interest", false)
     .eq("archive",false)
-    .order("date", { ascending: false })
+    .order("created_at", { ascending: false })
   if (error) throw new Error(error.message);
   return data;
 };

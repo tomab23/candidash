@@ -46,7 +46,7 @@ const DialogDeleteUser = () => {
           <AlertDialogCancel>{t("BUTTON.CANCEL")}</AlertDialogCancel>
           <AlertDialogAction
             onClick={deleteUser}
-            className="bg-destructive/70 text-white hover:bg-destructive/60"
+            className="bg-destructive/95 dark:bg-destructive/60 text-white hover:bg-destructive/85 hover:dark:bg-destructive/50"
           >
             {t("DELETE.ACCOUNT.BUTTON")}
           </AlertDialogAction>

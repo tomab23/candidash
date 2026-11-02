@@ -252,7 +252,7 @@ export const UpdateInfoList: UpdateInfo[] = [
     date: "2026-09-24",
     version: "v0.7.4",
     fr: "Correction de problèmes d'affichage",
-    en: "Fix display issues",
+    en: "Fixed display issues",
     classname: "",
   },
    {
@@ -273,4 +273,32 @@ export const UpdateInfoList: UpdateInfo[] = [
     en: "Visual changes for deleting your account",
     classname: "",
   },
+   {
+    id: 30,
+    update: "correction",
+    date: "2026-11-02",
+    version: "v0.7.5",
+    fr: "Correction d'un problème d'affichage sur le bouton de changement de langue",
+    en: "Fixed a display issue with the language-switch button",
+    classname: "",
+  },
+   {
+    id: 31,
+    update: "update",
+    date: "2026-11-02",
+    version: "v0.7.5",
+    fr: "Changement de couleur des boutons de confirmation de suppression",
+    en: "Changed the color of the Delete confirmation buttons",
+    classname: "",
+  },
+   {
+    id: 32,
+    update: "correction",
+    date: "2026-11-02",
+    version: "v0.7.5",
+    fr: "Correction d'un probleme d'ordre lors de l'afficache des candidatures",
+    en: "Fixed an issue with the order in which applications are displayed",
+    classname: "",
+  },
 ];
+
