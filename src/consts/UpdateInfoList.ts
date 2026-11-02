@@ -302,3 +302,6 @@ export const UpdateInfoList: UpdateInfo[] = [
   },
 ];
 
+// 0.7.6
+// Update english translate
+
