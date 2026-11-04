@@ -323,4 +323,5 @@ export const UpdateInfoList: UpdateInfo[] = [
 // 0.7.6
 // Correction d'erreurs de traduction / Fixed Translation Errors CHECK
 // Mise à jour du tableau des archives / Updated in the archives table CHECK
+// Si on est connecté, de la page de connexion on est directement renvoyer à la home page
 

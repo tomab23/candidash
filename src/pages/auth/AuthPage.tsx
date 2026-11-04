@@ -10,12 +10,14 @@ import { PasswordInput } from "@/components/ui/password-input";
 import { FolderClosed, Info, InfoIcon, Loader2Icon, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Version } from "../../consts/Version";
+import { Navigate } from "react-router-dom";
+import WaitingPage from "../WaitingPage";
 
 type Props = {
   register?: boolean;
 };
 const AuthPage = (props: Props) => {
-  const { login, register } = useAuth();
+  const { login, register, user } = useAuth();
   const { t } = useTranslation();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -77,6 +79,15 @@ const AuthPage = (props: Props) => {
       }
     },
   });
+
+  if (loading) {
+  return <WaitingPage />; // ou un spinner
+}
+
+if (user) {
+  return <Navigate to="/home" replace />;
+}
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
       {/* HEADER */}
