@@ -21,6 +21,7 @@ import NotesPage from "@/pages/NotesPage";
 import { FavoritesPage } from "@/pages/FavoritePage";
 import FormNotePage from "@/pages/FormNotePage";
 import AppointmentPage from "@/pages/AppointmentPage";
+import GuestRoute from "./GuestRoute";
 
 // const Home = lazy(() => import("./pages/Home"));
 // const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -31,8 +32,10 @@ const RouterApp = () => {
     // <Suspense fallback={<div>Chargement...</div>} ></Suspense>
     <Routes>
       {/* PUBLIC */}
-      <Route path="/" element={<AuthPage />} />
-      <Route path="/register" element={<AuthPage register />} />
+      <Route element={<GuestRoute />}>
+        <Route path="/" element={<AuthPage />} />
+        <Route path="/register" element={<AuthPage register />} />
+      </Route>
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/updates" element={<UpdatesPages />} />
       <Route path="/contact" element={<ContactPage />} />
