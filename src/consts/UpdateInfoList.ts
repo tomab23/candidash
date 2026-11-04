@@ -288,7 +288,7 @@ export const UpdateInfoList: UpdateInfo[] = [
     date: "2026-11-02",
     version: "v0.7.5",
     fr: "Changement de couleur des boutons de confirmation de suppression",
-    en: "Changed the color of the Delete confirmation buttons",
+    en: "Updated the color of the Delete confirmation buttons",
     classname: "",
   },
    {
@@ -296,12 +296,31 @@ export const UpdateInfoList: UpdateInfo[] = [
     update: "correction",
     date: "2026-11-02",
     version: "v0.7.5",
-    fr: "Correction d'un probleme d'ordre lors de l'afficache des candidatures",
+    fr: "Correction d'un probleme d'ordre lors de l'affichage des candidatures",
     en: "Fixed an issue with the order in which applications are displayed",
+    classname: "",
+  },
+   {
+    id: 33,
+    update: "correction",
+    date: "2026-11-04",
+    version: "v0.7.6",
+    fr: "Correction d'erreurs de traduction",
+    en: "Fixed Translation Errors",
+    classname: "",
+  },
+   {
+    id: 34,
+    update: "update",
+    date: "2026-11-04",
+    version: "v0.7.6",
+    fr: "Mise à jour du tableau des archives",
+    en: "Updated in the archives table",
     classname: "",
   },
 ];
 
 // 0.7.6
-// Update english translate
+// Correction d'erreurs de traduction / Fixed Translation Errors CHECK
+// Mise à jour du tableau des archives / Updated in the archives table CHECK
 
