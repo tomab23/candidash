@@ -225,7 +225,7 @@ const CandidaturePage = (props: Props) => {
                 />
               </div>
               {/* STATUS */}
-              <InputCandidature name={"status"} label={"Statut*"}>
+              <InputCandidature name={"status"} label={t("FORM.STATUS") + "*"}>
                 <StatusBox
                   name="status"
                   value={formik.values.status}

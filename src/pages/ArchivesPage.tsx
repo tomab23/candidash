@@ -20,14 +20,34 @@ const ArchivesPage = () => {
   const { updateArchive, archives } = useCandidature();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+       const getStatusTranslate = (status: string) => {
+    switch (status) {
+      case "valid":
+        return t("STATUS.VALID");
+      case "refused":
+        return t("STATUS.REFUSED");
+      case "wait":
+        return t("STATUS.WAITING");
+      case "interview":
+        return t("STATUS.INTERVIEW");
+      case "again":
+        return t("STATUS.AGAIN");
+      case "abandoned":
+        return t("STATUS.ABANDONED");
+      default:
+        return t("STATUS.SELECT");
+    }
+  };
+
   return (
     <div>
       <Navbar />
       <Contenu>
         <Header title={"Archives"} />
 
-        <div className="flex justify-between my-5">
-                  <p className="font-semibold text-xl">
+        <div className="flex justify-between my-5 items-center">
+                  <p className="font-semibold text-xl max-sm:text-xs">
           {t("ARCHIVES.TITLE")} : {archives.length}
         </p>
         <DialogDeleteAllArchives archives={archives.length} />
@@ -40,7 +60,7 @@ const ArchivesPage = () => {
               <TableHead>{t("FORM.COMPANY")}</TableHead>
               <TableHead>{t("FORM.JOB")}</TableHead>
               <TableHead>{t("FORM.CONTRACT")}</TableHead>
-              <TableHead className="text-center">{t("FORM.PLACE")}</TableHead>
+              <TableHead className="text-center">{t("FORM.STATUS")}</TableHead>
               <TableHead className="text-center">{t("HEADER.EDIT")}</TableHead>
               <TableHead className="text-center">{t("RESTORE.BUTTON")}</TableHead>
               <TableHead className="text-center">
@@ -51,10 +71,10 @@ const ArchivesPage = () => {
           <TableBody>
             {archives.map((a) => (
               <TableRow key={a.id}>
-                <TableCell className="font-medium">{a.company}</TableCell>
-                <TableCell>{a.job}</TableCell>
+                <TableCell className="font-medium truncate max-w-44" title={a.company}>{a.company}</TableCell>
+                <TableCell className="truncate max-w-64" title={a.job}>{a.job}</TableCell>
                 <TableCell className={`${a.contract === "cdi" || a.contract === "cdd" ? "uppercase" : "capitalize"}`}>{a.contract}</TableCell>
-                <TableCell className="text-center">{a.place}</TableCell>
+                <TableCell className="text-center">{getStatusTranslate(a.status)}</TableCell>
                 <TableCell className="w-14" title="Edit">
                   <Edit
                     className="w-5 h-5 mx-auto hover:scale-110 hover:cursor-pointer"
